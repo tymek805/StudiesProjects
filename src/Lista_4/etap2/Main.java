@@ -37,6 +37,7 @@ public class Main {
                 ((Pianiono) item).setCena(((Pianiono) item).getCena() + 500);
             }
         }
+        // Dla danego fortepianu i danego pianina wykonanie odpowiednich funkcji
         for (instrumentKlawiszowy item: instrumenty) {
             if (item instanceof Fortepian && item.getMarka().equals("Casio")){
                 System.out.print("ID:" + ((Fortepian) item).getNumerSeryjny() + " -> ");

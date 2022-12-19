@@ -48,6 +48,10 @@ public abstract class instrumentKlawiszowy {
         } else{
             System.out.println("Nie nastrojone...");
         }
+
+        if (lawa != null){
+            lawa.getStan();
+        }
     }
 
     public void zarezerwowanieStrojenia(){
