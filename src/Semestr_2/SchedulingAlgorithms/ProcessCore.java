@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class ProcessCore {
-    private ArrayList<Process> testProcesses = new ArrayList<>();
     private ArrayList<Process> fifoProcesses = new ArrayList<>();
     private ArrayList<Process> sjfProcesses = new ArrayList<>();
     private ArrayList<Process> srtfProcesses = new ArrayList<>();
@@ -16,20 +15,19 @@ public class ProcessCore {
         new FIFO(fifoProcesses).execute();
         new SJF(sjfProcesses).execute();
         new SRTF(srtfProcesses).execute();
-        new RR(rrProcesses, 3).execute();
+        new RR(rrProcesses, 30).execute();
     }
 
-    public void generateTestProcesses(){
+    public void generateTestProcesses() {
         Random random = new Random();
-        double mean = 5.5;
-        double stdDeviation = 2.5;
+        double mean = 50;
+        double stdDeviation = 20;
 
         for (int i = 1; i <= 500; i++) {
             int randomLength = (int) (random.nextGaussian() * stdDeviation + mean);
-            randomLength = Math.max(1, Math.min(randomLength, 10));
+            randomLength = Math.max(1, Math.min(randomLength, (int) mean * 2));
             int randomArrival = random.nextInt(50);
 
-            testProcesses.add(new Process(i, randomArrival, randomLength));
             fifoProcesses.add(new Process(i, randomArrival, randomLength));
             sjfProcesses.add(new Process(i, randomArrival, randomLength));
             srtfProcesses.add(new Process(i, randomArrival, randomLength));
