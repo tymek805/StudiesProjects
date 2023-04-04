@@ -13,13 +13,36 @@ public class TwoWayLinkedList<E> implements IList<E> {
     }
 
     private Element<E> getElement(int index){
-        Element<E> element = tail.getNext();
-        while (index > 0 && element != tail){
-            index--;
-            element = element.getNext();
+        if (index < 0) return null;
+        Element<E> element;
+
+        int size = size();
+        if (index < size / 2){
+            element = tail.getNext();
+            while (index > 0 && element != tail){
+                element = element.getNext();
+                index--;
+            }
+        } else {
+            element = tail.getPrevious();
+            while (index < size - 1 && element != tail){
+                element = element.getPrevious();
+                index++;
+            }
         }
 
-        if (element == tail) throw new IndexOutOfBoundsException();
+        if (element == tail)
+            throw new IndexOutOfBoundsException("Index " + index + " is not in list");
+        return element;
+    }
+
+    private Element<E> getElement(E value){
+        Element<E> element = tail.getNext();
+        while (element != tail && !value.equals(element.getValue())){
+            element = element.getNext();
+        }
+        if (element == tail)
+            return null;
         return element;
     }
 
@@ -59,7 +82,7 @@ public class TwoWayLinkedList<E> implements IList<E> {
     public int size() {
         Element<E> element = tail.getNext();
         int counter = 0;
-        while (element != null && element != tail) {
+        while (element != tail) {
             counter++;
             element = element.getNext();
         }
@@ -100,38 +123,17 @@ public class TwoWayLinkedList<E> implements IList<E> {
 
     @Override
     public E remove(int index) {
-        if (tail.getNext() == tail)
-            return null;
-        if (index == 0){
-            Element<E> elem = tail.getNext();
-            E resetValue = elem.getValue();
-            tail.setNext(elem.getNext());
-            return resetValue;
-        }
-        Element<E> elem = getElement(index - 1);
-        if (elem == null || elem.getNext() == null)
-            return null;
-        E resetValue = elem.getNext().getValue();
-        elem.setNext(elem.getNext().getNext());
-        return resetValue;
+        Element<E> element = getElement(index);
+        if (element == null) return null;
+        element.remove();
+        return element.getValue();
     }
 
     @Override
     public boolean remove(E value) {
-        Element<E> elem = tail.getNext();
-        if (elem == tail)
-            return false;
-        if (elem.getValue().equals(value)){
-            tail.setNext(elem.getNext());
-            return true;
-        }
-
-        while(elem.getNext() != null && !elem.getNext().getValue().equals(value))
-            elem = elem.getNext();
-
-        if (elem.getNext() == null)
-            return false;
-        elem.setNext(elem.getNext().getNext());
+        Element<E> element = getElement(value);
+        if (element == null) return false;
+        element.remove();
         return true;
     }
 
