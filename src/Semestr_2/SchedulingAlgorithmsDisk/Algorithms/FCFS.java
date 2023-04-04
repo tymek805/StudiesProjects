@@ -1,9 +1,11 @@
-package Semestr_2.SchedulingAlgorithmsDisk;
+package Semestr_2.SchedulingAlgorithmsDisk.Algorithms;
+
+import Semestr_2.SchedulingAlgorithmsDisk.Process;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class FCFS {
+public class FCFS extends Algorithm{
     private final LinkedList<Process> processes;
     private int currentHeadPosition;
 
@@ -13,6 +15,7 @@ public class FCFS {
     }
 
     public void execute(){
+
         float distanceSum = 0;
         int numberOfProcesses = 0;
         while (!processes.isEmpty()){
@@ -21,8 +24,6 @@ public class FCFS {
             currentHeadPosition = process.getHeadPosition();
             numberOfProcesses++;
         }
-        System.out.println("FCFS");
-        System.out.println("Dystans pokonany: " + distanceSum);
-        System.out.println("Średnie wychylenie głowicy: " + distanceSum / numberOfProcesses);
+        printResults(distanceSum, numberOfProcesses);
     }
 }

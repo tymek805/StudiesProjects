@@ -1,10 +1,11 @@
-package Semestr_2.SchedulingAlgorithmsDisk;
+package Semestr_2.SchedulingAlgorithmsDisk.Algorithms;
+
+import Semestr_2.SchedulingAlgorithmsDisk.Process;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.PriorityQueue;
 
-public class SSTF {
+public class SSTF extends Algorithm{
     private final ArrayList<Process> processes;
     private int currentHeadPosition;
 
@@ -34,13 +35,8 @@ public class SSTF {
             processes.remove(process);
             numberOfProcesses++;
         }
-
-        System.out.println("SSTF");
-        System.out.println("Dystans pokonany: " + distanceSum);
-        System.out.println("Średnie wychylenie głowicy: " + distanceSum / numberOfProcesses);
-        System.out.println();
+        printResults(distanceSum, numberOfProcesses);
     }
-
 
     public void addProcess(Process process){processes.add(process);}
 }

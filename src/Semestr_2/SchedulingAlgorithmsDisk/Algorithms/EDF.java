@@ -1,10 +1,11 @@
-package Semestr_2.SchedulingAlgorithmsDisk;
+package Semestr_2.SchedulingAlgorithmsDisk.Algorithms;
+
+import Semestr_2.SchedulingAlgorithmsDisk.Process;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.PriorityQueue;
 
-public class EDF {
+public class EDF extends Algorithm{
     private final ArrayList<Process> processes;
     private int currentHeadPosition;
 
@@ -43,9 +44,7 @@ public class EDF {
                 numberOfProcesses++;
             }
         }
-        System.out.println("EDF");
-        System.out.println("Dystans pokonany: " + distanceSum);
-        System.out.println("Średnie wychylenie głowicy: " + distanceSum / numberOfProcesses);
+        printResults(distanceSum, numberOfProcesses);
     }
 
     public void addProcess(Process process){processes.add(process);}

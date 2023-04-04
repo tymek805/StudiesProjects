@@ -1,10 +1,11 @@
-package Semestr_2.SchedulingAlgorithmsDisk;
+package Semestr_2.SchedulingAlgorithmsDisk.Algorithms;
+
+import Semestr_2.SchedulingAlgorithmsDisk.Process;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.PriorityQueue;
 
-public class FDSCAN {
+public class FDSCAN extends Algorithm{
     private final ArrayList<Process> processes;
     private int currentHeadPosition;
 
@@ -52,10 +53,7 @@ public class FDSCAN {
             this.processes.sort(Comparator.comparingInt(Process::getDeadline));
             numberOfProcesses++;
         }
-
-        System.out.println("FDSCAN");
-        System.out.println("Dystans pokonany: " + distanceSum);
-        System.out.println("Średnie wychylenie głowicy: " + distanceSum / numberOfProcesses);
+        printResults(distanceSum, numberOfProcesses);
     }
 
     public void addProcess(Process process){processes.add(process);}
