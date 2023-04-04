@@ -24,6 +24,5 @@ public class FCFS {
         System.out.println("FCFS");
         System.out.println("Dystans pokonany: " + distanceSum);
         System.out.println("Średnie wychylenie głowicy: " + distanceSum / numberOfProcesses);
-        System.out.println();
     }
 }
