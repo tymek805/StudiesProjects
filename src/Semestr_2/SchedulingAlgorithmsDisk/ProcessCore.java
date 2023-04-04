@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 public class ProcessCore {
-    private final static int INITIAL_HEAD_POSITION = 100;
+    private final static int INITIAL_HEAD_POSITION = 50;
     private final static int DISC_SIZE = 1000;
     private final static int NUMBER_OF_PROCESSES = 500;
     private final static int MAX_DEADLINE = 20;

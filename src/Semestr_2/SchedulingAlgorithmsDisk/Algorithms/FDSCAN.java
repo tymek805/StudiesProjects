@@ -18,22 +18,23 @@ public class FDSCAN extends Algorithm{
     public void execute(){
         float distanceSum = 0;
         int numberOfProcesses = 0;
+        int numberOfDeadProcesses = 0;
         int time = 0;
         while (!processes.isEmpty()){
             int idx = 0;
             for (int i = 0; i < processes.size(); i++){
                 Process currentProcess = processes.get(i);
                 int distance = Math.abs(currentProcess.getHeadPosition() - currentHeadPosition);
-                if (distance > currentProcess.getDeadline() - time && idx < i)
+                if (distance > currentProcess.getDeadline() - time && idx < processes.size() - 1 && !currentProcess.isDead()){
                     idx++;
-                else i = processes.size();
+                    numberOfDeadProcesses++;
+                    currentProcess.setDead(true);
+                }
+                else
+                    i = processes.size();
             }
             Process process = processes.get(idx);
             time += process.getHeadPosition();
-
-            int direction = 1;
-            if (process.getHeadPosition() < currentHeadPosition) direction = -1;
-            int distance = (processes.get(idx).getHeadPosition() - currentHeadPosition) * direction;
 
             this.processes.sort(Comparator.comparingInt(Process::getHeadPosition));
 
@@ -54,7 +55,6 @@ public class FDSCAN extends Algorithm{
             numberOfProcesses++;
         }
         printResults(distanceSum, numberOfProcesses);
+        System.out.println("Liczba porzuconych procesów: " + numberOfDeadProcesses);
     }
-
-    public void addProcess(Process process){processes.add(process);}
 }

@@ -35,7 +35,7 @@ public class CSCAN extends Algorithm{
             currentHeadPosition = process.getHeadPosition();
             processes.remove(process);
             if (idx > processes.size() - 1 && !processes.isEmpty()){
-                distanceSum += MAX_DISC_SIZE;
+//                distanceSum += MAX_DISC_SIZE;
                 currentHeadPosition = 0;
                 idx = 0;
             }
