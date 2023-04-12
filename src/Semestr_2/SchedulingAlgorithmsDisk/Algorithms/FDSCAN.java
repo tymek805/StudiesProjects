@@ -55,6 +55,6 @@ public class FDSCAN extends Algorithm{
             numberOfProcesses++;
         }
         printResults(distanceSum, numberOfProcesses);
-        System.out.println("Liczba porzuconych procesów: " + numberOfDeadProcesses);
+        System.out.println("Liczba porzuconych zgłoszeń: " + numberOfDeadProcesses);
     }
 }
