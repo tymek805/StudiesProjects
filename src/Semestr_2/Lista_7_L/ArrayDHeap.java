@@ -4,15 +4,17 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
-public class Array3Heap<T> implements Heap<T> {
+public class ArrayDHeap<T> implements Heap<T> {
     private T[] content;
     private int lastOccupied = -1;
+    private final int numberOfChildren;
     private final Comparator<T> comparator;
 
     @SuppressWarnings("unchecked")
-    public Array3Heap(int size, Comparator<T> comparator){
+    public ArrayDHeap(int size, int numberOfChildren, Comparator<T> comparator){
         if (size < 1) throw new IllegalArgumentException("Initial size of array must be positive number");
-        content = (T[]) new Comparable[size];
+        content = (T[]) new Object[size];
+        this.numberOfChildren = numberOfChildren;
         this.comparator = comparator;
     }
 
@@ -43,8 +45,35 @@ public class Array3Heap<T> implements Heap<T> {
         return value;
     }
 
+    public T minimum(){
+        if (lastOccupied < 0)
+            throw new NoSuchElementException("Heap is empty");
+
+        int minimumIdx = 0;
+        for (int i = (content.length - 1) / numberOfChildren; i >= 0; i--) {
+            if (content[i] != null && lastOccupied > 0){
+                int smallestIdx = i;
+                for (int j = 1; j <= numberOfChildren; j++){
+                    int childIdx = i * numberOfChildren + j;
+
+                    if (childIdx <= lastOccupied  && comparator.compare(content[childIdx], content[smallestIdx]) < 0)
+                        smallestIdx = childIdx;
+                }
+                if (comparator.compare(content[smallestIdx], content[minimumIdx]) < 0){
+                    minimumIdx = smallestIdx;
+                }
+            }
+        }
+
+        T value = content[minimumIdx];
+        content[minimumIdx] = content[lastOccupied];
+        content[lastOccupied--] = null;
+        sink(minimumIdx);
+        return value;
+    }
+
     private void heapCreation(){
-        for (int i = (content.length - 1) / 3; i >= 0; i--) {
+        for (int i = (content.length - 1) / numberOfChildren; i >= 0; i--) {
             if (content[i] != null && lastOccupied > 0)
                 sink(i);
         }
@@ -52,8 +81,8 @@ public class Array3Heap<T> implements Heap<T> {
 
     private void sink(int parentIdx){
         int biggestIdx = parentIdx;
-        for (int j = 1; j < 4; j++){
-            int childIdx = parentIdx * 3 + j;
+        for (int j = 1; j <= numberOfChildren; j++){
+            int childIdx = parentIdx * numberOfChildren + j;
 
             if (childIdx <= lastOccupied  && comparator.compare(content[childIdx], content[biggestIdx]) > 0)
                 biggestIdx = childIdx;
