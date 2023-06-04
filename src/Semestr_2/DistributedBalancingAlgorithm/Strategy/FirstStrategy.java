@@ -16,19 +16,16 @@ public class FirstStrategy extends Strategy {
     @Override
     protected Processor findAvailableProcessor(Processor nativeProcessor){
         Random r = new Random();
-        Processor requestedProcessor = processors[r.nextInt(processors.length)];
-
-        boolean isNativeOverloaded = nativeProcessor.isOverloaded();
-        boolean isOverloaded = requestedProcessor.isOverloaded();
+        ArrayList<Processor> CPUs = new ArrayList<>(List.of(processors));
+        CPUs.remove(nativeProcessor);
 
         int overloadedCPUs = 0;
-        while (overloadedCPUs < numberOfChances && (nativeProcessor == requestedProcessor || isOverloaded)) {
-            if (isOverloaded) overloadedCPUs++;
-            requestedProcessor = processors[r.nextInt(processors.length)];
-            if (requestedProcessor != nativeProcessor)
-                isOverloaded = requestedProcessor.isOverloaded();
-            else isOverloaded = isNativeOverloaded;
+        Processor requestedProcessor = CPUs.get(r.nextInt(CPUs.size()));
+        while (overloadedCPUs < numberOfChances && CPUs.size() > 1 && requestedProcessor.isOverloaded()) {
+            overloadedCPUs++;
+            CPUs.remove(requestedProcessor);
+            requestedProcessor = CPUs.get(r.nextInt(CPUs.size()));
         }
-        return overloadedCPUs == numberOfChances ? nativeProcessor : requestedProcessor;
+        return requestedProcessor.isOverloaded() ? nativeProcessor : requestedProcessor;
     }
 }
