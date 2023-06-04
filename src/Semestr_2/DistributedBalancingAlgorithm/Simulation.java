@@ -3,7 +3,11 @@ package Semestr_2.DistributedBalancingAlgorithm;
 import Semestr_2.DistributedBalancingAlgorithm.Strategy.FirstStrategy;
 import Semestr_2.DistributedBalancingAlgorithm.Strategy.SecondStrategy;
 import Semestr_2.DistributedBalancingAlgorithm.Strategy.Strategy;
+import Semestr_2.DistributedBalancingAlgorithm.Strategy.ThirdStrategy;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class Simulation {
@@ -18,11 +22,17 @@ public class Simulation {
 
     public Simulation(){
         Processor[] processors = createProcessors();
-        Process[] processes = createProcesses();
+        Processor[] processors1 = createProcessors();
+        Processor[] processors2 = createProcessors();
+
+        Process[] processes1 = createProcesses();
+        Process[] processes2 = createProcesses();
+        Process[] processes3 = createProcesses();
 
         Strategy[] strategies = {
-//                new FirstStrategy(processors, processes, DELTA_T, NUMBER_OF_CHANCES),
-                new SecondStrategy(processors, processes, DELTA_T, MAXIMAL_THRESHOLD)
+                new FirstStrategy(processors, processes1, DELTA_T, NUMBER_OF_CHANCES),
+                new SecondStrategy(processors1, processes2, DELTA_T, MAXIMAL_THRESHOLD),
+                new ThirdStrategy(processors2, processes3, DELTA_T, MINIMAL_THRESHOLD, MAXIMAL_THRESHOLD)
         };
         for (Strategy strategy : strategies)
             strategy.execute();
@@ -35,14 +45,14 @@ public class Simulation {
         return processors;
     }
     private Process[] createProcesses(){
-        Process[] processes = new Process[NUMBER_OF_PROCESSES];
+        Process[]  processes = new Process[NUMBER_OF_PROCESSES];
         Random r = new Random();
         for (int i = 0; i < NUMBER_OF_PROCESSES; i++)
-            processes[i] = new Process(
+            processes[i] = (new Process(
                     r.nextInt(1,100),
                     r.nextInt(1, MAX_PHASE_LENGTH),
                     r.nextInt(MAX_ARRIVAL_TIME),
-                    r.nextInt(NUMBER_OF_PROCESSORS));
+                    r.nextInt(NUMBER_OF_PROCESSORS)));
         return processes;
     }
 

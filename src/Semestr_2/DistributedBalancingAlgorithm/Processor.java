@@ -16,6 +16,16 @@ public class Processor {
         processes.add(process);
         load += process.getLoad();
     }
+    public Process[] relieveLoad(){
+        int x = (int) (processes.size() * 0.4);
+        Process[] relieveProcesses = new Process[x];
+        for (int i = 0; i < x; i++){
+            Process removeProcess = processes.remove(i);
+            load -= removeProcess.getLoad();
+            relieveProcesses[i] = removeProcess;
+        }
+        return relieveProcesses;
+    }
     public void executeProcesses(){
         for (Process process : processes)
             process.decreasePhaseLength();

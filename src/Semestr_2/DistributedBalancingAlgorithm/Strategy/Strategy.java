@@ -9,20 +9,21 @@ public abstract class Strategy {
     protected final Processor[] processors;
     protected final ArrayList<Process> processes;
     protected final int deltaT;
+    protected int migrations = 0;
 
     protected Strategy(Processor[] processors, Process[] processes, int deltaT){
         this.processors = Arrays.copyOf(processors, processors.length);
         this.processes = new ArrayList<>(List.of(processes));
+        this.processes.sort(Comparator.comparingInt(Process::getArrivalTime));
         this.deltaT = deltaT;
     }
 
     public void execute() {
         ArrayList<Double> meanLoadArray = new ArrayList<>();
-        int migrations = 0;
         int time = 0;
 
-        while (!processes.isEmpty()){
-            processes.sort(Comparator.comparingInt(Process::getArrivalTime));
+        while (!processes.isEmpty() && (!isFinished() || time == 0)){
+            ArrayList<Process> removeProcesses = new ArrayList<>();
             for (Process process : processes) {
                 if (process.getArrivalTime() > time) break;
                 Processor nativeProcessor = processors[process.getProcessorID()];
@@ -30,17 +31,23 @@ public abstract class Strategy {
                 if (executiveProcessor == null) break;
                 if (nativeProcessor != executiveProcessor) migrations++;
                 executiveProcessor.addProcess(process);
+                removeProcesses.add(process);
             }
-            int finalTime = time;
-            processes.removeIf(process -> process.getArrivalTime() <= finalTime);
-            for (Processor processor : processors)
-                processor.executeProcesses();
+            for (Process process : removeProcesses) processes.remove(process);
+            for (Processor processor : processors) processor.executeProcesses();
             time++;
             if (time % deltaT == 0) meanLoadArray.add(measureLoad());
         }
         printResults(meanLoadArray, migrations);
     }
     protected abstract Processor findAvailableProcessor(Processor nativeProcessor);
+
+    private boolean isFinished(){
+        boolean isFinished = true;
+        for (Processor processor : processors)
+            if (processor.getLoad() != 0.0) isFinished = false;
+        return isFinished;
+    }
 
     private double measureLoad(){
         double sum = 0.0;
@@ -55,6 +62,12 @@ public abstract class Strategy {
             loadAsk += p.getCounter();
         return loadAsk;
     }
+    private double calculateAverage(ArrayList<Double> arrayList){
+        double mean = 0.0;
+        for (Double d : arrayList)
+            mean += d;
+        return mean / arrayList.size();
+    }
     private double calculateStandardDev(double x, ArrayList<Double> meanLoadArray){
         double standardDeviation = 0.0;
         for (double num : meanLoadArray) standardDeviation += Math.pow(num - x, 2);
@@ -62,12 +75,11 @@ public abstract class Strategy {
     }
 
     protected void printResults(ArrayList<Double> meanLoadArray, int migrations){
-        OptionalDouble average = meanLoadArray.stream().mapToDouble(a -> a).average();
-
+        double average = calculateAverage(meanLoadArray);
         System.out.println(this.getClass().getSimpleName());
         String[] measurements = {
-                "Średnie obciążenie procesorów:\t" + average.getAsDouble() + " %",
-                "Średnie odchylenie: \t\t\t±" + calculateStandardDev(average.getAsDouble(), meanLoadArray) + " %",
+                "Średnie obciążenie procesorów:\t" + average + " %",
+                "Średnie odchylenie: \t\t\t±" + calculateStandardDev(average, meanLoadArray) + " %",
                 "Ilość zapytań o obciążenie: \t" + sumLoadCalls(),
                 "Ilość migracji procesów: \t\t" + migrations,
         };
