@@ -18,19 +18,14 @@ public class SecondStrategy extends Strategy{
         if (!nativeProcessor.isOverloaded()) return nativeProcessor;
 
         Random r = new Random();
-        Processor requestedProcessor = processors[r.nextInt(processors.length)];
-        boolean isOverloaded = requestedProcessor.isOverloaded();
+        ArrayList<Processor> CPUs = new ArrayList<>(List.of(processors));
+        CPUs.remove(nativeProcessor);
 
-        HashMap<Processor, Integer> visitedProcessors = new HashMap<>();
-        while (nativeProcessor == requestedProcessor || isOverloaded) {
-            visitedProcessors.put(requestedProcessor, 0);
-            requestedProcessor = processors[r.nextInt(processors.length)];
-            if (requestedProcessor != nativeProcessor)
-                isOverloaded = requestedProcessor.isOverloaded();
-            else isOverloaded = true;
-            if (visitedProcessors.size() == processors.length)
-                return null;
+        Processor requestedProcessor = CPUs.get(r.nextInt(CPUs.size()));
+        while (CPUs.size() > 1 && requestedProcessor.isOverloaded()) {
+            CPUs.remove(requestedProcessor);
+            requestedProcessor = CPUs.get(r.nextInt(CPUs.size()));
         }
-        return requestedProcessor;
+        return requestedProcessor.isOverloaded() ? null : requestedProcessor;
     }
 }
