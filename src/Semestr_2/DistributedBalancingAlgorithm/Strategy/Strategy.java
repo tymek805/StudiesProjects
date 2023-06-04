@@ -23,24 +23,18 @@ public abstract class Strategy {
 
         while (!processes.isEmpty()){
             processes.sort(Comparator.comparingInt(Process::getArrivalTime));
-            boolean foundProcessor = true;
             for (Process process : processes) {
                 if (process.getArrivalTime() > time) break;
                 Processor nativeProcessor = processors[process.getProcessorID()];
                 Processor executiveProcessor = findAvailableProcessor(nativeProcessor);
-                if (executiveProcessor == null) {
-                    foundProcessor = false;
-                    break;
-                }
+                if (executiveProcessor == null) break;
                 if (nativeProcessor != executiveProcessor) migrations++;
                 executiveProcessor.addProcess(process);
             }
-            if (foundProcessor) {
-                int finalTime = time;
-                processes.removeIf(process -> process.getArrivalTime() <= finalTime);
-                for (Processor processor : processors)
-                    processor.executeProcesses();
-            }
+            int finalTime = time;
+            processes.removeIf(process -> process.getArrivalTime() <= finalTime);
+            for (Processor processor : processors)
+                processor.executeProcesses();
             time++;
             if (time % deltaT == 0) meanLoadArray.add(measureLoad());
         }
