@@ -17,7 +17,7 @@ public class Simulation {
     private final static int MAX_ARRIVAL_TIME = 500;
     private final static double MAXIMAL_THRESHOLD = 90.0;   // p
     private final static double MINIMAL_THRESHOLD = 10.0;   // r
-    private final static int NUMBER_OF_CHANCES = 10;       // z
+    private final static int NUMBER_OF_CHANCES = 10;        // z
     public static final int DELTA_T = 10;
 
     public Simulation(){
