@@ -5,9 +5,6 @@ import Semestr_2.DistributedBalancingAlgorithm.Strategy.SecondStrategy;
 import Semestr_2.DistributedBalancingAlgorithm.Strategy.Strategy;
 import Semestr_2.DistributedBalancingAlgorithm.Strategy.ThirdStrategy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 public class Simulation {
