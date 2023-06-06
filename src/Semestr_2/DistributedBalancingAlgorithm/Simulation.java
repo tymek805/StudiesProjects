@@ -8,8 +8,8 @@ import Semestr_2.DistributedBalancingAlgorithm.Strategy.ThirdStrategy;
 import java.util.Random;
 
 public class Simulation {
-    private final static int NUMBER_OF_PROCESSORS = 5;      // N
-    private final static int NUMBER_OF_PROCESSES = 1000;
+    private final static int NUMBER_OF_PROCESSORS = 50;      // N
+    private final static int NUMBER_OF_PROCESSES = 10000;
     private final static int MAX_PHASE_LENGTH = 10;
     private final static int MAX_ARRIVAL_TIME = 500;
     private final static double MAXIMAL_THRESHOLD = 90.0;   // p
@@ -46,7 +46,7 @@ public class Simulation {
         Random r = new Random();
         for (int i = 0; i < NUMBER_OF_PROCESSES; i++)
             processes[i] = (new Process(
-                    r.nextInt(1,100),
+                    r.nextInt(1,10),
                     r.nextInt(1, MAX_PHASE_LENGTH),
                     r.nextInt(MAX_ARRIVAL_TIME),
                     r.nextInt(NUMBER_OF_PROCESSORS)));

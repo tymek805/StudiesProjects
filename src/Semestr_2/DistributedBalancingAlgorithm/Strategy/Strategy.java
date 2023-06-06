@@ -43,10 +43,9 @@ public abstract class Strategy {
     protected abstract Processor findAvailableProcessor(Processor nativeProcessor);
 
     private boolean isFinished(){
-        boolean isFinished = true;
         for (Processor processor : processors)
-            if (processor.getLoad() != 0.0) isFinished = false;
-        return isFinished;
+            if (processor.getLoad() > 0.0) return false;
+        return true;
     }
 
     private double measureLoad(){
@@ -71,7 +70,7 @@ public abstract class Strategy {
     private double calculateStandardDev(double x, ArrayList<Double> meanLoadArray){
         double standardDeviation = 0.0;
         for (double num : meanLoadArray) standardDeviation += Math.pow(num - x, 2);
-        return Math.sqrt(standardDeviation / meanLoadArray.size());
+        return Math.sqrt(standardDeviation / meanLoadArray.size()) / 10;
     }
 
     protected void printResults(ArrayList<Double> meanLoadArray, int migrations){

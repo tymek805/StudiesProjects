@@ -17,7 +17,7 @@ public class Processor {
         load += process.getLoad();
     }
     public Process[] relieveLoad(){
-        int x = (int) (processes.size() * 0.4);
+        int x = (int) (processes.size() * 0.2);
         Process[] relieveProcesses = new Process[x];
         for (int i = 0; i < x; i++){
             Process removeProcess = processes.remove(i);
