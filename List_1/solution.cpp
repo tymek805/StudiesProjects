@@ -54,7 +54,7 @@ void modifyTable(Table table, int newSize) {
     table.setNewSize(newSize);
 }
 
-void vDoubleSize(Table* table, int* values, int length) {
+void doubleSize(Table* table, int* values, int length) {
     Table doubleTable = Table();
     int* newValues = new int[length * 2];
     for (int i = 0; i < length * 2; i++) {
