@@ -1,5 +1,6 @@
 #include <iostream>
 #include "solution.h"
+#include "Table.h"
 
 void allocTableFill34(int size) {
     while (size <= 0) {
@@ -43,4 +44,25 @@ bool deallocTable2Dim(int*** table, int sizeX, int sizeY) {
 
     delete twoDimensionalTable;
     return true;
+}
+
+void modifyTable(Table* table, int newSize) {
+    table->setNewSize(newSize);
+}
+
+void modifyTable(Table table, int newSize) {
+    table.setNewSize(newSize);
+}
+
+void vDoubleSize(Table* table, int* values, int length) {
+    Table doubleTable = Table();
+    int* newValues = new int[length * 2];
+    for (int i = 0; i < length * 2; i++) {
+        if (i >= length)
+            newValues[i] = values[i - length];
+        else
+            newValues[i] = values[i];
+    }
+    doubleTable.setValues(newValues, length * 2);
+    table = &doubleTable;
 }
