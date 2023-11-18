@@ -1,6 +1,5 @@
 #include <iostream>
 #include "solution.h"
-#include "Table.h"
 
 void allocTableFill34(int size) {
     while (size <= 0) {
@@ -20,7 +19,7 @@ void allocTableFill34(int size) {
 }
 
 bool allocTable2Dim(int*** table, int sizeX, int sizeY) {
-    if (table == NULL || sizeX <= 0 || sizeY <= 0)
+    if (table == nullptr || sizeX <= 0 || sizeY <= 0)
         return false;
 
     int** twoDimensionalTable = new int* [sizeX];
@@ -34,7 +33,7 @@ bool allocTable2Dim(int*** table, int sizeX, int sizeY) {
 }
 
 bool deallocTable2Dim(int*** table, int sizeX, int sizeY) {
-    if (table == NULL || sizeX <= 0 || sizeY <= 0)
+    if (table == nullptr || sizeX <= 0 || sizeY <= 0)
         return false;
 
     int** twoDimensionalTable = *table;
@@ -66,3 +65,5 @@ void doubleSize(Table* table, int* values, int length) {
     doubleTable.setValues(newValues, length * 2);
     table = &doubleTable;
 }
+
+int main(){}

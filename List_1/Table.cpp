@@ -1,5 +1,6 @@
-#include <iostream>
 #include "Table.h"
+#include <iostream>
+
 
 Table::Table() {
     name = DEFAULT_NAME;
