@@ -65,5 +65,3 @@ void doubleSize(Table* table, int* values, int length) {
     doubleTable.setValues(newValues, length * 2);
     table = &doubleTable;
 }
-
-int main(){}

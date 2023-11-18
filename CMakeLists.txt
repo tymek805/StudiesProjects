@@ -8,4 +8,7 @@ add_executable(TEP
         List_1/Table.h
         List_1/solution.cpp
         List_1/solution.h
+        List_2/Number.h
+        List_2/Number.cpp
+        List_2/main.cpp
 )
