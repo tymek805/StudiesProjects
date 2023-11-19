@@ -4,11 +4,9 @@ project(TEP)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(TEP
-        List_1/Table.cpp
-        List_1/Table.h
-        List_1/solution.cpp
-        List_1/solution.h
-        List_2/Number.h
-        List_2/Number.cpp
-        List_2/main.cpp
+        List_3/UserInput.cpp
+        List_3/UserInput.h
+        List_3/main.cpp
+        List_3/Command.cpp
+        List_3/Command.h
 )
