@@ -1,3 +1,4 @@
 class Tree {
-
+public:
+    Tree();
 };
