@@ -8,12 +8,12 @@ object Exercise1 {
   }
 
   def main(args: Array[String]): Unit = {
-    val sumResult = accumulateTail((x: Int, y: Int) => y - x, List(1, 2, 3, 4, 5), 0)
-    val subResult = accumulateHead((x: Int, y: Int) => x - y, List(1, 2, 3, 4, 5), 0)
-    val productResult = accumulateTail((x: Int, y: Int) => x * y, List(1, 2, 3, 4, 5), 1)
+    val tailResult = accumulateTail((x: Int, y: Int) => y - x, List(1, 2, 3, 4, 5), 0)
+    val headResult = accumulateHead((x: Int, y: Int) => x - y, List(1, 2, 3, 4, 5), 0)
+    val mulResult = accumulateTail((x: Int, y: Int) => x * y, List(1, 2, 3, 4, 5), 1)
 
-    println(s"SubtractT: $sumResult")
-    println(s"SubtractH: $subResult")
-    println(s"Iloczyn: $productResult")
+    println(s"SubtractT: $tailResult")
+    println(s"SubtractH: $headResult")
+    println(s"Multiply: $mulResult")
   }
 }
