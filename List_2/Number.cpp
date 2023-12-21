@@ -59,17 +59,13 @@ Number Number::operator+(const Number& otherNumber) {
         carry = (sum >= 10);
         values[i] = (sum % 10);
     }
-
-    maxLength -= removeRedundant(&values, maxLength);
+    maxLength = removeRedundant(&values, maxLength);
     return {values, maxLength, false};
 }
 
 Number Number::operator-(const Number& otherNumber){
-    if (otherNumber.isNegative && isNegative)
-        return *this + otherNumber;
-
     int maxLength = std::max(length, otherNumber.length);
-    int* subtractedValues = new int[maxLength];
+    int* values = new int[maxLength];
 
     int borrow = 0;
     for (int i = 0; i < maxLength; i++) {
@@ -82,14 +78,14 @@ Number Number::operator-(const Number& otherNumber){
         if (diff < 0) {
             diff += 10;
             borrow = -1;
-        }
-        else {
+        } else {
             borrow = 0;
         }
-        subtractedValues[i] = diff;
+        values[i] = diff;
     }
-
-    return Number(subtractedValues, maxLength);
+//    std::cout << values[0] << std::endl;
+    maxLength = removeRedundant(&values, maxLength);
+    return {values, maxLength};
 }
 
 Number Number::operator*(const Number& otherNumber){
@@ -149,7 +145,6 @@ Number Number::operator/(const Number& otherNumber){
 }
 
 void Number::setNumber(int number){
-    std::cout << number << std::endl;
     isNegative = number < 0;
 
     // TODO implement negative implementation
@@ -183,12 +178,12 @@ int Number::calculateLength(int number){
 int Number::removeRedundant(int** valuesPointer, int maxLength) {
     int* values = *valuesPointer;
     if (values[maxLength - 1] != 0)
-        return 0;
+        return maxLength;
 
     int curLength = maxLength;
     int* curValues;
-    for (int i = maxLength - 1; i > 0; i--) {
-        if (values[i] != 0) {
+    for (int i = maxLength - 1; i >= 0; i--) {
+        if (values[i] != 0 || i == 0) {
             if (curValues == nullptr)
                 curValues = new int[curLength];
             curValues[i] = values[i];
@@ -197,7 +192,7 @@ int Number::removeRedundant(int** valuesPointer, int maxLength) {
 
     delete values;
     *valuesPointer = curValues;
-    return 1;
+    return curLength > 0 ? curLength : 1;
 }
 
 std::string Number::toString(){
