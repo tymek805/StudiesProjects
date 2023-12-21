@@ -33,38 +33,35 @@ Number::~Number() {
 }
 
 void Number::operator=(const int value) {
+    delete digits;
     setNumber(value);
 }
 
 void Number::operator=(const Number& otherNumber){
+    delete digits;
     copyNumber(otherNumber);
 }
 
-Number Number::operator+(const Number& otherNumber){
-    if (!isNegative && otherNumber.isNegative)
-        return *this - otherNumber;
-
+Number Number::operator+(const Number& otherNumber) {
+    // TODO implement negative number support
     int maxLength = std::max(length, otherNumber.length) + 1;
-    int* addedValues = new int[maxLength];
-    addedValues[maxLength - 1] = 0;
+    int* values = new int[maxLength];
+    values[maxLength - 1] = 0;
 
     int carry = 0;
-    for (int i = 0; i < maxLength; i++){
+    for (int i = 0; i < maxLength; i++) {
         int sum = carry;
         if (i < length)
             sum += digits[i];
         if (i < otherNumber.length)
             sum += otherNumber.digits[i];
 
-        if (sum >= 10)
-            carry = 1;
-        else
-            carry = 0;
-
-        addedValues[i] = ( sum % 10 );
+        carry = (sum >= 10);
+        values[i] = (sum % 10);
     }
 
-    return Number(addedValues, maxLength, (isNegative && otherNumber.isNegative));
+    maxLength -= removeRedundant(&values, maxLength);
+    return {values, maxLength, false};
 }
 
 Number Number::operator-(const Number& otherNumber){
@@ -151,35 +148,11 @@ Number Number::operator/(const Number& otherNumber){
     return Number(result, length, !(isNegative == otherNumber.isNegative));
 }
 
-std::string Number::toStr(){
-    std::string outputString = "";
-
-    if (isNegative)
-        outputString += '-';
-
-    for (int i = length - 1; i >= 0; i--){
-        if (length < 2 || i != 0 || digits[i] != 0 )
-            outputString += ( digits[i] + 48 );
-    }
-
-    return outputString;
-}
-
-int Number::calculateLength(int number){
-    int size = 0;
-    while (number != 0) {
-        number /= 10;
-        size++;
-    }
-    return size;
-}
-
 void Number::setNumber(int number){
-    delete digits;
-
+    std::cout << number << std::endl;
     isNegative = number < 0;
-    if (isNegative)
-        number *= -1;
+
+    // TODO implement negative implementation
 
     length = calculateLength(number);
     digits = new int[length];
@@ -191,36 +164,52 @@ void Number::setNumber(int number){
 }
 
 void Number::copyNumber(const Number& otherNumber){
-    delete digits;
-
     length = otherNumber.length;
     isNegative = otherNumber.isNegative;
     digits = new int[length];
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < length; i++)
         digits[i] = otherNumber.digits[i];
-    }
 }
 
-Number Number::divide(Number& otherNumber, Number** rest){
-    Number divNumber = *this / otherNumber;
-    Number temp = (*this - (divNumber * otherNumber));
-    if (temp.toStr() == "0")
-        rest = nullptr;
-    else
-        **rest = temp;
-    return divNumber;
+int Number::calculateLength(int number){
+    int size = 0;
+    while (number != 0) {
+        number /= 10;
+        size++;
+    }
+    return size;
 }
 
-void Number::printNumber(){
-    if (isNegative)
-        std::cout << '-';
-    bool isBeginning = true;
-    for (int i = length - 1; i >= 0; i--) {
-        if (digits[i] != 0 || !isBeginning) {
-            std::cout << digits[i];
-            isBeginning = false;
-        }
+int Number::removeRedundant(int** valuesPointer, int maxLength) {
+    int* values = *valuesPointer;
+    if (values[maxLength - 1] != 0)
+        return 0;
+
+    int curLength = maxLength;
+    int* curValues;
+    for (int i = maxLength - 1; i > 0; i--) {
+        if (values[i] != 0) {
+            if (curValues == nullptr)
+                curValues = new int[curLength];
+            curValues[i] = values[i];
+        } else curLength--;
     }
 
-    std::cout << std::endl;
+    delete values;
+    *valuesPointer = curValues;
+    return 1;
+}
+
+std::string Number::toString(){
+    std::string outputString;
+    outputString = isNegative ? '-' : '+';
+
+    for (int i = length - 1; i >= 0; i--)
+        outputString += char(digits[i] + 48);
+
+    return outputString;
+}
+
+void Number::print(){
+    std::cout << toString() << std::endl;
 }
