@@ -115,32 +115,36 @@ Number Number::operator*(const Number& otherNumber) {
     return {result, maxLength};
 }
 
-Number Number::operator/(const Number& otherNumber){
+Number Number::operator/(const Number& otherNumber) {
+    // TODO implement negative implementation
     int* result = new int[length];
     for (int i = 0; i < length; i++)
         result[i] = 0;
 
+    int divisor = 0;
+    for (int i = otherNumber.length - 1; i >= 0; i--)
+        divisor += (otherNumber.length - 1 - i) * 10 + otherNumber.digits[i];
+    std::cout << divisor << " <- Div\n";
     int idx = 0;
     int temp = digits[idx];
-    int divisor = 0;
-    for (int i = 0; i < otherNumber.length; i++)
-        divisor += i * 10 + otherNumber.digits[i];
-
-    while (temp < divisor)
+    while (idx < length - 1 && temp < divisor)
         temp = temp * 10 + digits[++idx];
 
-    int sum = 0;
-    while (length > idx) {
-        sum += temp / divisor;
+    std::cout << "I" << idx << "L" << length;
+
+    int i = 0;
+    while (idx < length - 1) {
+        std::cout << temp / divisor;
+        result[i++] = temp / divisor;
         temp = (temp % divisor) * 10 + digits[++idx];
     }
 
-    for (int i = 0; sum > 0; i++){
-        result[i] = sum % 10;
-        sum /= 10;
-    }
+//    for (int i = 0; sum > 0; i++){
+//        result[i] = sum % 10;
+//        sum /= 10;
+//    }
 
-    return Number(result, length, !(isNegative == otherNumber.isNegative));
+    return {result, length, !(isNegative == otherNumber.isNegative)};
 }
 
 void Number::setNumber(int number){
@@ -196,7 +200,8 @@ int Number::removeRedundant(int** valuesPointer, int maxLength) {
 
 std::string Number::toString(){
     std::string outputString;
-    outputString = isNegative ? '-' : ' ';
+    if (isNegative)
+        outputString = '-';
 
     for (int i = length - 1; i >= 0; i--)
         outputString += char(digits[i] + 48);
