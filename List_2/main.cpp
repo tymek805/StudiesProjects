@@ -1,5 +1,4 @@
 #include "Number.h"
-#include <iostream>
 
 int main() {
     Number number1 = Number(123);
@@ -9,6 +8,10 @@ int main() {
     (number2 - number1).print();
     number1 = 937;
     (number2 - number1).print();
+
+    number1 = 10;
+    number2 = 10;
+    (number1 * number2).print();
 
     return 0;
 }

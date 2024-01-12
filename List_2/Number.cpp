@@ -64,6 +64,7 @@ Number Number::operator+(const Number& otherNumber) {
 }
 
 Number Number::operator-(const Number& otherNumber){
+    // TODO implement negative implementation
     int maxLength = std::max(length, otherNumber.length);
     int* values = new int[maxLength];
 
@@ -83,18 +84,22 @@ Number Number::operator-(const Number& otherNumber){
         }
         values[i] = diff;
     }
-//    std::cout << values[0] << std::endl;
     maxLength = removeRedundant(&values, maxLength);
     return {values, maxLength};
 }
 
 Number Number::operator*(const Number& otherNumber){
+    // TODO implement negative implementation
     int maxLength = length + otherNumber.length;
     int* result = new int[maxLength];
-    for (int i = 0; i < maxLength; i++)
-        result[i] = 0;
 
-    int shift = 0;
+    for (int i = 0; i < length; i++) {
+        int carry = 0;
+        for (int j = 0; j < otherNumber.length; j++) {
+//            result = digits[i] * otherNumber.digits[j];
+        }
+    }
+
 
     int p = 0;
     int q;
@@ -113,7 +118,7 @@ Number Number::operator*(const Number& otherNumber){
             result[p + q] += carry;
         p++;
     }
-    return Number(result, maxLength, !(isNegative == otherNumber.isNegative));
+    return {result, maxLength, false};
 }
 
 Number Number::operator/(const Number& otherNumber){
@@ -197,7 +202,7 @@ int Number::removeRedundant(int** valuesPointer, int maxLength) {
 
 std::string Number::toString(){
     std::string outputString;
-    outputString = isNegative ? '-' : '+';
+    outputString = isNegative ? '-' : ' ';
 
     for (int i = length - 1; i >= 0; i--)
         outputString += char(digits[i] + 48);
