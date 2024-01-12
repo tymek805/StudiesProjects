@@ -60,7 +60,7 @@ Number Number::operator+(const Number& otherNumber) {
         values[i] = (sum % 10);
     }
     maxLength = removeRedundant(&values, maxLength);
-    return {values, maxLength, false};
+    return {values, maxLength};
 }
 
 Number Number::operator-(const Number& otherNumber){
@@ -88,37 +88,31 @@ Number Number::operator-(const Number& otherNumber){
     return {values, maxLength};
 }
 
-Number Number::operator*(const Number& otherNumber){
+Number Number::operator*(const Number& otherNumber) {
     // TODO implement negative implementation
     int maxLength = length + otherNumber.length;
     int* result = new int[maxLength];
 
-    for (int i = 0; i < length; i++) {
-        int carry = 0;
-        for (int j = 0; j < otherNumber.length; j++) {
-//            result = digits[i] * otherNumber.digits[j];
-        }
-    }
-
+    for (int i = 0; i < maxLength; i++)
+        result[i] = 0;
 
     int p = 0;
     int q;
-
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < otherNumber.length; i++) {
         int carry = 0;
         q = 0;
-        for (int j = 0; j < otherNumber.length; j++) {
-            int mul = digits[i] * otherNumber.digits[i] + result[p + q] + carry;
-            carry = mul / 10;
-            result[p + q] = mul % 10;
+        for (int j = 0; j < length; j++) {
+            int currentResult = digits[j] * otherNumber.digits[i] + result[p + q] + carry;
+            carry = currentResult / 10;
+            result[p + q] = currentResult % 10;
             q++;
         }
-
         if (carry > 0)
             result[p + q] += carry;
         p++;
     }
-    return {result, maxLength, false};
+    maxLength = removeRedundant(&result, maxLength);
+    return {result, maxLength};
 }
 
 Number Number::operator/(const Number& otherNumber){

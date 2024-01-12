@@ -9,8 +9,8 @@ int main() {
     number1 = 937;
     (number2 - number1).print();
 
-    number1 = 10;
-    number2 = 10;
+    number1 = 23958233;
+    number2 = 5830;
     (number1 * number2).print();
 
     return 0;
