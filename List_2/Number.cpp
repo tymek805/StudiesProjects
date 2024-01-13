@@ -112,11 +112,10 @@ Number Number::operator*(const Number& otherNumber) {
         p++;
     }
     maxLength = removeRedundant(&result, maxLength);
-    return {result, maxLength};
+    return {result, maxLength, isNegative != otherNumber.isNegative};
 }
 
 Number Number::operator/(const Number& otherNumber) {
-    // TODO implement negative implementation
     int* result = new int[length];
     for (int i = 0; i < length; i++)
         result[i] = 0;
@@ -140,8 +139,6 @@ Number Number::operator/(const Number& otherNumber) {
 
 void Number::setNumber(int number){
     isNegative = number < 0;
-
-    // TODO implement negative implementation
 
     length = calculateLength(number);
     digits = new int[length];
