@@ -23,7 +23,7 @@ int main() {
     (number1 * number2).print();
 
     number1 = 150;
-    number2 = 50;
+    number2 = 150;
     print(number1, number2, "/");
     (number1 / number2).print();
 

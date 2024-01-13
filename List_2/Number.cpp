@@ -123,28 +123,19 @@ Number Number::operator/(const Number& otherNumber) {
 
     int divisor = 0;
     for (int i = otherNumber.length - 1; i >= 0; i--)
-        divisor += (otherNumber.length - 1 - i) * 10 + otherNumber.digits[i];
-    std::cout << divisor << " <- Div\n";
-    int idx = 0;
+        divisor = divisor * 10 + otherNumber.digits[i];
+
+    int idx = length - 1;
     int temp = digits[idx];
-    while (idx < length - 1 && temp < divisor)
-        temp = temp * 10 + digits[++idx];
+    while (idx > 0 && temp < divisor)
+        temp = temp * 10 + digits[--idx];
 
-    std::cout << "I" << idx << "L" << length;
-
-    int i = 0;
-    while (idx < length - 1) {
-        std::cout << temp / divisor;
-        result[i++] = temp / divisor;
-        temp = (temp % divisor) * 10 + digits[++idx];
+    while (idx >= 0) {
+        result[idx] = temp / divisor;
+        temp = (temp % divisor) * 10 + digits[--idx];
     }
-
-//    for (int i = 0; sum > 0; i++){
-//        result[i] = sum % 10;
-//        sum /= 10;
-//    }
-
-    return {result, length, !(isNegative == otherNumber.isNegative)};
+    int minimalLength = removeRedundant(&result, length);
+    return {result, minimalLength, isNegative != otherNumber.isNegative};
 }
 
 void Number::setNumber(int number){
