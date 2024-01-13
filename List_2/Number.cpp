@@ -45,51 +45,15 @@ void Number::operator=(const Number& otherNumber){
 Number Number::operator+(const Number& otherNumber) {
     if (isNegative)
         return subtract(otherNumber, *this);
-    else if (otherNumber.isNegative)
+    if (otherNumber.isNegative)
         return subtract(*this, otherNumber);
 
-    int maxLength = std::max(length, otherNumber.length) + 1;
-    int* values = new int[maxLength];
-    values[maxLength - 1] = 0;
-
-    int carry = 0;
-    for (int i = 0; i < maxLength; i++) {
-        int sum = carry;
-        if (i < length)
-            sum += digits[i];
-        if (i < otherNumber.length)
-            sum += otherNumber.digits[i];
-
-        carry = (sum >= 10);
-        values[i] = (sum % 10);
-    }
-    maxLength = removeRedundant(&values, maxLength);
-    return {values, maxLength, false};
+    return add(*this, otherNumber);
 }
 
 Number Number::operator-(const Number& otherNumber){
     // TODO implement negative implementation
-    int maxLength = std::max(length, otherNumber.length);
-    int* values = new int[maxLength];
-
-    int borrow = 0;
-    for (int i = 0; i < maxLength; i++) {
-        int diff = borrow;
-        if (i < length)
-            diff += digits[i];
-        if (i < otherNumber.length)
-            diff -= otherNumber.digits[i];
-
-        if (diff < 0) {
-            diff += 10;
-            borrow = -1;
-        } else {
-            borrow = 0;
-        }
-        values[i] = diff;
-    }
-    maxLength = removeRedundant(&values, maxLength);
-    return {values, maxLength, false};
+    return subtract(*this, otherNumber);
 }
 
 Number Number::operator*(const Number& otherNumber) {
@@ -139,6 +103,26 @@ Number Number::operator/(const Number& otherNumber) {
     }
     int minimalLength = removeRedundant(&result, length);
     return {result, minimalLength, isNegative != otherNumber.isNegative};
+}
+
+Number Number::add(const Number &number, const Number &otherNumber) {
+    int maxLength = std::max(number.length, otherNumber.length) + 1;
+    int* values = new int[maxLength];
+    values[maxLength - 1] = 0;
+
+    int carry = 0;
+    for (int i = 0; i < maxLength; i++) {
+        int sum = carry;
+        if (i < number.length)
+            sum += number.digits[i];
+        if (i < otherNumber.length)
+            sum += otherNumber.digits[i];
+
+        carry = (sum >= 10);
+        values[i] = (sum % 10);
+    }
+    maxLength = removeRedundant(&values, maxLength);
+    return {values, maxLength, false};
 }
 
 Number Number::subtract(const Number &number, const Number &otherNumber) {
