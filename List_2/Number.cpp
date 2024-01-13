@@ -43,7 +43,11 @@ void Number::operator=(const Number& otherNumber){
 }
 
 Number Number::operator+(const Number& otherNumber) {
-    // TODO implement negative number support
+    if (isNegative)
+        return subtract(otherNumber, *this);
+    else if (otherNumber.isNegative)
+        return subtract(*this, otherNumber);
+
     int maxLength = std::max(length, otherNumber.length) + 1;
     int* values = new int[maxLength];
     values[maxLength - 1] = 0;
@@ -60,7 +64,7 @@ Number Number::operator+(const Number& otherNumber) {
         values[i] = (sum % 10);
     }
     maxLength = removeRedundant(&values, maxLength);
-    return {values, maxLength};
+    return {values, maxLength, false};
 }
 
 Number Number::operator-(const Number& otherNumber){
@@ -85,7 +89,7 @@ Number Number::operator-(const Number& otherNumber){
         values[i] = diff;
     }
     maxLength = removeRedundant(&values, maxLength);
-    return {values, maxLength};
+    return {values, maxLength, false};
 }
 
 Number Number::operator*(const Number& otherNumber) {
@@ -137,8 +141,33 @@ Number Number::operator/(const Number& otherNumber) {
     return {result, minimalLength, isNegative != otherNumber.isNegative};
 }
 
+Number Number::subtract(const Number &number, const Number &otherNumber) {
+    int maxLength = std::max(number.length, otherNumber.length);
+    int* values = new int[maxLength];
+
+    int borrow = 0;
+    for (int i = 0; i < maxLength; i++) {
+        int diff = borrow;
+        if (i < number.length)
+            diff += number.digits[i];
+        if (i < otherNumber.length)
+            diff -= otherNumber.digits[i];
+
+        if (diff < 0) {
+            diff += 10;
+            borrow = -1;
+        } else {
+            borrow = 0;
+        }
+        values[i] = diff;
+    }
+    maxLength = removeRedundant(&values, maxLength);
+    return {values, maxLength, false};
+}
+
 void Number::setNumber(int number){
     isNegative = number < 0;
+    number = isNegative ? number * -1 : number;
 
     length = calculateLength(number);
     digits = new int[length];

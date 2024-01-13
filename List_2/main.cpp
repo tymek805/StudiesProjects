@@ -6,11 +6,11 @@ void print(Number x, Number y, const std::string& operation){
 }
 
 int main() {
-    Number number1 = Number(123);
+    Number number1 = Number(-123);
     Number number2 = Number(937);
     print(number1, number2, "+");
     (number1 + number2).print();
-
+    number1 = 123;
     print(number2, number1, "-");
     (number2 - number1).print();
     number1 = 937;

@@ -28,6 +28,9 @@ private:
     int* digits;
     bool isNegative;
 
+    Number add(const Number& number, const Number& otherNumber);
+    Number subtract(const Number& number, const Number& otherNumber);
+
     void setNumber(int number);
     void copyNumber(const Number& otherNumber);
 
