@@ -27,5 +27,7 @@ set(CMAKE_CXX_STANDARD 17)
 #        Lab4/main.h
 #)
 # List 2 executable config
-add_executable(TEP List_2/main.cpp List_2/Number.cpp List_2/Number.h)
-#add_executable(TEP Lab5/main.cpp Lab5/MySmartPointer.h Lab5/main.cpp Lab5/RefCounter.h Lab5/Tree.h Lab4/Interface.h Lab4/utilities/Tools.h Lab5/utilities/Node.h Lab5/utilities/Operators.h Lab5/utilities/Tools.h Lab5/utilities/Type.h Lab5/Interface.h)
+#add_executable(TEP List_2/main.cpp List_2/Number.cpp List_2/Number.h)
+
+# List 6 executable config
+add_executable(TEP List_6/MyString.cpp List_6/MyString.h List_6/Main.cpp)
