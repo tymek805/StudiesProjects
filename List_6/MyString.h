@@ -17,6 +17,8 @@ public:
     MyString& operator-(std::string value);
     explicit operator bool () const;
 
+    void superAdd(std::vector<MyString*>* myStrings);
+
     std::string toStandard();
     void print();
 private:

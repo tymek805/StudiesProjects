@@ -10,13 +10,12 @@ MyString::MyString() {
 
 MyString::MyString(const MyString &other) {
     length = other.length;
-    table = new char[length + 1];
+    table = new char[length];
     for (int i = 0; i < length; i++)
         table[i] = other.table[i];
-    table[length + 1] = '\0';
 }
 
-MyString::~MyString(){
+MyString::~MyString() {
     delete table;
 }
 
@@ -46,7 +45,7 @@ MyString& MyString::operator+(std::string value) {
 }
 
 
-MyString &MyString::operator+=(std::string value) {
+MyString& MyString::operator+=(std::string value) {
     return (*this + std::move(value));
 }
 
@@ -87,7 +86,6 @@ MyString &MyString::operator-(std::string value) {
 }
 
 
-
 MyString::operator bool() const {
     return length > 0;
 }
@@ -101,4 +99,16 @@ std::string MyString::toStandard() {
 
 void MyString::print() {
     std::cout << toStandard() << std::endl;
+}
+
+void MyString::superAdd(std::vector<MyString*>* myStrings) {
+    MyString newMyString;
+    for (int i = 0; i < myStrings->size(); i++) {
+        newMyString += myStrings->at(i)->toStandard();
+    }
+    delete table;
+    length = newMyString.length;
+    table = new char[length];
+    for (int i = 0; i < length; i++)
+        table[i] = newMyString.table[i];
 }
