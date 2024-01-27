@@ -43,21 +43,32 @@ void Number::operator=(const Number& otherNumber){
 }
 
 Number Number::operator+(const Number& otherNumber) {
-    if (isNegative)
-        return subtract(otherNumber, *this);
-    if (otherNumber.isNegative)
-        return subtract(*this, otherNumber);
-
-    return add(*this, otherNumber);
+    if (isNegative == otherNumber.isNegative)
+        return add(*this, otherNumber);
+    if (isNegative) {
+        Number* number = new Number(*this);
+        number->setIsNegative(false);
+        return subtract(otherNumber, *number);
+    }
+    if (otherNumber.isNegative) {
+        Number* number = new Number(otherNumber);
+        number->setIsNegative(false);
+        return subtract(*this, *number);
+    }
 }
 
-Number Number::operator-(const Number& otherNumber){
-    // TODO implement negative implementation
+Number Number::operator-(const Number& otherNumber) {
+    if (isNegative && otherNumber.isNegative)
+        return add(*this, otherNumber);
+    if (otherNumber.isNegative) {
+        Number* newNumber = new Number(otherNumber);
+        newNumber->setIsNegative(false);
+        return add(*this, *newNumber);
+    }
     return subtract(*this, otherNumber);
 }
 
 Number Number::operator*(const Number& otherNumber) {
-    // TODO implement negative implementation
     int maxLength = length + otherNumber.length;
     int* result = new int[maxLength];
 
@@ -122,7 +133,7 @@ Number Number::add(const Number &number, const Number &otherNumber) {
         values[i] = (sum % 10);
     }
     maxLength = removeRedundant(&values, maxLength);
-    return {values, maxLength, false};
+    return {values, maxLength, number.isNegative && otherNumber.isNegative};
 }
 
 Number Number::subtract(const Number &number, const Number &otherNumber) {
@@ -137,9 +148,13 @@ Number Number::subtract(const Number &number, const Number &otherNumber) {
         if (i < otherNumber.length)
             diff -= otherNumber.digits[i];
 
-        if (diff < 0) {
+        if (diff < 0 && i != maxLength - 1){
             diff += 10;
             borrow = -1;
+        } else if (diff < 0) {
+            Number resultNumber = subtract(otherNumber, number);
+            resultNumber.setIsNegative(true);
+            return resultNumber;
         } else {
             borrow = 0;
         }
@@ -197,6 +212,10 @@ int Number::removeRedundant(int** valuesPointer, int maxLength) {
     delete values;
     *valuesPointer = curValues;
     return curLength > 0 ? curLength : 1;
+}
+
+void Number::setIsNegative(bool newIsNegative) {
+    isNegative = newIsNegative;
 }
 
 std::string Number::toString(){

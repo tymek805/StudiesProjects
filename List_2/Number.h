@@ -21,6 +21,7 @@ public:
     Number operator*(const Number& otherNumber);
     Number operator/(const Number& otherNumber);
 
+    void setIsNegative(bool newIsNegative);
     std::string toString();
     void print();
 private:
