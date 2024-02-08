@@ -1,8 +1,7 @@
-#include "Interface/UserInput.h"
+#include "Interface/Interface.h"
 
 int main(){
-    UserInput userInput = UserInput();
-    userInput.run();
-
+    Interface interface;
+    interface.run();
     return 0;
 }

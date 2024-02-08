@@ -1,23 +1,41 @@
-#include <iostream>
 #include "Command.h"
 
-Command::Command(char* line) {
-    type = calculateType(line);
+
+Command::Command(const std::string &line) {
+    elements = new std::vector<std::string>();
+    splitByWhitespace(line);
 }
 
-std::string Command::calculateType(char* line) {
-    int i = 0;
-    char currentCharacter = line[i];
-    std::string typeString;
+Command::~Command() {
+    delete elements;
+}
 
-    while (currentCharacter != ' ' && currentCharacter != '\0') {
-        typeString += currentCharacter;
-        currentCharacter = line[++i];
+void Command::splitByWhitespace(const std::string &line) {
+    std::string currentString;
+
+    for (char c: line) {
+        if (c != ' ') {
+            currentString += c;
+        } else {
+            if (type.empty())
+                type = currentString;
+            else
+                elements->push_back(currentString);
+            currentString.clear();
+        }
     }
-
-    return typeString;
+    if (!currentString.empty()) {
+        if (type.empty())
+            type = currentString;
+        else
+            elements->push_back(currentString);
+    }
 }
 
 std::string Command::getType() {
     return type;
+}
+
+std::vector<std::string> *Command::getElements() {
+    return elements;
 }

@@ -1,11 +1,17 @@
 #include <string>
+#include <vector>
 
 class Command {
 public:
-    Command(char* line);
+    explicit Command(const std::string& line);
+
+    ~Command();
+
     std::string getType();
+    std::vector<std::string>* getElements();
 private:
     std::string type;
+    std::vector<std::string>* elements;
 
-    std::string calculateType(char* line);
+    void splitByWhitespace(const std::string& line);
 };
