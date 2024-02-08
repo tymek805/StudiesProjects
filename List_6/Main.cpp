@@ -14,6 +14,7 @@ int main() {
 
     MyString thirdString;
     thirdString = "SuperAdd";
+
     std::vector<MyString*> strings = {&otherString, &thirdString, &myString};
     myString.superAdd(&strings);
     myString.print();
