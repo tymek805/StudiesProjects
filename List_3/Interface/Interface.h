@@ -9,6 +9,8 @@
 #define PRINT_KEYWORD "print"
 #define HELP_KEYWORD "help"
 
+#define WARN_NULL_TREE "WARNING - Cannot perform operations if tree hasn't been initialized"
+
 #include "Command.h"
 #include "../Tree/Tree.h"
 
@@ -22,6 +24,7 @@ private:
     Tree *tree;
 
     bool enterCommand(Command command);
+    static void warnNullTree();
 };
 
 

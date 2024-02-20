@@ -24,7 +24,7 @@ bool Interface::enterCommand(Command command) {
         tree = new Tree();
         tree->passElements(command.getElements());
     } else if (type == VARS_KEYWORD) {
-
+        tree != nullptr ? tree->printVars() : warnNullTree();
     } else if (type == COMP_KEYWORD) {
 
     } else if (type == JOIN_KEYWORD) {
@@ -32,7 +32,7 @@ bool Interface::enterCommand(Command command) {
     } else if (type == EXIT_KEYWORD) {
         return false;
     } else if (type == PRINT_KEYWORD) {
-        std::cout << tree->toString() << std::endl;
+        std::cout << (tree != nullptr ? tree->toString() : WARN_NULL_TREE) << std::endl;
     } else if (type == HELP_KEYWORD) {
         std::cout << std::endl << "Available commands:" << std::endl
         << ENTER_KEYWORD << " - attempts to create tree from the given formula" << std::endl
@@ -46,4 +46,8 @@ bool Interface::enterCommand(Command command) {
     }
 
     return true;
+}
+
+void Interface::warnNullTree() {
+    std::cout << WARN_NULL_TREE << std::endl;
 }
