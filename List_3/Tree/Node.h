@@ -13,18 +13,21 @@ enum NodeType {
 
 class Node {
 public:
-    Node(std::string value, int remainingChildren);
+    Node(std::string value, int remainingChildren, NodeType nodeType);
+    ~Node();
 
     std::string getValue();
-    void setValue(std::string newValue);
-
     std::vector<Node *> getChildren();
+    NodeType getNodeType();
 
-    void addChild(Node* childNode);
+    void addChild(Node *childNode);
+    Node* getChild(int idx);
+
     bool hasSufficient();
 private:
     std::string value;
     int remainingChildren;
+    NodeType nodeType;
 
     std::vector<Node *> children;
 };

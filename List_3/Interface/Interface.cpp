@@ -26,7 +26,13 @@ bool Interface::enterCommand(Command command) {
     } else if (type == VARS_KEYWORD) {
         tree != nullptr ? tree->printVars() : warnNullTree();
     } else if (type == COMP_KEYWORD) {
-
+        if (tree != nullptr) {
+            int value = tree->comp(command.getElements());
+            if (value > 0)
+                std::cout << "Calculated tree value: " << value << std::endl;
+        } else {
+            warnNullTree();
+        }
     } else if (type == JOIN_KEYWORD) {
 
     } else if (type == EXIT_KEYWORD) {
