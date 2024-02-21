@@ -92,7 +92,11 @@ void Tree::printVars() {
 }
 
 int Tree::comp(std::vector<std::string> *vars) {
-    if (vars->size() != variableOrder.size()) {
+    if (vars == nullptr && !variableOrder.empty()) {
+        std::cout << WARN_INV_VARS_LEN << std::endl;
+        return -1;
+    }
+    if (vars != nullptr && vars->size() != variableOrder.size()) {
         std::cout << WARN_INV_VARS_LEN << std::endl;
         return -1;
     }
