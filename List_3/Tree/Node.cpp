@@ -2,8 +2,8 @@
 
 #include <utility>
 
-Node::Node(std::string value, int remainingChildren, NodeType nodeType) :
-        value(std::move(value)), remainingChildren(remainingChildren), nodeType(nodeType) {
+Node::Node(std::string value, int remainingChildren, NodeType nodeType, Node* parent) :
+        value(std::move(value)), remainingChildren(remainingChildren), nodeType(nodeType), parent(parent) {
 }
 
 Node::~Node(){
@@ -16,6 +16,13 @@ void Node::addChild(Node *childNode) {
     remainingChildren--;
 }
 
+void Node::setChild(int idx, Node *child) {
+    if (idx >= 0 && idx < children.size()) {
+        delete children.at(idx);
+        children.at(idx) = child;
+    }
+}
+
 Node *Node::getChild(int idx) {
     return ((idx >= 0 && idx < children.size()) ? children.at(idx) : nullptr);
 }
@@ -24,12 +31,16 @@ std::string Node::getValue() {
     return value;
 }
 
-std::vector<Node *> Node::getChildren() {
-    return children;
+std::vector<Node *>* Node::getChildren() {
+    return &children;
 }
 
 NodeType Node::getNodeType() {
     return nodeType;
+}
+
+Node *Node::getParent() {
+    return parent;
 }
 
 bool Node::hasSufficient() {

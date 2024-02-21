@@ -28,7 +28,9 @@ public:
     void passElements(std::vector<std::string> *elements);
     void printVars();
     int comp(std::vector<std::string> *vars);
+    void join(Tree* joiningTree);
 
+    Node* getRoot();
     std::string toString();
 private:
     Node *root;
@@ -41,8 +43,8 @@ private:
     int getNumberOfChildrenOrDefault(const std::string& key);
 
     NodeType evalNodeType(const std::string& elem);
-
     int calculate(Node* node);
+    Node* findLeaf(Node* node, Node* insertNode);
     std::string preorderTraversal(Node* node);
 };
 

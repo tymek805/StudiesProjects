@@ -34,7 +34,13 @@ bool Interface::enterCommand(Command command) {
             warnNullTree();
         }
     } else if (type == JOIN_KEYWORD) {
-
+        if (tree != nullptr) {
+            Tree* joiningTree = new Tree();
+            joiningTree->passElements(command.getElements());
+            tree->join(joiningTree);
+        } else {
+            warnNullTree();
+        }
     } else if (type == EXIT_KEYWORD) {
         return false;
     } else if (type == PRINT_KEYWORD) {

@@ -53,12 +53,12 @@ void Tree::passElements(std::vector<std::string> *elements) {
 
     for (const std::string& elem: *elements) {
         if (root == nullptr) {
-            root = new Node(elem, getNumberOfChildrenOrDefault(elem), evalNodeType(elem));
+            root = new Node(elem, getNumberOfChildrenOrDefault(elem), evalNodeType(elem), nullptr);
             if (!root->hasSufficient())
                 pendingNodes.push_back(root);
         } else if (!pendingNodes.empty()){
             Node* parentNode = pendingNodes.back();
-            Node* newNode = new Node(elem, getNumberOfChildrenOrDefault(elem), evalNodeType(elem));
+            Node* newNode = new Node(elem, getNumberOfChildrenOrDefault(elem), evalNodeType(elem), parentNode);
             parentNode->addChild(newNode);
 
             if (parentNode->hasSufficient())
@@ -78,7 +78,7 @@ void Tree::passElements(std::vector<std::string> *elements) {
         Node* node = pendingNodes.back();
 
         while (!node->hasSufficient())
-            node->addChild(new Node(DEFAULT_VALUE, getNumberOfChildrenOrDefault(DEFAULT_VALUE), evalNodeType(DEFAULT_VALUE)));
+            node->addChild(new Node(DEFAULT_VALUE, getNumberOfChildrenOrDefault(DEFAULT_VALUE), evalNodeType(DEFAULT_VALUE), node));
 
         pendingNodes.pop_back();
     }
@@ -146,13 +146,29 @@ int Tree::calculate(Node *node) {
     }
 }
 
+void Tree::join(Tree* joiningTree) {
+    Node* node = findLeaf(root, joiningTree->getRoot());
+    node->getParent()->setChild(0, joiningTree->getRoot());
+    std::cout << toString() << std::endl;
+}
+
+Node* Tree::findLeaf(Node* node, Node* insertNode) {
+    if (node->getChildren()->empty())
+        return node;
+    return findLeaf(node->getChild(0), insertNode);
+}
+
 std::string Tree::preorderTraversal(Node* node) {
     std::string value = node->getValue();
 
-    for (Node* childNode : node->getChildren()) {
+    for (Node* childNode : *node->getChildren()) {
         value += " " + preorderTraversal(childNode);
     }
     return value;
+}
+
+Node *Tree::getRoot() {
+    return root;
 }
 
 std::string Tree::toString() {
