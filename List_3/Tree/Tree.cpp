@@ -9,6 +9,23 @@ Tree::Tree() {
     createFunctionMap();
 }
 
+Tree::~Tree() {
+    delete root;
+}
+
+Tree &Tree::operator=(const Tree &other) {
+    root = other.root;
+    variableMap = other.variableMap;
+    variableOrder = other.variableOrder;
+    return *this;
+}
+
+Tree &Tree::operator+(Tree* other) {
+    Tree* tree = this;
+    tree->join(other);
+    return *tree;
+}
+
 void Tree::createFunctionMap() {
     functionMap[ADD_OPERATOR] = 2;
     functionMap[SUB_OPERATOR] = 2;

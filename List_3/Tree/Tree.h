@@ -25,6 +25,9 @@ public:
     Tree();
     ~Tree(); // TODO: Create destructor
 
+    Tree& operator=(const Tree& other);
+    Tree& operator+(Tree* other);
+
     void passElements(std::vector<std::string> *elements);
     void printVars();
     int comp(std::vector<std::string> *vars);
