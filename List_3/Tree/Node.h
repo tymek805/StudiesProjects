@@ -26,7 +26,7 @@ public:
     void setChild(int idx, Node* child);
     Node* getChild(int idx);
 
-    bool hasSufficient();
+    bool hasSufficient() const;
 private:
     std::string value;
     int remainingChildren;

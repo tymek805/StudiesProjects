@@ -23,7 +23,7 @@
 class Tree {
 public:
     Tree();
-    ~Tree(); // TODO: Create destructor
+    ~Tree();
 
     Tree& operator=(const Tree& other);
     Tree& operator+(Tree* other);

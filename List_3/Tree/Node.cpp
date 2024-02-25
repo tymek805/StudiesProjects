@@ -1,14 +1,15 @@
 #include "Node.h"
 
 #include <utility>
+#include <iostream>
 
 Node::Node(std::string value, int remainingChildren, NodeType nodeType, Node* parent) :
         value(std::move(value)), remainingChildren(remainingChildren), nodeType(nodeType), parent(parent) {
 }
 
-Node::~Node(){
-    for (Node* node : children)
-        delete node;
+Node::~Node() {
+    std::cout << "Destructor called " << &*this << std::endl;
+    children.clear();
 }
 
 void Node::addChild(Node *childNode) {
@@ -43,6 +44,6 @@ Node *Node::getParent() {
     return parent;
 }
 
-bool Node::hasSufficient() {
+bool Node::hasSufficient() const {
     return remainingChildren == 0;
 }

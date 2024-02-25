@@ -170,9 +170,7 @@ void Tree::join(Tree* joiningTree) {
 }
 
 Node* Tree::findLeaf(Node* node, Node* insertNode) {
-    if (node->getChildren()->empty())
-        return node;
-    return findLeaf(node->getChild(0), insertNode);
+    return node->getChildren()->empty() ? node : findLeaf(node->getChild(0), insertNode);
 }
 
 std::string Tree::preorderTraversal(Node* node) {
