@@ -1,14 +1,12 @@
 #include "Node.h"
 
 #include <utility>
-#include <iostream>
 
 Node::Node(std::string value, int remainingChildren, NodeType nodeType, Node* parent) :
         value(std::move(value)), remainingChildren(remainingChildren), nodeType(nodeType), parent(parent) {
 }
 
 Node::~Node() {
-    std::cout << "Destructor called " << &*this << std::endl;
     children.clear();
 }
 
