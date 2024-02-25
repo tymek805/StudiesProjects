@@ -1,7 +1,19 @@
+#include <vector>
+#include <iostream>
 #include "stringUtils.h"
+#include "../Tree/Tree.h"
 
 bool isNumber(const std::string& str) {
-    std::string::const_iterator it = str.begin();
-    while (it != str.end() && std::isdigit(*it)) ++it;
-    return !str.empty() && it == str.end();
+    char* end = nullptr;
+    std::strtod(str.c_str(), &end);
+    return end != str.c_str() && *end == '\0';
+}
+
+bool hasInvalidChar(const std::string& str) {
+    std::vector<char> invalidChars = {'$', '#', '&'};
+    for (char c : str) {
+        for (char invalidChar : invalidChars)
+            if (invalidChar == c)
+                std::cout << WARN_INV_CHAR << std::endl;
+    }
 }

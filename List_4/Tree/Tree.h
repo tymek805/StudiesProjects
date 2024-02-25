@@ -1,3 +1,5 @@
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "misc-no-recursion"
 #ifndef TEP_TREE_H
 #define TEP_TREE_H
 
@@ -13,11 +15,15 @@
 #define SIN_OPERATOR "sin"
 #define COS_OPERATOR "cos"
 
-#define DEFAULT_VALUE "1"
+#define DEFAULT_VALUE_INT "1"
+#define DEFAULT_VALUE_DOUBLE "1.0"
+#define DEFAULT_VALUE_STRING "\"default\""
 
 #include <string>
 #include <vector>
 #include <map>
+#include <cmath>
+#include <iostream>
 #include "Node.h"
 #include "../Utils/stringUtils.h"
 
@@ -38,13 +44,14 @@ public:
     std::string toString();
 private:
     Node *root;
-    std::vector<char> invalidChars;
     std::map<std::string, int> functionMap;
     std::map<std::string, T> variableMap;
     std::vector<std::string> variableOrder;
 
     void createFunctionMap();
     int getNumberOfChildrenOrDefault(const std::string& key);
+
+    void addDefaultChild(Node** node);
 
     NodeType evalNodeType(const std::string& elem);
     T calculate(Node* node);
@@ -55,7 +62,6 @@ private:
 template < typename T >
 Tree<T>::Tree() {
     root = nullptr;
-    invalidChars = {'$', '#', '&'};
     createFunctionMap();
 }
 
@@ -89,9 +95,34 @@ void Tree<T>::createFunctionMap() {
     functionMap[COS_OPERATOR] = 1;
 }
 
+template <>
+void Tree<std::string>::createFunctionMap() {
+    functionMap[ADD_OPERATOR] = 2;
+    functionMap[SUB_OPERATOR] = 2;
+    functionMap[MUL_OPERATOR] = 2;
+    functionMap[DIV_OPERATOR] = 2;
+}
+
 template < typename T >
 int Tree<T>::getNumberOfChildrenOrDefault(const std::string& key) {
     return (functionMap.find(key) == functionMap.end()) ? 0 : functionMap.at(key);
+}
+
+template <>
+NodeType Tree<std::string>::evalNodeType(const std::string &elem) {
+    if (functionMap.find(elem) != functionMap.end())
+        return OPERATOR;
+
+    if (elem.front() == '"' && elem.back() == '"')
+        return VALUE;
+
+    hasInvalidChar(elem);
+
+    if (variableMap.find(elem) == variableMap.end())
+        variableOrder.push_back(elem);
+    variableMap[elem] = "";
+
+    return ARGUMENT;
 }
 
 template < typename T >
@@ -99,27 +130,31 @@ NodeType Tree<T>::evalNodeType(const std::string &elem) {
     if (functionMap.find(elem) != functionMap.end())
         return OPERATOR;
 
-    NodeType nodeType = VALUE;
+    if (isNumber(elem))
+        return VALUE;
 
-    for (char c : elem) {
-        if (isalpha(c) != 0) {
-            for (char invalidChar : invalidChars)
-                if (invalidChar == c)
-                    std::cout << WARN_INV_CHAR << std::endl;
-            nodeType = ARGUMENT;
-        }
-    }
+    hasInvalidChar(elem);
 
-    if (elem.front() == '"' && elem.back() == '"')
-        nodeType = VALUE;
+    if (variableMap.find(elem) == variableMap.end())
+        variableOrder.push_back(elem);
+    variableMap[elem] = -1;
 
-    if (nodeType == ARGUMENT) {
-        if (variableMap.find(elem) == variableMap.end())
-            variableOrder.push_back(elem);
-        variableMap[elem] = -1;
-    }
+    return ARGUMENT;
+}
 
-    return nodeType;
+template<>
+void Tree<int>::addDefaultChild(Node** node) {
+    (*node)->addChild(new Node(DEFAULT_VALUE_INT, getNumberOfChildrenOrDefault(DEFAULT_VALUE_INT), evalNodeType(DEFAULT_VALUE_INT), *node));
+}
+
+template<>
+void Tree<double>::addDefaultChild(Node** node) {
+    (*node)->addChild(new Node(DEFAULT_VALUE_DOUBLE, getNumberOfChildrenOrDefault(DEFAULT_VALUE_DOUBLE), evalNodeType(DEFAULT_VALUE_DOUBLE), *node));
+}
+
+template<>
+void Tree<std::string>::addDefaultChild(Node** node) {
+    (*node)->addChild(new Node(DEFAULT_VALUE_STRING, getNumberOfChildrenOrDefault(DEFAULT_VALUE_STRING), evalNodeType(DEFAULT_VALUE_STRING), *node));
 }
 
 template < typename T >
@@ -156,7 +191,7 @@ void Tree<T>::passElements(std::vector<std::string> *elements) {
         Node* node = pendingNodes.back();
 
         while (!node->hasSufficient())
-            node->addChild(new Node(DEFAULT_VALUE, getNumberOfChildrenOrDefault(DEFAULT_VALUE), evalNodeType(DEFAULT_VALUE), node));
+            addDefaultChild(node);
 
         pendingNodes.pop_back();
     }
@@ -202,6 +237,88 @@ int Tree<int>::calculate(Node *node) {
 }
 
 template <>
+double Tree<double>::calculate(Node *node) {
+    NodeType nodeType = node->getNodeType();
+    if (nodeType == OPERATOR) {
+        std::string oper = node->getValue();
+
+        if (oper == ADD_OPERATOR) {
+            return calculate(node->getChild(0)) + calculate(node->getChild(1));
+        } else if (oper == SUB_OPERATOR) {
+            return calculate(node->getChild(0)) - calculate(node->getChild(1));
+        } else if (oper == MUL_OPERATOR) {
+            return calculate(node->getChild(0)) * calculate(node->getChild(1));
+        } else if (oper == DIV_OPERATOR) {
+            double secondValue = calculate(node->getChild(1));
+
+            if (secondValue == 0)
+                throw std::invalid_argument("Division by zero");
+
+            return calculate(node->getChild(0)) / secondValue;
+        } else if (oper == SIN_OPERATOR) {
+            return sin(calculate(node->getChild(0)));
+        } else if (oper == COS_OPERATOR) {
+            return cos(calculate(node->getChild(0)));
+        }
+    } else if (nodeType == VALUE) {
+        return stod(node->getValue());
+    } else if (nodeType == ARGUMENT) {
+        return variableMap.at(node->getValue());
+    }
+}
+
+template <>
+std::string Tree<std::string>::calculate(Node *node) {
+    NodeType nodeType = node->getNodeType();
+    if (nodeType == OPERATOR) {
+        std::string oper = node->getValue();
+
+        if (oper == ADD_OPERATOR) {
+            return calculate(node->getChild(0)) + calculate(node->getChild(1));
+        } else if (oper == SUB_OPERATOR) {
+            std::string s1 = calculate(node->getChild(0));
+            std::string s2 = calculate(node->getChild(1));
+            std::size_t idx  = s1.rfind(s2);
+            if (idx == std::string::npos)
+                return s1;
+            else
+                return s1.erase(idx, s2.length());
+        } else if (oper == MUL_OPERATOR) {
+            std::string s1 = calculate(node->getChild(0));
+            std::string s2 = calculate(node->getChild(1));
+            int subLength = (int) s2.length() - 1;
+            char subChar = s2.front();
+
+            std::string result = s1;
+            int shift = 0;
+            for (int i = 0; i < s1.length(); i++) {
+                if (s1[i] == subChar) {
+                    result.replace(i + shift, 1, s2);
+                    shift += subLength;
+                }
+            }
+            return result;
+        } else if (oper == DIV_OPERATOR) {
+            std::string s1 = calculate(node->getChild(0));
+            std::string s2 = calculate(node->getChild(1));
+            int subLength = (int) s2.length() - 1;
+
+            size_t idx = s1.find(s2);
+            while (idx != std::string::npos) {
+                s1.replace(idx + 1, subLength, "");
+                idx = s1.find(s2);
+            }
+
+            return s1;
+        }
+    } else if (nodeType == VALUE) {
+        return node->getValue().substr(1, node->getValue().size() - 2);
+    } else if (nodeType == ARGUMENT) {
+        return variableMap.at(node->getValue());
+    }
+}
+
+template <>
 int Tree<int>::comp(std::vector<std::string> *vars) {
     if (vars == nullptr && !variableOrder.empty()) {
         std::cout << WARN_INV_VARS_LEN << std::endl;
@@ -215,12 +332,61 @@ int Tree<int>::comp(std::vector<std::string> *vars) {
     // Setting given values as vars
     for (int i = 0; i < variableOrder.size(); i++) {
         const std::string& str = vars->at(i);
-        std::stod(str);
         if (isNumber(str)) {
             variableMap.at(variableOrder.at(i)) = stoi(str);
         } else {
             std::cout << WARN_INV_VAR << std::endl;
             return -1;
+        }
+    }
+
+    return calculate(root);
+}
+
+template <>
+double Tree<double>::comp(std::vector<std::string> *vars) {
+    if (vars == nullptr && !variableOrder.empty()) {
+        std::cout << WARN_INV_VARS_LEN << std::endl;
+        return -1;
+    }
+    if (vars != nullptr && vars->size() != variableOrder.size()) {
+        std::cout << WARN_INV_VARS_LEN << std::endl;
+        return -1;
+    }
+
+    // Setting given values as vars
+    for (int i = 0; i < variableOrder.size(); i++) {
+        const std::string& str = vars->at(i);
+        if (isNumber(str)) {
+            variableMap.at(variableOrder.at(i)) = stod(str);
+        } else {
+            std::cout << WARN_INV_VAR << std::endl;
+            return -1;
+        }
+    }
+
+    return calculate(root);
+}
+
+template <>
+std::string Tree<std::string>::comp(std::vector<std::string> *vars) {
+    if (vars == nullptr && !variableOrder.empty()) {
+        std::cout << WARN_INV_VARS_LEN << std::endl;
+        return "";
+    }
+    if (vars != nullptr && vars->size() != variableOrder.size()) {
+        std::cout << WARN_INV_VARS_LEN << std::endl;
+        return "";
+    }
+
+    // Setting given values as vars
+    for (int i = 0; i < variableOrder.size(); i++) {
+        const std::string& str = vars->at(i);
+        if (str.front() == '"' && str.back() == '"') {
+            variableMap.at(variableOrder.at(i)) = str;
+        } else {
+            std::cout << WARN_INV_VAR << std::endl;
+            return "";
         }
     }
 
@@ -260,3 +426,5 @@ std::string Tree<T>::toString() {
 }
 
 #endif //TEP_TREE_H
+
+#pragma clang diagnostic pop
