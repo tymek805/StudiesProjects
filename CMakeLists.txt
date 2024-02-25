@@ -13,7 +13,10 @@ set(CMAKE_CXX_STANDARD 17)
 #add_executable(TEP List_3/main.cpp List_3/Interface/Command.cpp List_3/Interface/Command.h List_3/Interface/Interface.cpp List_3/Interface/Interface.h List_3/Tree/Tree.cpp List_3/Tree/Tree.h List_3/Tree/Node.cpp List_3/Tree/Node.h List_3/Utils/stringUtils.cpp List_3/Utils/stringUtils.h)
 
 # List 4 executable config
-add_executable(TEP List_4/main.cpp List_4/Interface/Command.cpp List_4/Interface/Command.h List_4/Interface/Interface.cpp List_4/Interface/Interface.h List_4/Tree/Tree.h List_4/Tree/Node.cpp List_4/Tree/Node.h List_4/Utils/stringUtils.cpp List_4/Utils/stringUtils.h)
+#add_executable(TEP List_4/Tree/Tree.h List_4/Tree/Node.cpp List_4/Tree/Node.h List_4/Utils/stringUtils.cpp List_4/Utils/stringUtils.h)
+
+# List 5 executable config
+#add_executable(TEP List_5/MySmartPointer.h List_5/RefCounter.cpp List_5/RefCounter.h List_5/Tree/Tree.h List_5/Tree/Node.h List_5/Tree/Node.cpp List_5/Utils/stringUtils.cpp)
 
 # List 6 executable config
-#add_executable(TEP List_6/MyString.cpp List_6/MyString.h List_6/Main.cpp)
+add_executable(TEP List_6/MyString.cpp List_6/MyString.h List_6/Main.cpp)
