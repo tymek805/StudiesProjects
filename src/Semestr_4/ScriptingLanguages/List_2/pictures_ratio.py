@@ -1,5 +1,5 @@
 import sys
-from get_package import get_package
+from Semestr_4.ScriptingLanguages.List_2.util.get_package import get_package
 
 
 def calculate_pictures_ratio():

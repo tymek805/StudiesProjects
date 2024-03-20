@@ -1,37 +1,28 @@
 import sys
 from datetime import datetime as dt
 
-from get_package import get_package
+from util.get_package import get_package
+from util.write_error_msg import error
 
 
 def get_input_date():
-    if len(sys.argv) < 2:
-        raise TypeError("'date' variable is missing")
-
-    date = sys.argv[1]
-
     if len(sys.argv) != 2:
-        sys.stdout.write(f"Passed more than one variable, omitting others than {date}\n")
+        raise TypeError("Incorrect number of variables. Expected one variable [date]")
 
     try:
-        return dt.strptime(date, '%d-%m-%Y').strftime('%d/%b/%Y')
-    except ValueError as e:
-        raise ValueError("Invalid 'date' variable. 'date' has to be in supported format: DD-MM-YYYY")
+        return dt.strptime(sys.argv[1], '%d.%m.%Y').strftime('%d/%b/%Y')
+    except ValueError:
+        raise ValueError("Invalid 'date' variable. 'date' have to be a date in supported format: DD.MM.YYYY")
 
 
-def find_code():
+def filter_by_date():
     # 28-07-1995
     try:
         date = get_input_date()
+        [sys.stdout.write(line) for line in sys.stdin if date in line and get_package(line) != '']
     except (TypeError, ValueError) as e:
-        print("Error:", e)
-    else:
-        for line in sys.stdin:
-            if date in line:
-                package = get_package(line)
-                if package != '':
-                    sys.stdout.write(package + '\n')
+        error(e)
 
 
 if __name__ == '__main__':
-    find_code()
+    filter_by_date()
