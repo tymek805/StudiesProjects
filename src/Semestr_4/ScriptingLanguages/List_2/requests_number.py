@@ -10,7 +10,9 @@ def count_requests():
             requests_status_dir[request_status] = 1
         else:
             requests_status_dir[request_status] += 1
-    print(requests_status_dir)
+
+    for key, val in requests_status_dir.items():
+        sys.stdout.write(f"Amount of requests with code '{key}': {val}\n")
 
 
 if __name__ == '__main__':

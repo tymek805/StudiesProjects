@@ -28,8 +28,9 @@
       <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_10_L" />
       <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2" />
       <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/DistributedBalancingAlgorithm" />
+      <excludeFolder url="file://$MODULE_DIR$/.venv" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.12 (StudiesProjects)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" scope="TEST">
       <library name="JUnit5.8.1">
