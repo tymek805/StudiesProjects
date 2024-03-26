@@ -30,7 +30,7 @@ def filter_by_hour():
                         sys.stdout.write(line)
                 elif begin_hour <= hour < end_hour:
                     sys.stdout.write(line)
-    except (ValueError, TypeError) as e:
+    except (TypeError, ValueError) as e:
         error(e)
 
 

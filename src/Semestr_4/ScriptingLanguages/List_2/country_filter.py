@@ -21,7 +21,7 @@ def filter_by_country():
         for line in sys.stdin:
             if line.split()[0].split('.')[-1] == country:
                 sys.stdout.write(line)
-    except ValueError as e:
+    except (TypeError, ValueError) as e:
         error(e)
 
 

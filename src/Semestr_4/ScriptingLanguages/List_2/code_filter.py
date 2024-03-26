@@ -21,7 +21,7 @@ def filter_by_code():
     try:
         code = get_input_code()
         [sys.stdout.write(line) for line in sys.stdin if line.split()[-2] == code]
-    except ValueError as e:
+    except (TypeError, ValueError) as e:
         error(e)
 
 
