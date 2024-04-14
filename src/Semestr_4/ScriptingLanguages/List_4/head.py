@@ -19,7 +19,7 @@ def head():
         data = sys.stdin.read(bytes_to_read)
     else:
         filename = args[0]
-        with open(filename, 'rb') as f:
+        with open(filename) as f:
             data = f.read(bytes_to_read)
 
     if show_filename:
