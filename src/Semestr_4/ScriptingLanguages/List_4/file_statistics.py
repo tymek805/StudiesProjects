@@ -29,9 +29,6 @@ def analyze_file():
         'most frequent word': most_frequent_word(data)
     }
 
-    with open("statistics.json", "w") as f:
-        json.dump(output, f, indent=4)
-
     print(json.dumps(output, indent=4))
 
 
