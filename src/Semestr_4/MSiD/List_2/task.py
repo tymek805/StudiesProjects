@@ -36,12 +36,7 @@ def get_minor_matrix(mat: List[List[int]], i: int, j: int) -> List[List[int]]:
 
     :return: minor matrix
     """
-    ans_mat = []
-
-    for idx, row in enumerate(mat):
-        if idx != i:
-            ans_mat.append([val for idx, val in enumerate(row) if idx != j])
-    return ans_mat
+    return [[val for idx, val in enumerate(row) if idx != j] for idx, row in enumerate(mat) if idx != i]
 
 
 def matrix_determinant(mat: List[List[int]]) -> int:
