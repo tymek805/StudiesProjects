@@ -12,7 +12,8 @@ def run():
     results = []
 
     for filename in os.listdir(dir_path):
-        if os.path.isfile(filename):
+        if os.path.isfile(os.path.join(dir_path, filename)):
+            print(filename)
             filepath = os.path.join(dir_path, filename)
             process = subprocess.Popen(["python3", "file_statistics.py"], stdout=subprocess.PIPE, stdin=subprocess.PIPE, text=True)
             results.append(json.loads(process.communicate(input=filepath)[0]))
