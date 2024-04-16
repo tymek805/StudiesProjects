@@ -26,7 +26,6 @@ def run():
         'most frequent character': max(set(result["most frequent character"] for result in results), key=results.count),
         'most frequent word': max(set(result["most frequent word"] for result in results), key=results.count),
     })
-    # print(results)
 
 
 if __name__ == "__main__":
