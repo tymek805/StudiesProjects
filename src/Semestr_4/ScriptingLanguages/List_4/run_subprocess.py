@@ -3,8 +3,6 @@ import os
 import subprocess
 import sys
 
-from file_statistics import analyze_file
-
 
 def run():
     dir_path = sys.argv[1]
