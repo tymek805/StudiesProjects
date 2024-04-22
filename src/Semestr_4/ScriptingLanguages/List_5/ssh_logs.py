@@ -15,9 +15,7 @@ class MessageType(Enum):
     CLOSED = "Connection closed"
     PASSWORD = "Wrong password"
     USERNAME = "Wrong username"
-    BREAKIN = "Break-in attempt"
-    S_OPEN = "Session opened"
-    S_CLOSED = "Session closed"
+    BREAK_IN = "Break-in attempt"
     OTHER = "Other"
 
 
@@ -49,7 +47,7 @@ def get_message_type_from_log(log: dict) -> MessageType:
         (r'Connection closed by|Disconnect(ed|ing)', MessageType.CLOSED),
         (r'Failed password for invalid user', MessageType.PASSWORD),
         (r'[I|i]nvalid user', MessageType.USERNAME),
-        (r'POSSIBLE BREAK-IN ATTEMPT!', MessageType.BREAKIN),
+        (r'POSSIBLE BREAK-IN ATTEMPT!', MessageType.BREAK_IN),
     ]
     msg = log['message']
     for t in types:
@@ -65,7 +63,7 @@ def log_message_type(msg_type: MessageType):
         logger.warning(msg_type.value)
     elif msg_type == MessageType.PASSWORD or msg_type == MessageType.USERNAME:
         logger.error(msg_type.value)
-    elif msg_type == MessageType.BREAKIN:
+    elif msg_type == MessageType.BREAK_IN:
         logger.critical(msg_type.value)
 
 
