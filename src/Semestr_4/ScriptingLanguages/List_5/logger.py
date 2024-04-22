@@ -2,11 +2,11 @@ import logging
 import sys
 
 
-def define_logger(debug_level):
+def define_logger(logger_level):
     logger = logging.getLogger()
     logging.basicConfig(
         format="%(levelname)s: %(message)s",
-        level=debug_level,
+        level=logger_level,
         filemode="w",
         filename="logs.log",
     )
