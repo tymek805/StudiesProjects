@@ -1,11 +1,12 @@
+import logging
+import os
 import random
 import re
+import statistics
 from datetime import datetime
 from enum import Enum
 
-from logger import define_logger
-
-logger = define_logger()
+logger = logging.getLogger()
 
 
 class MessageType(Enum):
@@ -15,6 +16,8 @@ class MessageType(Enum):
     PASSWORD = "Wrong password"
     USERNAME = "Wrong username"
     BREAKIN = "Break-in attempt"
+    S_OPEN = "Session opened"
+    S_CLOSED = "Session closed"
     OTHER = "Other"
 
 
@@ -39,7 +42,7 @@ def get_user_from_log(log: dict):
     return username[0] if username else None
 
 
-def get_message_type(msg: str) -> MessageType:
+def get_message_type_from_log(log: dict) -> MessageType:
     types = [
         (r'Accepted password for \w+ from', MessageType.SUCCESS),
         (r'Failed password for \w+ from', MessageType.FAILURE),
@@ -48,35 +51,11 @@ def get_message_type(msg: str) -> MessageType:
         (r'[I|i]nvalid user', MessageType.USERNAME),
         (r'POSSIBLE BREAK-IN ATTEMPT!', MessageType.BREAKIN),
     ]
+    msg = log['message']
     for t in types:
         if re.search(t[0], msg):
             return t[1]
     return MessageType.OTHER
-
-
-def get_logs_from_random_user(n: int):
-    if n < 1:
-        raise ValueError("n must be positive number")
-
-    logs = read_logs()
-    user = random.choice(list(set([get_user_from_log(log) for log in logs])))
-    logs = [log for log in logs if get_user_from_log(log) == user]
-    return [random.choice(logs) for _ in range(n)]
-
-
-def read_logs():
-    with open("SSH.log") as f:
-        logs = []
-        read_bytes = 0
-
-        for log in f.readlines():
-            log_dict = read_log(log)
-            logs.append(log_dict)
-            log_message_type(get_message_type(log_dict['message']))
-            read_bytes += len(log)
-
-        logger.debug(f"{read_bytes} bytes read")
-        return logs
 
 
 def log_message_type(msg_type: MessageType):
@@ -90,6 +69,87 @@ def log_message_type(msg_type: MessageType):
         logger.critical(msg_type.value)
 
 
+def get_logs_from_random_user(n: int, logs):
+    if n < 1:
+        raise ValueError("n must be positive number")
+
+    user = random.choice(list(set([get_user_from_log(log) for log in logs])))
+    logs = [log for log in logs if get_user_from_log(log) == user]
+    return [random.choice(logs) for _ in range(n)]
+
+
+def calculate_avg_duration_and_deviation(logs):
+    sessions_start = {}
+    durations = []
+
+    for log in logs:
+        if 'session opened' in log['message']:
+            sessions_start[log['PID']] = log['date']
+        elif 'session closed' in log['message'] and log['PID'] in sessions_start:
+            start_time = sessions_start.pop(log['PID'])
+            if start_time > log['date']:
+                start_time = start_time.replace(year=start_time.year - 1)
+            durations.append((log['date'] - start_time).total_seconds())
+    if durations:
+        return statistics.mean(durations), (statistics.stdev(durations) if len(durations) > 2 else 0.0)
+    else:
+        return 0.0, 0.0
+
+
+def calculate_avg_and_deviation_by_users(logs):
+    sessions_start = {}
+    users_pid = {}
+    users_durations = {}
+
+    for log in logs:
+        if 'session opened' in log['message']:
+            sessions_start[log['PID']] = log['date']
+            users_pid[log['PID']] = get_user_from_log(log)
+        elif 'session closed' in log['message'] and log['PID'] in sessions_start:
+            start_time = sessions_start.pop(log['PID'])
+            if start_time > log['date']:
+                start_time = start_time.replace(year=start_time.year - 1)
+
+            durations = users_durations.get(get_user_from_log(log), [])
+            durations.append((log['date'] - start_time).total_seconds())
+            users_durations[get_user_from_log(log)] = durations
+
+    average_by_users = {}
+    for user, durations in users_durations.items():
+        average_by_users[user] = statistics.mean(durations), (
+            statistics.stdev(durations) if len(durations) > 2 else 0.0)
+    return average_by_users
+
+
+def most_least_user_login(logs):
+    users_login = {}
+
+    for log in logs:
+        user = get_user_from_log(log)
+        mt = get_message_type_from_log(log)
+        if user is not None and mt in [MessageType.USERNAME, MessageType.PASSWORD]:
+            users_login[user] = users_login.get(user, 0) + 1
+
+    return min(users_login, key=users_login.get), max(users_login, key=users_login.get)
+
+
+def read_logs(path):
+    if os.path.isfile(path):
+        with open(path) as f:
+            logs = []
+            read_bytes = 0
+
+            for line in f.readlines():
+                log = read_log(line)
+                logs.append(log)
+                # log_message_type(get_message_type_from_log(log))
+                read_bytes += len(line)
+
+            logger.debug(f"{read_bytes} bytes read")
+            return logs
+    else:
+        raise FileNotFoundError("File does not exist!")
+
+
 if __name__ == "__main__":
-    get_logs_from_random_user(1)
-    # arr = [get_message_type(l['message']) for l in read_logs()[:50]]
+    print(most_least_user_login(read_logs("SSH.log")))
