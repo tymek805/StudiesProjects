@@ -3,12 +3,12 @@ from ipaddress import IPv4Address
 
 
 class SSHLogEntry:
-    def __init__(self, date, host, component, pid, message):
-        self.date = date
-        self.host = host
-        self.component = component
-        self.pid = pid
-        self.message = message
+    def __init__(self, raw_log):
+        self.date = " ".join(raw_log[:3])
+        self.host = raw_log[3]
+        self.component = raw_log[4].split('[')[0]
+        self.pid = raw_log[4].split('[')[1].split(']')[0]
+        self.message = " ".join(raw_log[5:])
 
     def __repr__(self):
         return (f"{self.__class__.__name__}( "
