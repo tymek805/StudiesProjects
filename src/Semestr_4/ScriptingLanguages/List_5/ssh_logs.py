@@ -140,7 +140,7 @@ def read_logs(path):
             for line in f.readlines():
                 log = read_log(line)
                 logs.append(log)
-                # log_message_type(get_message_type_from_log(log))
+                log_message_type(get_message_type_from_log(log))
                 read_bytes += len(line)
 
             logger.debug(f"{read_bytes} bytes read")
