@@ -1,0 +1,1 @@
+Nie, ponieważ występuje zjawisko zwane jako overfitting, czyli model jest zbyt dopasowany do danych, tym samym dla innych danych model będzie zwracał niedokładne wyniki. Z tego powodu stosuje się podział danych na zbiór uczący, zawierający dane na których model będzie trenowany, oraz zbiór testowy, którym model będzie sprawdzany.
