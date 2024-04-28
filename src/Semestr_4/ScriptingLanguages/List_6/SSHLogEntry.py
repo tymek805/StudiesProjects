@@ -1,6 +1,6 @@
-from datetime import datetime
 import re
 from abc import ABC
+from datetime import datetime
 from ipaddress import IPv4Address
 
 
@@ -36,16 +36,19 @@ class SSHLogEntry(ABC):
                 f")")
 
     def __lt__(self, other):
-        return self.datetime_with_current_year() < other.datetime_with_current_year()
+        other_date = other.datetime() if type(other) is SSHLogEntry else other
+        return self.datetime() < other_date
 
     def __gt__(self, other):
-        return self.datetime_with_current_year() > other.datetime_with_current_year()
+        other_date = other.datetime() if type(other) is SSHLogEntry else other
+        return self.datetime() > other_date
 
     def __eq__(self, other):
-        return self.datetime_with_current_year() == other.datetime_with_current_year()
+        other_date = other.datetime() if type(other) is SSHLogEntry else other
+        return self.datetime() == other_date
 
-    def datetime_with_current_year(self):
-        return datetime.strptime(f"{datetime.now().year} {self.date}", "%Y %b %d %H:%M:%S")
+    def datetime(self):
+        return datetime.strptime(f"{self.date}", "%b %d %H:%M:%S")
 
     def validate(self) -> bool:
         raise NotImplementedError
@@ -87,14 +90,14 @@ class RejectedPasswordSSH(SSHLogEntry):
             return False
 
         return (
-            self.date == match.group('timestamp') and
-            self.host == match.group('host') and
-            self.component == match.group('component') and
-            self.pid == match.group('pid') and
-            self.message == match.group('message') and
-            self.ipv4 == IPv4Address(ipv4[0]) and
-            self.user == username[0][1] and
-            self.port == port[0]
+                self.date == match.group('timestamp') and
+                self.host == match.group('host') and
+                self.component == match.group('component') and
+                self.pid == match.group('pid') and
+                self.message == match.group('message') and
+                self.ipv4 == IPv4Address(ipv4[0]) and
+                self.user == username[0][1] and
+                self.port == port[0]
         )
 
 
@@ -118,14 +121,14 @@ class AcceptedPasswordSSH(SSHLogEntry):
             return False
 
         return (
-            self.date == match.group('timestamp') and
-            self.host == match.group('host') and
-            self.component == match.group('component') and
-            self.pid == match.group('pid') and
-            self.message == match.group('message') and
-            self.ipv4 == IPv4Address(ipv4[0]) and
-            self.user == username[0][1] and
-            self.port == port[0]
+                self.date == match.group('timestamp') and
+                self.host == match.group('host') and
+                self.component == match.group('component') and
+                self.pid == match.group('pid') and
+                self.message == match.group('message') and
+                self.ipv4 == IPv4Address(ipv4[0]) and
+                self.user == username[0][1] and
+                self.port == port[0]
         )
 
 
@@ -145,12 +148,12 @@ class ErrorSSH(SSHLogEntry):
             return False
 
         return (
-            self.date == match.group('timestamp') and
-            self.host == match.group('host') and
-            self.component == match.group('component') and
-            self.pid == match.group('pid') and
-            self.message == match.group('message') and
-            self.ipv4 == IPv4Address(ipv4[0])
+                self.date == match.group('timestamp') and
+                self.host == match.group('host') and
+                self.component == match.group('component') and
+                self.pid == match.group('pid') and
+                self.message == match.group('message') and
+                self.ipv4 == IPv4Address(ipv4[0])
         )
 
 
@@ -161,21 +164,9 @@ class OtherSSH(SSHLogEntry):
             return False
 
         return (
-            self.date == match.group('timestamp') and
-            self.host == match.group('host') and
-            self.component == match.group('component') and
-            self.pid == match.group('pid') and
-            self.message == match.group('message')
+                self.date == match.group('timestamp') and
+                self.host == match.group('host') and
+                self.component == match.group('component') and
+                self.pid == match.group('pid') and
+                self.message == match.group('message')
         )
-
-
-if __name__ == "__main__":
-    # SSHLogEntry('Jan  7 16:56:15 LabSZ sshd[30216]: Failed password for root from 104.192.1.10 port 41994 ssh2')
-    x = RejectedPasswordSSH(
-        'Dec 10 06:55:48 LabSZ sshd[24200]: Failed password for invalid user webmaster from 173.234.31.186 port 38926 ssh2')
-    y = AcceptedPasswordSSH(
-        'Dec 10 09:32:20 LabSZ sshd[24680]: Accepted password for fztu from 119.137.62.142 port 49116 ssh2')
-    z = ErrorSSH(
-        'Dec 10 11:03:44 LabSZ sshd[25455]: error: Received disconnect from 103.99.0.122: 14: No more user authentication methods available. [preauth]')
-    for a in [x, y, z]:
-        print(a.validate())
