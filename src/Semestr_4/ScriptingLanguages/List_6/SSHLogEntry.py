@@ -53,13 +53,13 @@ class SSHLogEntry(ABC):
     def validate(self) -> bool:
         raise NotImplementedError
 
-    @property
-    def has_ipv4(self):
-        return self.ipv4() is not None
-
     def ipv4(self):
         ipv4 = re.findall(self._ipv4_pattern, self.message)
         return IPv4Address(ipv4[0]) if ipv4 else None
+
+    @property
+    def has_ipv4(self):
+        return self.ipv4() is not None
 
     def user(self):
         username = re.findall(self._user_pattern, self.message)
@@ -73,11 +73,11 @@ class SSHLogEntry(ABC):
 class RejectedPasswordSSH(SSHLogEntry):
     def __init__(self, raw_log):
         super().__init__(raw_log)
-        self.ipv4 = self.ipv4()
+        self.ip = self.ipv4()
         self.user = self.user()
         self.port = self.port()
 
-        if not (self.user and self.port and self.ipv4):
+        if not (self.user and self.port and self.ip):
             raise ValueError(f"Provided log does not contain all required values [ipv4, user, port]")
 
     def validate(self):
@@ -95,7 +95,7 @@ class RejectedPasswordSSH(SSHLogEntry):
                 self.component == match.group('component') and
                 self.pid == match.group('pid') and
                 self.message == match.group('message') and
-                self.ipv4 == IPv4Address(ipv4[0]) and
+                self.ip == IPv4Address(ipv4[0]) and
                 self.user == username[0][1] and
                 self.port == port[0]
         )
@@ -106,9 +106,9 @@ class AcceptedPasswordSSH(SSHLogEntry):
         super().__init__(raw_log)
         self.user = self.user()
         self.port = self.port()
-        self.ipv4 = self.ipv4()
+        self.ip = self.ipv4()
 
-        if not (self.user and self.port and self.ipv4):
+        if not (self.user and self.port and self.ip):
             raise ValueError(f"Provided log does not contain all required values [user, port, ipv4]")
 
     def validate(self):
@@ -126,7 +126,7 @@ class AcceptedPasswordSSH(SSHLogEntry):
                 self.component == match.group('component') and
                 self.pid == match.group('pid') and
                 self.message == match.group('message') and
-                self.ipv4 == IPv4Address(ipv4[0]) and
+                self.ip == IPv4Address(ipv4[0]) and
                 self.user == username[0][1] and
                 self.port == port[0]
         )
@@ -135,9 +135,9 @@ class AcceptedPasswordSSH(SSHLogEntry):
 class ErrorSSH(SSHLogEntry):
     def __init__(self, raw_log):
         super().__init__(raw_log)
-        self.ipv4 = self.ipv4()
+        self.ip = self.ipv4()
 
-        if not self.ipv4:
+        if not self.ip:
             raise ValueError(f"Provided log does not contain required value: ipv4")
 
     def validate(self):
@@ -153,7 +153,7 @@ class ErrorSSH(SSHLogEntry):
                 self.component == match.group('component') and
                 self.pid == match.group('pid') and
                 self.message == match.group('message') and
-                self.ipv4 == IPv4Address(ipv4[0])
+                self.ip == IPv4Address(ipv4[0])
         )
 
 
