@@ -159,14 +159,4 @@ class ErrorSSH(SSHLogEntry):
 
 class OtherSSH(SSHLogEntry):
     def validate(self):
-        match = self._log_pattern.match(self._raw_log)
-        if not match:
-            return False
-
-        return (
-                self.date == match.group('timestamp') and
-                self.host == match.group('host') and
-                self.component == match.group('component') and
-                self.pid == match.group('pid') and
-                self.message == match.group('message')
-        )
+        return True

@@ -3,6 +3,7 @@ import os
 import random
 import re
 import statistics
+import sys
 from datetime import datetime
 from enum import Enum
 
@@ -150,4 +151,4 @@ def read_logs(path):
 
 
 if __name__ == "__main__":
-    print(most_least_user_login(read_logs("SSH.log")))
+    print(most_least_user_login(read_logs(sys.argv[1])))
