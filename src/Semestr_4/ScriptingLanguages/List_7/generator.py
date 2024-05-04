@@ -23,6 +23,7 @@ def make_generator_mem(function):
     @cache
     def cached_f(n):
         return function(n)
+    globals()[function.__name__] = cached_f
 
     return make_generator(cached_f)
 
