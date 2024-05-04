@@ -21,7 +21,6 @@ def make_alpha_dict(arg: str) -> dict:
 def flatten(array: list) -> list:
     arr = []
     [arr.append(elem) if type(elem) is not list else arr.extend(flatten(elem)) for elem in array]
-    # return [elem if type(elem) is not list else flatten(elem) for elem in array]
     return arr
 
 
