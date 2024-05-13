@@ -8,7 +8,7 @@ from PyQt6.QtWidgets import *
 from read_logs import read_logs, log_to_dict
 
 
-class LogDetailedView(QWidget):
+class LogDetailView(QWidget):
     def __init__(self):
         super().__init__()
         self.layout = QGridLayout()
@@ -51,74 +51,61 @@ class DatePicker(QWidget):
         super().__init__()
         self.log_browser = log_browser
 
-        date_from = self._create_buttons('From:', datetime(1900, 1, 1))
-        date_to = self._create_buttons('To:', datetime.today())
+        self.layout = QHBoxLayout()
+        self.date_from = self.create_date_widget('From:', datetime(1900, 1, 1))
+        self.date_to = self.create_date_widget('To:', datetime.today())
+        self.setLayout(self.layout)
 
-        self.date_from = date_from.findChild(QDateEdit)
-        self.date_to = date_to.findChild(QDateEdit)
-
-        self.date_from.dateChanged.connect(self.update)
-        self.date_to.dateChanged.connect(self.update)
-
-        layout = QHBoxLayout()
-        layout.addWidget(date_from)
-        layout.addWidget(date_to)
-
-        self.setLayout(layout)
-
-    def _create_buttons(self, label_text: str, date) -> QWidget:
+    def create_date_widget(self, label_text: str, date) -> QDateEdit:
         date_label = QLabel(label_text)
         date_picker = QDateEdit(date)
 
         date_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         date_picker.setCalendarPopup(True)
+        date_picker.dateChanged.connect(self.log_browser.filter)
 
         layout = QHBoxLayout()
-        layout.addWidget(date_label, 20)
+        layout.addWidget(date_label, 25)
         layout.addWidget(date_picker, 75)
 
         button_widget = QWidget()
         button_widget.setLayout(layout)
-        return button_widget
-
-    def update(self):
-        self.log_browser.filter(self.date_from.date(), self.date_to.date())
+        self.layout.addWidget(button_widget)
+        return date_picker
 
 
 class LogBrowser(QWidget):
-    def __init__(self, log_detailed_view: LogDetailedView):
+    def __init__(self, log_detail_view: LogDetailView):
         super().__init__()
         self.logs = []
-        self.log_detailed_view = log_detailed_view
+        self.log_detail_view = log_detail_view
+
+        self.date_picker = DatePicker(self)
+        self.log_list = QListWidget()
+        self.log_list.itemSelectionChanged.connect(self.update_log_view)
+        self.log_list.addItems(self.logs)
 
         layout = QVBoxLayout()
-        layout.addWidget(DatePicker(self))
-        layout.addWidget(self._create_log_list())
+        layout.addWidget(self.date_picker)
+        layout.addWidget(self.log_list)
 
         self.setLayout(layout)
 
-    def _create_log_list(self):
-        self.log_list = QListWidget(self)
-        self.log_list.itemSelectionChanged.connect(self.selected_log_handler)
-        self.log_list.addItems(self.logs)
-        return self.log_list
-
-    def filter(self, date_from, date_to):
+    def filter(self):
         self.log_list.clear()
 
         for log in self.logs:
-            if date_from < log_to_dict(log)['date'] <= date_to:
+            if self.date_picker.date_from.date() < log_to_dict(log)['date'] <= self.date_picker.date_to.date():
                 self.log_list.addItem(log)
 
     def update(self, logs: list[str]):
         self.logs = logs
-        self.log_list.clear()
-        self.log_list.addItems(logs)
+        self.filter()
 
-    def selected_log_handler(self):
+    def update_log_view(self):
         selected_items = self.log_list.selectedItems()
         if selected_items:
-            self.log_detailed_view.update(selected_items[0].text())
+            self.log_detail_view.update(selected_items[0].text())
 
     def previous(self):
         current_row = self.log_list.currentRow()
@@ -127,8 +114,8 @@ class LogBrowser(QWidget):
 
     def next(self):
         current_row = self.log_list.currentRow()
-        if current_row > 0:
-            self.log_list.setCurrentRow(current_row - 1)
+        if current_row < self.log_list.count() - 1:
+            self.log_list.setCurrentRow(current_row + 1)
 
 
 class FileBrowser(QWidget):
@@ -163,14 +150,14 @@ class FileBrowser(QWidget):
 
 
 class NavigationButtons(QWidget):
-    def __init__(self, log_browser):
+    def __init__(self, log_browser: LogBrowser):
         super().__init__()
         self.log_browser = log_browser
 
         previous_btn = QPushButton('Previous')
-        next_btn = QPushButton('Next')
-
         previous_btn.clicked.connect(self.log_browser.previous)
+
+        next_btn = QPushButton('Next')
         next_btn.clicked.connect(self.log_browser.next)
 
         layout = QHBoxLayout()
@@ -187,7 +174,7 @@ class MainWindow(QMainWindow):
         self.window_width = window_width
         self.window_height = window_height
 
-        log_detailed_view = LogDetailedView()
+        log_detailed_view = LogDetailView()
         log_browser = LogBrowser(log_detailed_view)
 
         layout = QVBoxLayout()
