@@ -1,66 +1,49 @@
-import os.path
-
-from PyQt6.QtCore import Qt, QRect
-from PyQt6.QtGui import *
-from PyQt6.QtWidgets import *
-from read_logs import read_logs, log_to_dict
-from datetime import datetime
 import locale
+import os.path
+from datetime import datetime
+
+from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import *
+
+from read_logs import read_logs, log_to_dict
 
 
 class LogDetailedView(QWidget):
     def __init__(self):
         super().__init__()
+        self.layout = QGridLayout()
 
-        self.host = self.create_txt_filed()
-        self.date = self.create_txt_filed()
-        self.time = self.create_txt_filed()
-        self.timezone = self.create_txt_filed()
-        self.code = self.create_txt_filed()
-        self.method = self.create_txt_filed()
-        self.resource = self.create_txt_filed()
-        self.size = self.create_txt_filed()
+        self.host = self.create_text_field('Remote host:', (0, 1, 1, 3))
+        self.date = self.create_text_field('Date:', (1, 1, 1, 3))
+        self.time = self.create_text_field('Time:', (2, 1))
+        self.timezone = self.create_text_field('Timezone:', (2, 3))
+        self.code = self.create_text_field('Status code:', (3, 1))
+        self.method = self.create_text_field('Method:', (3, 3))
+        self.resource = self.create_text_field('Resource:', (4, 1, 1, 3))
+        self.size = self.create_text_field('Size:', (5, 1))
 
-        layout = QGridLayout(self)
-        layout.addWidget(QLabel('Remote host:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter),
-                         0, 0)
-        layout.addWidget(self.host, 0, 1, 1, 3)
-        layout.addWidget(QLabel('Date:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), 1, 0)
-        layout.addWidget(self.date, 1, 1, 1, 3)
-        layout.addWidget(QLabel('Time:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), 2, 0)
-        layout.addWidget(self.time, 2, 1)
-        layout.addWidget(QLabel('Timezone:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), 2,
-                         2)
-        layout.addWidget(self.timezone, 2, 3)
-        layout.addWidget(QLabel('Status code:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter),
-                         3, 0)
-        layout.addWidget(self.code, 3, 1)
-        layout.addWidget(QLabel('Method:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), 3, 2)
-        layout.addWidget(self.method, 3, 3)
-        layout.addWidget(QLabel('Resource:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), 4,
-                         0)
-        layout.addWidget(self.resource, 4, 1, 1, 3)
-        layout.addWidget(QLabel('Size:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), 5, 0)
-        layout.addWidget(self.size, 5, 1)
+        self.setLayout(self.layout)
 
-        self.setLayout(layout)
+    def create_text_field(self, label_text: str, pos: tuple,
+                          alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter) -> QLineEdit:
+        text_field = QLineEdit()
+        text_field.setEnabled(False)
 
-    def create_txt_filed(self) -> QLineEdit:
-        info_text = QLineEdit()
-        info_text.setEnabled(False)
-        return info_text
+        self.layout.addWidget(QLabel(label_text, alignment=alignment), pos[0], pos[1] - 1)
+        self.layout.addWidget(text_field, *pos)
+
+        return text_field
 
     def update(self, log: str):
         log_dict = log_to_dict(log)
-        date = log_dict['date']
         self.host.setText(log_dict['host'])
-        self.date.setText(str(date.date()))
-        self.time.setText(str(date.time()))
+        self.date.setText(str(log_dict['date'].date()))
+        self.time.setText(str(log_dict['date'].time()))
         self.timezone.setText(log_dict['timezone'])
-        self.code.setText(str(log_dict['code']))
+        self.code.setText(log_dict['code'])
         self.method.setText(log_dict['method'])
         self.resource.setText(log_dict['resource'])
-        self.size.setText(str(log_dict['size']))
+        self.size.setText(log_dict['size'])
 
 
 class DatePicker(QWidget):
@@ -201,8 +184,6 @@ class NavigationButtons(QWidget):
 class MainWindow(QMainWindow):
     def __init__(self, window_width, window_height):
         super().__init__()
-        self.window = QWidget(self)
-
         self.window_width = window_width
         self.window_height = window_height
 
@@ -212,16 +193,18 @@ class MainWindow(QMainWindow):
         layout = QVBoxLayout()
         layout.addWidget(FileBrowser(log_browser))
 
-        child_widget = QWidget()
+        # Log view
         child_layout = QHBoxLayout()
         child_layout.addWidget(log_browser)
         child_layout.addWidget(log_detailed_view)
+        child_widget = QWidget()
         child_widget.setLayout(child_layout)
 
         layout.addWidget(child_widget)
         layout.addWidget(NavigationButtons(log_browser))
-        self.window.setLayout(layout)
 
+        self.window = QWidget(self)
+        self.window.setLayout(layout)
         self.setWindowTitle('Log viewer - Tymoteusz Lango')
         self.setCentralWidget(self.window)
         self.center()
