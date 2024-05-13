@@ -1,13 +1,159 @@
+import os.path
+
 from PyQt6.QtCore import Qt, QRect
 from PyQt6.QtGui import *
 from PyQt6.QtWidgets import *
+from read_logs import read_logs, log_to_dict
+from datetime import datetime
+import locale
 
 
-class FileBrowser(QWidget):
+class LogDetailedView(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.path_display = QLineEdit('CHOOSE FILE TO DISPLAY')
+        self.host = self.create_txt_filed()
+        self.date = self.create_txt_filed()
+        self.time = self.create_txt_filed()
+        self.timezone = self.create_txt_filed()
+        self.code = self.create_txt_filed()
+        self.method = self.create_txt_filed()
+        self.resource = self.create_txt_filed()
+        self.size = self.create_txt_filed()
+
+        layout = QGridLayout(self)
+        layout.addWidget(QLabel('Remote host:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter),
+                         0, 0)
+        layout.addWidget(self.host, 0, 1, 1, 3)
+        layout.addWidget(QLabel('Date:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), 1, 0)
+        layout.addWidget(self.date, 1, 1, 1, 3)
+        layout.addWidget(QLabel('Time:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), 2, 0)
+        layout.addWidget(self.time, 2, 1)
+        layout.addWidget(QLabel('Timezone:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), 2,
+                         2)
+        layout.addWidget(self.timezone, 2, 3)
+        layout.addWidget(QLabel('Status code:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter),
+                         3, 0)
+        layout.addWidget(self.code, 3, 1)
+        layout.addWidget(QLabel('Method:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), 3, 2)
+        layout.addWidget(self.method, 3, 3)
+        layout.addWidget(QLabel('Resource:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), 4,
+                         0)
+        layout.addWidget(self.resource, 4, 1, 1, 3)
+        layout.addWidget(QLabel('Size:', alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), 5, 0)
+        layout.addWidget(self.size, 5, 1)
+
+        self.setLayout(layout)
+
+    def create_txt_filed(self) -> QLineEdit:
+        info_text = QLineEdit()
+        info_text.setEnabled(False)
+        return info_text
+
+    def update(self, log: str):
+        log_dict = log_to_dict(log)
+        date = log_dict['date']
+        self.host.setText(log_dict['host'])
+        self.date.setText(str(date.date()))
+        self.time.setText(str(date.time()))
+        self.timezone.setText(log_dict['timezone'])
+        self.code.setText(str(log_dict['code']))
+        self.method.setText(log_dict['method'])
+        self.resource.setText(log_dict['resource'])
+        self.size.setText(str(log_dict['size']))
+
+
+class DatePicker(QWidget):
+    def __init__(self, log_browser):
+        super().__init__()
+        self.log_browser = log_browser
+
+        date_from = self._create_buttons('From:', datetime(1900, 1, 1))
+        date_to = self._create_buttons('To:', datetime.today())
+
+        self.date_from = date_from.findChild(QDateEdit)
+        self.date_to = date_to.findChild(QDateEdit)
+
+        self.date_from.dateChanged.connect(self.update)
+        self.date_to.dateChanged.connect(self.update)
+
+        layout = QHBoxLayout()
+        layout.addWidget(date_from)
+        layout.addWidget(date_to)
+
+        self.setLayout(layout)
+
+    def _create_buttons(self, label_text: str, date) -> QWidget:
+        date_label = QLabel(label_text)
+        date_picker = QDateEdit(date)
+
+        date_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        date_picker.setCalendarPopup(True)
+
+        layout = QHBoxLayout()
+        layout.addWidget(date_label, 20)
+        layout.addWidget(date_picker, 75)
+
+        button_widget = QWidget()
+        button_widget.setLayout(layout)
+        return button_widget
+
+    def update(self):
+        self.log_browser.filter(self.date_from.date(), self.date_to.date())
+
+
+class LogBrowser(QWidget):
+    def __init__(self, log_detailed_view: LogDetailedView):
+        super().__init__()
+        self.logs = []
+        self.log_detailed_view = log_detailed_view
+
+        layout = QVBoxLayout()
+        layout.addWidget(DatePicker(self))
+        layout.addWidget(self._create_log_list())
+
+        self.setLayout(layout)
+
+    def _create_log_list(self):
+        self.log_list = QListWidget(self)
+        self.log_list.itemSelectionChanged.connect(self.selected_log_handler)
+        self.log_list.addItems(self.logs)
+        return self.log_list
+
+    def filter(self, date_from, date_to):
+        self.log_list.clear()
+
+        for log in self.logs:
+            if date_from < log_to_dict(log)['date'] <= date_to:
+                self.log_list.addItem(log)
+
+    def update(self, logs: list[str]):
+        self.logs = logs
+        self.log_list.clear()
+        self.log_list.addItems(logs)
+
+    def selected_log_handler(self):
+        selected_items = self.log_list.selectedItems()
+        if selected_items:
+            self.log_detailed_view.update(selected_items[0].text())
+
+    def previous(self):
+        current_row = self.log_list.currentRow()
+        if current_row > 0:
+            self.log_list.setCurrentRow(current_row - 1)
+
+    def next(self):
+        current_row = self.log_list.currentRow()
+        if current_row > 0:
+            self.log_list.setCurrentRow(current_row - 1)
+
+
+class FileBrowser(QWidget):
+    def __init__(self, log_browser: LogBrowser):
+        super().__init__()
+        self.log_browser = log_browser
+
+        self.path_display = QLineEdit('')
         self.browser_btn = QPushButton('Browse')
 
         self.browser_btn.clicked.connect(self.click_browse)
@@ -19,62 +165,37 @@ class FileBrowser(QWidget):
         self.setLayout(layout)
 
     def click_browse(self):
-        file_name = QFileDialog.getOpenFileName(
-            QFileDialog(self),
-            'Choose log file',
-            '',
-            'ExistingFiles'
-        )
-        if file_name:
-            self.path_display.setText(file_name[0])
+        file_dialog = QFileDialog(self)
+
+        file_dialog.setFileMode(QFileDialog.FileMode.ExistingFiles)
+        file_dialog.setNameFilter(self.tr("Text files (*.txt *.log)"))
+        file_path = ''
+
+        if file_dialog.exec():
+            file_path = file_dialog.selectedFiles()[0]
+
+        if file_path and os.path.isfile(file_path):
+            self.path_display.setText(file_path)
+            self.log_browser.update(read_logs(file_path))
 
 
-class DatePicker(QWidget):
-    def __init__(self):
+class NavigationButtons(QWidget):
+    def __init__(self, log_browser):
         super().__init__()
-        layout = QHBoxLayout()
-        layout.addWidget(self._create_buttons('From:'))
-        layout.addWidget(self._create_buttons('To:'))
+        self.log_browser = log_browser
 
-        self.setLayout(layout)
+        previous_btn = QPushButton('Previous')
+        next_btn = QPushButton('Next')
 
-    def _create_buttons(self, label_text: str) -> QWidget:
-        date_label = QLabel(label_text)
-        date_picker = QDateEdit()
-
-        date_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        date_picker.setCalendarPopup(True)
+        previous_btn.clicked.connect(self.log_browser.previous)
+        next_btn.clicked.connect(self.log_browser.next)
 
         layout = QHBoxLayout()
-        layout.addWidget(date_label, 25)
-        layout.addWidget(date_picker, 75)
-
-        button_widget = QWidget()
-        button_widget.setLayout(layout)
-        return button_widget
-
-
-class LogBrowserTable(QWidget):
-    def __init__(self):
-        super().__init__()
-
-        layout = QVBoxLayout()
-        layout.addWidget(DatePicker())
-        layout.addWidget(self._create_table())
-
+        layout.addWidget(previous_btn)
+        layout.addWidget(QLabel())
+        layout.addWidget(QLabel())
+        layout.addWidget(next_btn)
         self.setLayout(layout)
-
-    def _create_table(self):
-        self.listWidget = QListWidget(self)
-
-        data = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
-
-        for item in data:
-            self.listWidget.addItem(item)
-
-        # Fill table with data
-        # self.tableWidget.populateTable()
-        return self.listWidget
 
 
 class MainWindow(QMainWindow):
@@ -85,9 +206,20 @@ class MainWindow(QMainWindow):
         self.window_width = window_width
         self.window_height = window_height
 
+        log_detailed_view = LogDetailedView()
+        log_browser = LogBrowser(log_detailed_view)
+
         layout = QVBoxLayout()
-        layout.addWidget(FileBrowser())
-        layout.addWidget(LogBrowserTable())
+        layout.addWidget(FileBrowser(log_browser))
+
+        child_widget = QWidget()
+        child_layout = QHBoxLayout()
+        child_layout.addWidget(log_browser)
+        child_layout.addWidget(log_detailed_view)
+        child_widget.setLayout(child_layout)
+
+        layout.addWidget(child_widget)
+        layout.addWidget(NavigationButtons(log_browser))
         self.window.setLayout(layout)
 
         self.setWindowTitle('Log viewer - Tymoteusz Lango')
@@ -107,8 +239,9 @@ class MainWindow(QMainWindow):
 
 def run():
     app = QApplication([])
-    window = MainWindow(500, 500)
+    window = MainWindow(1000, 500)
     window.show()
+    locale.setlocale(locale.LC_TIME, 'en_GB.utf8')
     app.exec()
 
 
