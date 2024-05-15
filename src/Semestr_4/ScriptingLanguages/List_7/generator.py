@@ -11,7 +11,6 @@ def make_generator(function):
 
 
 def fibonacci(n: int):
-    array = [0, 1]
     if n < 0:
         raise ValueError("n must be a positive number")
     elif n < 2:

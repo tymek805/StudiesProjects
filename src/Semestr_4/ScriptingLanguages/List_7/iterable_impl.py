@@ -15,7 +15,8 @@ def atmost(n, pred, iterable) -> bool:
 
 
 if __name__ == "__main__":
-    print(forall(lambda x: x >= 0, [-7, 0, 11]))
-    print(exists(lambda x: x >= 0, [-7, 0, 11]))
-    print(atleast(2, lambda x: x >= 0, [-7, 0, -11]))
-    print(atmost(2, lambda x: x >= 0, [-7, 0, -11]))
+    # print(forall(lambda x: x >= 0, [-7, 0, 11]))
+    # print(exists(lambda x: x >= 0, [-7, 0, 11]))
+    # print(atleast(2, lambda x: x >= 0, [-7, 0, -11]))
+    # print(atmost(2, lambda x: x >= 0, [-7, 0, -11]))
+    print(exists(lambda x: x is not True, [False, False, True]))
