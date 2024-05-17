@@ -11,14 +11,13 @@ class SSHLogJournal:
         self._ssh_logs: list[SSHLogEntry] = []
 
     def append(self, raw_log: str) -> None:
+        log: SSHLogEntry = OtherSSH(raw_log)
         if 'Failed' in raw_log:
-            log: SSHLogEntry = RejectedPasswordSSH(raw_log)
+            log = RejectedPasswordSSH(raw_log)
         elif 'Accepted' in raw_log:
-            log: SSHLogEntry = AcceptedPasswordSSH(raw_log)
+            log = AcceptedPasswordSSH(raw_log)
         elif 'error' in raw_log:
-            log: SSHLogEntry = ErrorSSH(raw_log)
-        else:
-            log: SSHLogEntry = OtherSSH(raw_log)
+            log = ErrorSSH(raw_log)
 
         if not log.validate():
             raise ValueError('Incorrect data for detected type!')
