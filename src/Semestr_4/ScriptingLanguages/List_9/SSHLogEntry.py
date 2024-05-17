@@ -1,32 +1,36 @@
+from __future__ import annotations
+
 import re
+from re import Pattern, Match
 from abc import ABC
 from datetime import datetime
 from ipaddress import IPv4Address
+from typing import AnyStr, Optional, Union
 
 
 class SSHLogEntry(ABC):
-    _log_pattern = re.compile(
+    _log_pattern: Pattern[AnyStr] = re.compile(
         r'(?P<timestamp>\w{3}\s{1,2}\d{1,2}\s\d{2}:\d{2}:\d{2})\s(?P<host>\w+)\s(?P<component>\w+)\[(?P<pid>\d+)]:\s(?P<message>.+)'
     )
-    _ipv4_pattern = re.compile(r'[0-9]+(?:\.[0-9]+){3}')
-    _user_pattern = re.compile(
+    _ipv4_pattern: Pattern[AnyStr] = re.compile(r'[0-9]+(?:\.[0-9]+){3}')
+    _user_pattern: Pattern[AnyStr] = re.compile(
         r'(invalid user |Invalid user |Failed password for invalid user |Failed password for |Accepted password for |user=)(\w+)')
-    _port_pattern = re.compile(r'port (\d+)')
+    _port_pattern: Pattern[AnyStr] = re.compile(r'port (\d+)')
 
-    def __init__(self, raw_log: str):
-        self._raw_log = raw_log
-        match = re.match(self._log_pattern, self._raw_log)
+    def __init__(self, raw_log: str) -> None:
+        self._raw_log: str = raw_log
+        match: Optional[Match[str]] = re.match(self._log_pattern, self._raw_log)
 
         if match:
-            self.date = match.group('timestamp')
-            self.host = match.group('host')
-            self.component = match.group('component')
-            self.pid = match.group('pid')
-            self.message = match.group('message')
+            self.date: AnyStr = match.group('timestamp')
+            self.host: AnyStr = match.group('host')
+            self.component: AnyStr = match.group('component')
+            self.pid: AnyStr = match.group('pid')
+            self.message: AnyStr = match.group('message')
         else:
             raise ValueError("Provided log could not be parsed")
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return (f"{self.__class__.__name__}( "
                 f"Date: {self.date} | "
                 f"Host: {self.host} | "
@@ -35,56 +39,53 @@ class SSHLogEntry(ABC):
                 f"Message: \"{self.message}\" "
                 f")")
 
-    def __lt__(self, other):
-        other_date = other.datetime() if type(other) is SSHLogEntry else other
-        return self.datetime() < other_date
+    def __lt__(self, other: Union[SSHLogEntry, datetime]) -> bool:
+        return self.datetime() < (other.datetime() if type(other) is SSHLogEntry else other)
 
-    def __gt__(self, other):
-        other_date = other.datetime() if type(other) is SSHLogEntry else other
-        return self.datetime() > other_date
+    def __gt__(self, other: Union[SSHLogEntry, datetime]) -> bool:
+        return self.datetime() > (other.datetime() if type(other) is SSHLogEntry else other)
 
-    def __eq__(self, other):
-        other_date = other.datetime() if type(other) is SSHLogEntry else other
-        return self.datetime() == other_date
+    def __eq__(self, other: Union[SSHLogEntry, datetime]) -> bool:
+        return self.datetime() == (other.datetime() if type(other) is SSHLogEntry else other)
 
-    def datetime(self):
+    def datetime(self) -> datetime:
         return datetime.strptime(f"{self.date}", "%b %d %H:%M:%S")
 
     def validate(self) -> bool:
         raise NotImplementedError
 
-    def ipv4(self):
-        ipv4 = re.findall(self._ipv4_pattern, self.message)
+    def ipv4(self) -> Optional[IPv4Address]:
+        ipv4: list = re.findall(self._ipv4_pattern, self.message)
         return IPv4Address(ipv4[0]) if ipv4 else None
 
     @property
-    def has_ipv4(self):
+    def has_ipv4(self) -> bool:
         return self.ipv4() is not None
 
-    def user(self):
-        username = re.findall(self._user_pattern, self.message)
+    def user(self) -> Optional[str]:
+        username: list = re.findall(self._user_pattern, self.message)
         return username[0][1] if username else None
 
-    def port(self):
-        port = re.findall(self._port_pattern, self.message)
+    def port(self) -> Optional[str]:
+        port: list = re.findall(self._port_pattern, self.message)
         return port[0] if port else None
 
 
 class RejectedPasswordSSH(SSHLogEntry):
-    def __init__(self, raw_log):
+    def __init__(self, raw_log: str) -> None:
         super().__init__(raw_log)
-        self.ip = self.ipv4()
-        self.user = self.user()
-        self.port = self.port()
+        self.ip: Optional[IPv4Address] = self.ipv4()
+        self.user: Optional[str] = self.user()
+        self.port: Optional[str] = self.port()
 
         if not (self.user and self.port and self.ip):
             raise ValueError(f"Provided log does not contain all required values [ipv4, user, port]")
 
-    def validate(self):
-        match = self._log_pattern.match(self._raw_log)
-        ipv4 = re.findall(self._ipv4_pattern, self.message)
-        username = re.findall(self._user_pattern, self.message)
-        port = re.findall(self._port_pattern, self.message)
+    def validate(self) -> bool:
+        match: Optional[Match[str]] = self._log_pattern.match(self._raw_log)
+        ipv4: list = re.findall(self._ipv4_pattern, self.message)
+        username: list = re.findall(self._user_pattern, self.message)
+        port: list = re.findall(self._port_pattern, self.message)
 
         if not (match and ipv4 and username and port):
             return False
@@ -102,20 +103,20 @@ class RejectedPasswordSSH(SSHLogEntry):
 
 
 class AcceptedPasswordSSH(SSHLogEntry):
-    def __init__(self, raw_log):
+    def __init__(self, raw_log: str) -> None:
         super().__init__(raw_log)
-        self.user = self.user()
-        self.port = self.port()
-        self.ip = self.ipv4()
+        self.ip: Optional[IPv4Address] = self.ipv4()
+        self.user: Optional[str] = self.user()
+        self.port: Optional[str] = self.port()
 
         if not (self.user and self.port and self.ip):
             raise ValueError(f"Provided log does not contain all required values [user, port, ipv4]")
 
-    def validate(self):
-        match = self._log_pattern.match(self._raw_log)
-        ipv4 = re.findall(self._ipv4_pattern, self.message)
-        username = re.findall(self._user_pattern, self.message)
-        port = re.findall(self._port_pattern, self.message)
+    def validate(self) -> bool:
+        match: Optional[Match[str]] = self._log_pattern.match(self._raw_log)
+        ipv4: list = re.findall(self._ipv4_pattern, self.message)
+        username: list = re.findall(self._user_pattern, self.message)
+        port: list = re.findall(self._port_pattern, self.message)
 
         if not (match and ipv4 and username and port):
             return False
@@ -133,16 +134,16 @@ class AcceptedPasswordSSH(SSHLogEntry):
 
 
 class ErrorSSH(SSHLogEntry):
-    def __init__(self, raw_log):
+    def __init__(self, raw_log: str) -> None:
         super().__init__(raw_log)
-        self.ip = self.ipv4()
+        self.ip: Optional[IPv4Address] = self.ipv4()
 
         if not self.ip:
             raise ValueError(f"Provided log does not contain required value: ipv4")
 
-    def validate(self):
-        match = self._log_pattern.match(self._raw_log)
-        ipv4 = re.findall(self._ipv4_pattern, self.message)
+    def validate(self) -> bool:
+        match: Optional[Match[str]] = self._log_pattern.match(self._raw_log)
+        ipv4: list = re.findall(self._ipv4_pattern, self.message)
 
         if not (match and ipv4):
             return False
@@ -158,5 +159,5 @@ class ErrorSSH(SSHLogEntry):
 
 
 class OtherSSH(SSHLogEntry):
-    def validate(self):
+    def validate(self) -> bool:
         return True
