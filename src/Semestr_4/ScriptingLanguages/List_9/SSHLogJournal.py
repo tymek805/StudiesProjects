@@ -10,7 +10,7 @@ class SSHLogJournal:
     def __init__(self) -> None:
         self._ssh_logs: list[SSHLogEntry] = []
 
-    def append(self, raw_log: str) -> None:
+    def append(self, raw_log: str) -> SSHLogEntry:
         log: SSHLogEntry = OtherSSH(raw_log)
         if 'Failed' in raw_log:
             log = RejectedPasswordSSH(raw_log)
@@ -22,6 +22,7 @@ class SSHLogJournal:
         if not log.validate():
             raise ValueError('Incorrect data for detected type!')
         self._ssh_logs.append(log)
+        return log
 
     def __len__(self) -> int:
         return len(self._ssh_logs)

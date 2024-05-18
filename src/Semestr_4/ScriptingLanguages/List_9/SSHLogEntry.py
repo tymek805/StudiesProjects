@@ -1,11 +1,11 @@
 from __future__ import annotations
 
 import re
-from re import Pattern, Match
 from abc import ABC
 from datetime import datetime
-from ipaddress import IPv4Address
-from typing import Optional, Union, Callable
+from ipaddress import IPv4Address, AddressValueError
+from re import Pattern, Match
+from typing import Optional, Union
 
 
 class SSHLogEntry(ABC):
@@ -49,14 +49,17 @@ class SSHLogEntry(ABC):
         return self.datetime() == (other.datetime() if type(other) is SSHLogEntry else other)
 
     def datetime(self) -> datetime:
-        return datetime.strptime(f"{self.date}", "%b %d %H:%M:%S")
+        return datetime.strptime(self.date, "%b %d %H:%M:%S")
 
     def validate(self) -> bool:
         raise NotImplementedError
 
     def ipv4(self) -> Optional[IPv4Address]:
         ipv4: list = re.findall(self._ipv4_pattern, self.message)
-        return IPv4Address(ipv4[0]) if ipv4 else None
+        try:
+            return IPv4Address(ipv4[0]) if ipv4 else None
+        except AddressValueError:
+            return None
 
     @property
     def has_ipv4(self) -> bool:
@@ -77,9 +80,6 @@ class RejectedPasswordSSH(SSHLogEntry):
         self.ip: Optional[IPv4Address] = self.ipv4()
         self.user: Optional[str] = self.get_user()
         self.port: Optional[str] = self.get_port()
-
-        if not (self.user and self.port and self.ip):
-            raise ValueError(f"Provided log does not contain all required values [ipv4, user, port]")
 
     def validate(self) -> bool:
         match: Optional[Match[str]] = self._log_pattern.match(self._raw_log)

@@ -9,7 +9,7 @@ if __name__ == "__main__":
     test_line = ''
 
     with open('SSH.log', 'r') as f:
-        for line in f.readlines()[:10]:
+        for line in f.readlines():
             if test_line == '': test_line = line
             journal.append(line)
 
