@@ -1,5 +1,5 @@
 import sqlite3
-from typing import Text
+from typing import Text, List
 
 from create_database import rentals_table, stations_table
 
@@ -21,9 +21,9 @@ class DatabaseManager:
         cursor.close()
         return [value[0] for value in result]
 
-    def calculate(self, station_name: Text) -> (float, float, int, int):
-        return self.average_duration_start(station_name), self.average_duration_end(
-            station_name), self.distinct_bikes_parked(station_name), self.paid_rentals_number(station_name)
+    def calculate(self, station_name: Text) -> list[float | int]:
+        return [self.average_duration_start(station_name), self.average_duration_end(
+            station_name), self.distinct_bikes_parked(station_name), self.paid_rentals_number(station_name)]
 
     def average_duration_start(self, station_name: Text) -> float:
         cursor = self.connection.cursor()
