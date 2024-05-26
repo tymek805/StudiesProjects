@@ -3,8 +3,10 @@ import sys
 from typing import Text, Dict
 
 
-def create_database():
-    db_name: Text = 'rentals_db.sqlite'
+def create_database(db_name: Text = 'rentals_db'):
+    if not db_name.endswith('.sqlite'):
+        db_name += '.sqlite'
+
     table_names: Dict[Text, Text] = {
         'stations': "station_id INTEGER PRIMARY KEY AUTOINCREMENT, station_name TEXT",
         'rentals': "rental_id INTEGER PRIMARY KEY, bike_id INTEGER, start_time DATE, end_time DATE, rental_station INTEGER, return_station INTEGER, rental_time INTEGER, "
@@ -23,4 +25,7 @@ def create_database():
 
 
 if __name__ == "__main__":
-    create_database()
+    if len(sys.argv) == 2:
+        create_database(sys.argv[1])
+    else:
+        create_database()
