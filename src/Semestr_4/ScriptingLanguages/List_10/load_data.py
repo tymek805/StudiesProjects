@@ -27,7 +27,7 @@ def load_data(data_file: Text, db_file: Text):
 
     cursor.executemany(f"INSERT OR IGNORE INTO {stations_table} (station_name) VALUES (?);", zip(stations))
     cursor.executemany(
-        f"INSERT INTO {rentals_table} (rental_id, bike_id, start_time, end_time, rental_station, return_station, rental_time) VALUES (?, ?, ?, ?, (SELECT station_id FROM {table_names[0]} WHERE station_name = ?), (SELECT station_id FROM {table_names[0]} WHERE station_name = ?), ?)",
+        f"INSERT INTO {rentals_table} (rental_id, bike_id, start_time, end_time, rental_station, return_station, rental_time) VALUES (?, ?, ?, ?, (SELECT station_id FROM {stations_table} WHERE station_name = ?), (SELECT station_id FROM {stations_table} WHERE station_name = ?), ?)",
         data)
     cursor.close()
 
