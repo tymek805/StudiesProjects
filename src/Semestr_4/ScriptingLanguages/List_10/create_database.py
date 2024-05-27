@@ -16,9 +16,6 @@ def create_database(db_name: Text = 'rentals_db'):
                        "FOREIGN KEY (rental_station) REFERENCES stations(station_id), FOREIGN KEY (return_station) REFERENCES stations(station_id)",
     }
 
-    if len(sys.argv) == 2:
-        db_name = sys.argv[1].strip().replace(' ', '_') + '.sqlite'
-
     connection = sqlite3.connect(db_name)
     for table_name, structure in table_names.items():
         connection.execute(f"CREATE TABLE IF NOT EXISTS {table_name} ({structure});")
