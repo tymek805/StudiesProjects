@@ -3,74 +3,11 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_1_C/W01a" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_1_L" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_1" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/test" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/SchedulingAlgorithms" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_2_L" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_3_L/OLD" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_3_L" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_1_C" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_2_C" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_4_L" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/SchedulingAlgorithmsDisk" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_5_L" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_6_L" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_7_L" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/PageReplacementAlgorithms" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_8_L" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/FrameAllocationAlgorithms" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_9_L" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/raw" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_11_L" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/Lista_10_L" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Semestr_2/DistributedBalancingAlgorithm" />
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
-      <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/out" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.11 (StudiesProjects)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.11 (StudiesProjects) (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" scope="TEST">
-      <library name="JUnit5.8.1">
-        <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter/5.8.1/junit-jupiter-5.8.1.jar!/" />
-          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.8.1/junit-jupiter-api-5.8.1.jar!/" />
-          <root url="jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar!/" />
-          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.8.1/junit-platform-commons-1.8.1.jar!/" />
-          <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar!/" />
-          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-params/5.8.1/junit-jupiter-params-5.8.1.jar!/" />
-          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-engine/5.8.1/junit-jupiter-engine-5.8.1.jar!/" />
-          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-engine/1.8.1/junit-platform-engine-1.8.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter/5.8.1/junit-jupiter-5.8.1.jar!/" />
-          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.8.1/junit-jupiter-api-5.8.1.jar!/" />
-          <root url="jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar!/" />
-          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.8.1/junit-platform-commons-1.8.1.jar!/" />
-          <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar!/" />
-          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-params/5.8.1/junit-jupiter-params-5.8.1.jar!/" />
-          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-engine/5.8.1/junit-jupiter-engine-5.8.1.jar!/" />
-          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-engine/1.8.1/junit-platform-engine-1.8.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-  </component>
-  <component name="PyNamespacePackagesService">
-    <option name="namespacePackageFolders">
-      <list>
-        <option value="$MODULE_DIR$/src/Semestr_4" />
-      </list>
-    </option>
   </component>
 </module>
