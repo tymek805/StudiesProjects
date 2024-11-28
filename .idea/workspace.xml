@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e3c0a8e-a8c8-4956-baf0-f88c2b3341d0" name="Changes" comment="Add List 7 for IoT" />
+    <list default="true" id="3e3c0a8e-a8c8-4956-baf0-f88c2b3341d0" name="Changes" comment="Add List 7 for IoT">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-anydpi/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,9 +56,9 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/tymoteusz/Projects/IdeaProjects/StudiesProjects&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/tymoteusz/Projects/StudiesProjects&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -68,6 +87,8 @@
       <workItem from="1732710923446" duration="90000" />
       <workItem from="1732711022025" duration="1147000" />
       <workItem from="1732712354114" duration="560000" />
+      <workItem from="1732816806842" duration="23000" />
+      <workItem from="1732816845013" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="Add List 7 for IoT">
       <option name="closed" value="true" />
