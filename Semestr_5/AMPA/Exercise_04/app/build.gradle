@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -34,9 +35,18 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    configurations {
+        cleanedAnnotations
+        compile.exclude group: 'org.jetbrains' , module:'annotations'
+    }
 }
 
+
 dependencies {
+    def room_version = "2.6.1"
+    implementation libs.androidx.room.runtime
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    ksp(libs.androidx.room.compiler)
 
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat

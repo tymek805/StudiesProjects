@@ -3,32 +3,40 @@ package com.tymek805.exercise_04.database
 import android.content.Context
 
 class MyRepository(ctx: Context) {
-    private val listSize = 15
-    private var dataList: MutableList<MyItem> = mutableListOf()
+    private var database: MyDatabase
+    private var myDao: MyDao
 
-    fun getAllItems(): MutableList<MyItem> {
-        return dataList
+    fun getAllItems(): MutableList<MyItem>? {
+        return myDao.getAllData()
     }
 
     fun deleteItem(myItem: MyItem) {
-        dataList.remove(myItem)
+        myDao.delete(myItem)
     }
 
-//    fun addItem()
-//    fun deleteItem()
+    fun addItem(myItem: MyItem) {
+        myDao.insert(myItem)
+    }
+
 //    fun updateItem()
 
     companion object {
-        private var INSTANCE: MyRepository? = null
+        private var instance: MyRepository? = null
         fun getInstance(ctx: Context): MyRepository {
-            if (INSTANCE == null) {
-                INSTANCE = MyRepository(ctx)
+            if (instance == null) {
+                instance = MyRepository(ctx)
             }
-            return INSTANCE as MyRepository
+            return instance as MyRepository
         }
     }
 
     init {
-        dataList = MutableList(listSize) { i -> MyItem(i) }
+        database = MyDatabase.getDatabase(ctx)!!
+        myDao = database.myDao()!!
+
+        myDao.deleteAll()
+        for (i in 1..10) {
+            myDao.insert(MyItem(i))
+        }
     }
 }

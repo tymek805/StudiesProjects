@@ -1,13 +1,32 @@
 package com.tymek805.exercise_04.database
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlin.random.Random
 
-class MyItem(i: Int) {
-
-    var text_main : String = "Default text"
-    var text_2 : String = "Default text"
-    var item_value : Int = Random.nextInt(0, 5)
-    var item_value2: Int = 0
-    var item_type : Boolean = Random.nextBoolean()
-    var item_checked : Boolean = Random.nextBoolean()
+@Entity(tableName = "items")
+data class MyItem(
+    @PrimaryKey(autoGenerate = true)
+    var id: Int,
+    var textMain: String?,
+    var subText: String?,
+    @ColumnInfo(name = "rating")
+    var rating: Int,
+    @ColumnInfo(name = "age")
+    var age: Int,
+    @ColumnInfo(name = "type")
+    var itemType: Boolean,
+    @ColumnInfo(name = "selection")
+    var checked: Boolean
+) {
+    constructor() : this(0,"","",0,0,false,false)
+    constructor(num: Int) : this(0,"","",0,0,false,false) {
+        textMain = "Item name $num"
+        subText = "Default text $num"
+        rating = Random.nextInt(0, 5)
+        age = Random.nextInt(0, 100)
+        itemType = Random.nextBoolean()
+        checked = false
+    }
 }

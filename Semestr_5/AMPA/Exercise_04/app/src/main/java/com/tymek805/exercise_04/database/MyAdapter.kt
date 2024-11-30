@@ -41,13 +41,13 @@ class MyAdapter(var data: MutableList<MyItem>) : RecyclerView.Adapter<MyAdapter.
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.tv1.text = data[position].text_main
+        holder.tv1.text = data[position].textMain
         holder.tv2.text = buildString {
-            append(data[position].text_2)
-            append(data[position].item_value)
+            append(data[position].subText)
+            append(data[position].rating)
         }
-        holder.checkBox.isChecked = data[position].item_checked
-        when (data[position].item_type) {
+        holder.checkBox.isChecked = data[position].checked
+        when (data[position].itemType) {
             false -> holder.img.setImageResource(R.drawable.ic_airplane)
             true -> holder.img.setImageResource(R.drawable.ic_train)
         }
