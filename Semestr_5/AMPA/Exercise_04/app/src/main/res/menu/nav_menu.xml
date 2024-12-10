@@ -4,8 +4,8 @@
         android:id="@+id/mainFragment"
         android:title="Main" />
     <item
-        android:id="@+id/list4Fragment"
-        android:title="List4" />
+        android:id="@+id/listFragment"
+        android:title="List" />
     <item
         android:id="@+id/swipeFragment"
         android:title="Swipe" />

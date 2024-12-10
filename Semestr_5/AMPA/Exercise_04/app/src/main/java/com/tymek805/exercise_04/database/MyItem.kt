@@ -9,24 +9,25 @@ import kotlin.random.Random
 data class MyItem(
     @PrimaryKey(autoGenerate = true)
     var id: Int,
-    var textMain: String?,
+    var destination: String?,
     var subText: String?,
     @ColumnInfo(name = "rating")
-    var rating: Int,
-    @ColumnInfo(name = "age")
-    var age: Int,
+    var rating: Float,
+    @ColumnInfo(name = "time")
+    var time: Int,
     @ColumnInfo(name = "type")
-    var itemType: Boolean,
-    @ColumnInfo(name = "selection")
+    var transportType: TransportType?,
+    @ColumnInfo(name = "abroad")
     var checked: Boolean
 ) {
-    constructor() : this(0,"","",0,0,false,false)
-    constructor(num: Int) : this(0,"","",0,0,false,false) {
-        textMain = "Item name $num"
-        subText = "Default text $num"
-        rating = Random.nextInt(0, 5)
-        age = Random.nextInt(0, 100)
-        itemType = Random.nextBoolean()
-        checked = false
+    constructor() : this(0,"","",0f,0,TransportType.BUS,false)
+    constructor(num: Int) : this(0,"","", 0f,0,null,false) {
+        val cities = listOf("Warszawa", "Kraków", "Poznań", "Wrocław", "Gdańsk", "Szczecin", "Łódź", "Katowice", "Lublin", "Berlin")
+        destination = cities.random()
+        time = Random.nextInt(60, 250)
+        subText = "Czas połączenia: $time min"
+        rating = Random.nextInt(0, 5).toFloat()
+        transportType = TransportType.entries.toTypedArray().random()
+        checked = destination == "Berlin"
     }
 }

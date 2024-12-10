@@ -54,15 +54,14 @@ class MyListAdapter(private val onItemAction: (item: MyItem, action: Int) -> Uni
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item: MyItem = getItem(position)
 
-        holder.tv1.text = item.textMain
-        holder.tv2.text = buildString {
-            append(item.subText)
-            append(item.rating)
-        }
+        holder.tv1.text = item.destination
+        holder.tv2.text = item.subText
         holder.checkBox.isChecked = item.checked
-        when (item.itemType) {
-            false -> holder.img.setImageResource(R.drawable.ic_airplane)
-            true -> holder.img.setImageResource(R.drawable.ic_train)
+        when (item.transportType) {
+            TransportType.AIRPLANE -> holder.img.setImageResource(R.drawable.ic_airplane)
+            TransportType.TRAIN -> holder.img.setImageResource(R.drawable.ic_train)
+            TransportType.BUS -> holder.img.setImageResource(R.drawable.ic_bus)
+            null -> holder.img.setImageResource(R.drawable.ic_null)
         }
     }
 }

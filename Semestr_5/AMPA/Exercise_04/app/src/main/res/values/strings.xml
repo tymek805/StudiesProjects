@@ -6,4 +6,5 @@
     <string name="nav_close">Close</string>
     <string name="author">Tymoteusz Lango</string>
     <string name="invitation">Invitation</string>
+    <string name="list_title">My List:</string>
 </resources>

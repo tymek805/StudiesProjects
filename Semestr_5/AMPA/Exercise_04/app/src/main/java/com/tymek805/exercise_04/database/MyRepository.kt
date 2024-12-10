@@ -18,7 +18,9 @@ class MyRepository(ctx: Context) {
         myDao.insert(myItem)
     }
 
-//    fun updateItem()
+    fun updateItem(myItem: MyItem) {
+        myDao.updateItem(myItem)
+    }
 
     companion object {
         private var instance: MyRepository? = null

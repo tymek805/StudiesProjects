@@ -11,13 +11,23 @@
         android:label="Fragment Main"
         tools:layout="@layout/fragment_main" />
     <fragment
-        android:id="@+id/list4Fragment"
-        android:name="com.tymek805.exercise_04.fragments.List4Fragment"
-        android:label="Fragment List4"
-        tools:layout="@layout/fragment_list4" />
+        android:id="@+id/listFragment"
+        android:name="com.tymek805.exercise_04.fragments.ListFragment"
+        android:label="Fragment List"
+        tools:layout="@layout/fragment_list" />
     <fragment
         android:id="@+id/swipeFragment"
         android:name="com.tymek805.exercise_04.fragments.SwipeFragment"
         android:label="Fragment Swipe"
         tools:layout="@layout/fragment_swipe" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.tymek805.exercise_04.fragments.DetailsFragment"
+        android:label="Fragment Details"
+        tools:layout="@layout/fragment_details"/>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.tymek805.exercise_04.fragments.EditFragment"
+        android:label="Fragment Edit"
+        tools:layout="@layout/fragment_edit"/>
 </navigation>

@@ -43,6 +43,10 @@ android {
 
 
 dependencies {
+    implementation libs.androidx.legacy.support.v4
+    implementation libs.androidx.lifecycle.livedata.ktx
+    implementation libs.androidx.lifecycle.viewmodel.ktx
+    implementation libs.androidx.fragment.ktx
     def room_version = "2.6.1"
     implementation libs.androidx.room.runtime
     annotationProcessor "androidx.room:room-compiler:$room_version"
