@@ -1,0 +1,27 @@
+pluginManagement {
+    plugins {
+        id 'com.google.devtools.ksp' version '1.9.20-1.0.14' apply false
+//        alias(libs.plugins.jetbrains.kotlin.android)
+    }
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "Exercise_04"
+include ':app'

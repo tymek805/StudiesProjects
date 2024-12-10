@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_nav_left"
+        android:title="Left"
+        android:icon="@drawable/baseline_arrow_back_24" />
+    <item
+        android:id="@+id/bottom_nav_finish"
+        android:title="Finish"
+        android:icon="@drawable/baseline_close_24" />
+    <item
+        android:id="@+id/bottom_nav_right"
+        android:title="Right"
+        android:icon="@drawable/baseline_arrow_forward_24" />
+</menu>
