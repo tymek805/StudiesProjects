@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Formularz osobowy</title>
+    <link rel="stylesheet" href="obywatel.css">
+</head>
+<body>
+
+  <h1>Formularz rejestracji obywatela</h1>
+  <form autocomplete="on" method="GET">
+      <div>
+          <label for="fname">Imię:</label>
+          <input type="text" id="fname" name="fname" autocomplete="given-name" autofocus>
+      </div>
+
+      <div>
+          <label for="lname">Nazwisko:</label>
+          <input type="text" id="lname" name="lname" autocomplete="family-name" required>
+      </div>
+
+      <div>
+          <label for="birthmonth">Miesiąc urodzin:</label>
+          <input list="months" id="birthmonth" name="birthmonth" autocomplete="bday-month">
+          <datalist id="months">
+              <option value="Styczeń">
+              <option value="Luty">
+              <option value="Marzec">
+              <option value="Kwiecień">
+              <option value="Maj">
+              <option value="Czerwiec">
+              <option value="Lipiec">
+              <option value="Sierpień">
+              <option value="Wrzesień">
+              <option value="Październik">
+              <option value="Listopad">
+              <option value="Grudzień">
+          </datalist>
+      </div>
+
+      <div class="form-field">
+          <label for="email">Adres e-mail:</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+      </div>
+
+      <div class="form-field">
+          <label for="phone">Telefon:</label>
+          <input placeholder="+XX-XXX-XXX-XXX" type="tel" id="phone" name="phone" autocomplete="tel" pattern="\+\d{2}-\d{3}-\d{3}-\d{3}" required>
+      </div>
+
+      <button type="submit">Wyślij</button>
+  </form>
+
+</body>
+</html>
+

@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    background-color: #333;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    padding: 10px;
+}
+
+.menu > li {
+    position: relative;
+}
+
+.menu > li > a {
+    color: white;
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+}
+
+.menu > li:hover > a {
+    background-color: #444;
+}
+
+.submenu {
+    list-style-type: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: #333;
+    padding: 0;
+}
+
+.submenu li {
+    position: relative;
+}
+
+.submenu li a {
+    color: white;
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+}
+
+.submenu li a:hover {
+    background-color: #444;
+}
+
+/* Wyświetlanie submenu przy najechaniu */
+.menu > li:hover > .submenu,
+.submenu li:hover > .submenu {
+    display: block;
+}
+
+/* Pozycjonowanie submenu trzeciego poziomu */
+.submenu .submenu {
+    top: 0;
+    left: 100%;
+}
+
