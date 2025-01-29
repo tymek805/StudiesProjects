@@ -44,7 +44,6 @@ class MainActivity : ComponentActivity() {
 
                 val tabBarItems = listOf(swipeTab, mainTab, listTab)
                 val navController = rememberNavController()
-
                 Surface(modifier = Modifier.fillMaxSize()) {
                     val listViewModel: ListViewModel = viewModel()
                     Scaffold(bottomBar = { BottomNavigationBar(tabBarItems, navController) }) {
