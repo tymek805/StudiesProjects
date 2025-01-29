@@ -1,0 +1,19 @@
+body {
+    background: url('images/herb.png');
+    background-size: 200px 270px;;
+    background-repeat: repeat;
+    background-position: center top;
+    padding: 50px;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    background-color: aliceblue;
+}
+form {
+    background-color: aliceblue;
+    border-width: 20px;
+    border-style: inset;
+    border-color: #3498db;
+}
