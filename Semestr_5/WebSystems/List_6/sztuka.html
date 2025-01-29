@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Sztuka dla sztuki</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Sztuka dla sztuki</h1>
+        <div class="field">
+            <label for="number-input">Podaj liczbę całkowitą:</label>
+            <input type="text" id="number-input" placeholder="Np. 42">
+        </div>
+        <button id="convert-int">Przekonwertuj na liczbę całkowitą</button>
+
+        <div class="field">
+            <label for="decimal-input">Podaj liczbę dziesiętną:</label>
+            <input type="text" id="decimal-input" placeholder="Np. 3.14">
+        </div>
+        <button id="convert-float">Przekonwertuj na liczbę zmiennoprzecinkową</button>
+
+        <button id="generate-random">Wygeneruj losową liczbę (0–100)</button>
+        <button id="generate-random-floor">Wygeneruj zaokrągloną losową liczbę (0–100)</button>
+
+        <div class="result">Wyniki będą wyświetlane tutaj.
+            <p  id="result-display"> </p>
+        </div>
+    </div>
+
+    <script src="sztuka.js"></script>
+</body>
+</html>
