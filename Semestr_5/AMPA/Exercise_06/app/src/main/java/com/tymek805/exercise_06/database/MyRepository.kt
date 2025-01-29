@@ -1,12 +1,13 @@
 package com.tymek805.exercise_06.database
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 
 class MyRepository(ctx: Context) {
     private var database: MyDatabase
     private var myDao: MyDao
 
-    fun getAllItems(): MutableList<MyItem>? {
+    fun getAllItems(): LiveData<List<MyItem>> {
         return myDao.getAllData()
     }
 

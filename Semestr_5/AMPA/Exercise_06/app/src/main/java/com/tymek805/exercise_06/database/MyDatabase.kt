@@ -11,10 +11,11 @@ import androidx.room.TypeConverters
 abstract class MyDatabase: RoomDatabase() {
     abstract fun myDao(): MyDao?
     companion object {
+        @Volatile
         private var databaseInstance: MyDatabase? = null
 
         @Synchronized
-        open fun getDatabase(context: Context): MyDatabase? {
+        fun getDatabase(context: Context): MyDatabase? {
             if (databaseInstance == null) {
                 databaseInstance = databaseBuilder(context.applicationContext, MyDatabase::class.java, "item_database").allowMainThreadQueries().build()
             }

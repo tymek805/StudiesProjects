@@ -1,5 +1,6 @@
 package com.tymek805.exercise_06.database
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -10,7 +11,7 @@ import androidx.room.Update
 @Dao
 interface MyDao {
     @Query("SELECT * FROM items ORDER BY id ASC")
-    fun getAllData(): MutableList<MyItem>?
+    fun getAllData(): LiveData<List<MyItem>>
 
     @Query("DELETE FROM items")
     fun deleteAll()
