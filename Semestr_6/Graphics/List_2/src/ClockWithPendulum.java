@@ -142,7 +142,7 @@ class DrawWndPane extends JPanel {
         g2d.setColor(new Color(0, 0, 0));
         g2d.setStroke(new BasicStroke(1));
         drawHand(second * 6.0, (int) (0.97 * r_inner), g);
-        double angle = amplitude * Math.sin(2 * Math.PI * (System.currentTimeMillis() - startTime) / 1000.0 / frequency);
+        double angle = amplitude *  Math.sin(2 * Math.PI * (System.currentTimeMillis() - startTime) / 1000.0 / frequency);
         drawPendulum(angle, g);
     }
 }
@@ -151,6 +151,6 @@ class SmpWindow extends JFrame {
     public SmpWindow(double frequency, double amplitude) {
         Container contents = getContentPane();
         contents.add(new DrawWndPane(frequency, amplitude));
-        setTitle("ClockWithPendulum");
+        setTitle("Clock with pendulum");
     }
 }
