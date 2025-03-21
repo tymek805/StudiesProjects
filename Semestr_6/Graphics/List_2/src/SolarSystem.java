@@ -74,23 +74,11 @@ public class SolarSystem extends JPanel {
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame();
+        DisplayJFrame frame = new DisplayJFrame(false);
         frame.getContentPane().add(new SolarSystem());
-        frame.setTitle("SolarSystem");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("Solar system");
         frame.setMinimumSize(new Dimension(900, 900));
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        frame.setResizable(false);
-
-        while (true) {
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException e) {
-                System.out.println("Interrupted");
-            }
-            frame.repaint();
-        }
+        frame.center();
+        frame.start();
     }
 }
