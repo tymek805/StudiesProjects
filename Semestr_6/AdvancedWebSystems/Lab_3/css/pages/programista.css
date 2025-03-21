@@ -1,0 +1,70 @@
+body {
+  font-family: Arial, sans-serif;
+  color: black;
+  font-size: 18px;
+  line-height: 1.6;
+  background-color: #f9fbfd;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+h4, h3, h2, h1 {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  line-height: 1.2;
+  color: black;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 1rem;
+  background-color: hsla(300, 100%, 70%, 0.3);
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: 0.8rem;
+  background-color: rgba(0, 128, 255, 0.3);
+}
+
+h4 {
+  font-size: 1.25rem;
+  margin-top: 0.6rem;
+}
+
+form {
+  background-color: aliceblue;
+  border-width: 20px;
+  border-style: inset;
+  border-color: #3498db;
+  margin: 20px;
+  top: 20px;
+  padding: 10px;
+}
+
+body {
+  background: url("../../images/kod-programu.jpg") no-repeat left top;
+  background-size: cover;
+}
+
+h2 {
+  background-color: rgb(184, 219, 250);
+}
+
+form {
+  background-color: rgb(184, 219, 250);
+}
+
+label:not(#do-not-change) {
+  color: white;
+}
+
+/*# sourceMappingURL=programista.css.map */

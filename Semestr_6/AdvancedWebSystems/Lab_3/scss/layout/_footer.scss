@@ -1,0 +1,27 @@
+@use '../helpers/variables' as *;
+
+footer {
+    font-size: 12px; 
+    position: fixed; 
+    bottom: 0; 
+    left: 0;
+    padding: 10px;
+    background-color: $background-secondary;
+    p:last-of-type {
+    opacity: 0.2;
+    }
+}
+
+.float-right {
+    float: right; 
+    width: 20%; 
+    margin-left: 80%;
+}
+
+.controls {
+    margin: 20px 0;
+  }
+label {
+    display: block;
+    margin: 5px 0;
+}

@@ -1,0 +1,50 @@
+@use '../base/typography';
+
+
+@use '../layout/footer';
+@use '../layout/header';
+
+@use '../helpers/mixins' as *;
+@use '../helpers/variables' as *;
+@use '../helpers/functions' as *;
+
+.shadow_box{
+    @include shadow_box();
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow-x: auto;
+
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+        width: calculate_width_for_tables(3);
+    }
+
+    th {
+        background-color: $background-primary;
+    }
+
+    tr {
+        &:hover {
+            background-color: $background-primary;
+        }
+    }
+
+    table {
+        width: 100%;
+
+        th, td {
+            width: calculate_width_for_tables(2);
+        }
+    }
+}
+
+footer {
+    position: relative; 
+    bottom: auto;
+    margin-top: 50px; 
+}

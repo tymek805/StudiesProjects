@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title> Moje miasto Wrocław </title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/indexstylechange.js"></script>
+  
+</head>
+<body>
+    
+
+    <header class="header">
+	      <a class="logo" href="https://www.wroclaw.pl/"><img src="images/logo.png" alt="Logo"></a>
+        <h1> Moje miasto Wrocław </h1>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="index.html"> Strona Główna </a></li>
+                <li><a href="aktualnosci.html">Aktualności</a></li>
+                <li><a href="index.html#galeria"> Galeria </a></li>
+                <li><a href="mieszkancy.html"> Statyski mieszkańców </a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="obywatel.html">Rejestracja obywatela</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Aktualności</h2>
+        <article class="article_box">
+            <h3>Nowe inwestycje drogowe we Wrocławiu</h3>
+            <p>Władze miasta ogłosiły plan remontu głównych arterii komunikacyjnych...</p>
+            <a href="https://www.wroclaw.pl/dla-mieszkanca/aktualnosci">Czytaj więcej</a>
+        </article>
+        <article class="article_box">
+            <h3>Wrocławscy studenci z nagrodą za innowacyjny projekt</h3>
+            <p>Studenci Politechniki Wrocławskiej zdobyli pierwsze miejsce...</p>
+            <a href="https://www.wroclaw.pl/dla-mieszkanca/aktualnosci">Czytaj więcej</a>
+        </article>
+        <article class="article_box">
+            <h3>Nowa trasa tramwajowa już otwarta</h3>
+            <p>Od dziś pasażerowie mogą korzystać z nowej linii tramwajowej...</p>
+            <a href="https://www.wroclaw.pl/dla-mieszkanca/aktualnosci">Czytaj więcej</a>
+        </article>
+    </main>
+	
+    <footer class="float-right">
+        <p>&copy; 2024 Miasto Wrocław </p>
+	      <p><a href="mailto:admin@pwr.edu.pl"> Kontakt </a></p>
+	      <img src="images/logo.png" alt="Logo" height=125 width=285>
+        <p><a href="index.html" download="index.html">Pobierz źródło strony</a></p>
+        <p>Jeśli chcesz wpółtworzyć tę stronę zgłoś się przez <a href="programista.html">formularz</a></p>
+
+        <div class="controls">
+            <table>
+                <tr>
+                    <td><label for="bg-color">Kolor tła:</label></td>
+                    <td><input type="color" id="bg-color"></td>
+                </tr>
+                <tr>
+                    <td><label for="text-color">Kolor tekstu:</label></td>
+                    <td><input type="color" id="text-color"></td>
+                </tr>
+                <tr>
+                    <td><label for="font-family">Rodzaj czcionki:</label></td>
+                    <td>
+                    <select id="font-family">
+                        <option value="Arial, sans-serif">Arial</option>
+                        <option value="'Courier New', monospace">Courier New</option>
+                        <option value="Georgia, serif">Georgia</option>
+                        <option value="'Times New Roman', serif">Times New Roman</option>
+                        <option value="Verdana, sans-serif">Verdana</option>
+                    </select>   
+                    </td>
+                </tr> 
+            </table>
+                
+            
+    
+            <button id="reset-styles">Resetuj Style</button>
+        </div>
+    </footer>
+
+</body>
+</html>
