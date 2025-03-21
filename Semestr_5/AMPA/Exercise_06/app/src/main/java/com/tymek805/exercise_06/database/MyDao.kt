@@ -1,0 +1,27 @@
+package com.tymek805.exercise_06.database
+
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Update
+
+@Dao
+interface MyDao {
+    @Query("SELECT * FROM items ORDER BY id ASC")
+    fun getAllData(): LiveData<List<MyItem>>
+
+    @Query("DELETE FROM items")
+    fun deleteAll()
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insert(item: MyItem): Long
+
+    @Delete
+    fun delete(item: MyItem): Int
+
+    @Update
+    fun updateItem(item: MyItem)
+}

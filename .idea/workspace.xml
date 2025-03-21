@@ -4,22 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e3c0a8e-a8c8-4956-baf0-f88c2b3341d0" name="Changes" comment="Add List 7 for IoT">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/database/MyAdapter.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/database/MyDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/database/MyDao.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/database/MyDatabase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/database/MyDatabase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/database/MyItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/database/MyItem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/database/MyListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/database/MyListAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/database/MyRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/database/MyRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/fragments/List4Fragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/fragments/ListFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/fragments/ListViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/java/com/tymek805/exercise_04/fragments/ListViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/layout/fragment_list4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/layout/fragment_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/menu/nav_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/menu/nav_menu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/navigation/nav_graph.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_04/app/src/main/res/values/strings.xml" afterDir="false" />
+    <list default="true" id="3e3c0a8e-a8c8-4956-baf0-f88c2b3341d0" name="Changes" comment="Add List 11 for IoT">
+      <change beforePath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_06/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Semestr_5/AMPA/Exercise_06/.idea/other.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,27 +35,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/tymoteusz/Downloads/Spring&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "develop",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/tymoteusz/Projects/StudiesProjects",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.24807.21" />
-        <option value="bundled-python-sdk-00717045f1d3-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.24807.21" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
       </set>
     </attachedChunks>
   </component>
@@ -88,6 +74,9 @@
       <workItem from="1732816845013" duration="7000" />
       <workItem from="1733262130237" duration="222000" />
       <workItem from="1733820162149" duration="155000" />
+      <workItem from="1733820534109" duration="44000" />
+      <workItem from="1737211992507" duration="650000" />
+      <workItem from="1741941126153" duration="3000" />
     </task>
     <task id="LOCAL-00001" summary="Add List 7 for IoT">
       <option name="closed" value="true" />
@@ -97,7 +86,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732712075019</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add List 11 for IoT">
+      <option name="closed" value="true" />
+      <created>1733820559650</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733820559650</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,6 +102,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add List 7 for IoT" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add List 7 for IoT" />
+    <MESSAGE value="Add List 11 for IoT" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add List 11 for IoT" />
   </component>
 </project>

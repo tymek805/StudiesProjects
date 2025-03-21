@@ -1,0 +1,179 @@
+body {
+  font-family: Arial, sans-serif;
+  color: black;
+  font-size: 18px;
+  line-height: 1.6;
+  background-color: #f9fbfd;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+h4, h3, h2, h1 {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  line-height: 1.2;
+  color: black;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 1rem;
+  background-color: hsla(300, 100%, 70%, 0.3);
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: 0.8rem;
+  background-color: rgba(0, 128, 255, 0.3);
+}
+
+h4 {
+  font-size: 1.25rem;
+  margin-top: 0.6rem;
+}
+
+footer {
+  font-size: 12px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  background-color: aliceblue;
+}
+footer p:last-of-type {
+  opacity: 0.2;
+}
+
+.float-right {
+  float: right;
+  width: 20%;
+  margin-left: 80%;
+}
+
+.controls {
+  margin: 20px 0;
+}
+
+label {
+  display: block;
+  margin: 5px 0;
+}
+
+header h1 {
+  font-size: 2em;
+  margin: 0.5em 0;
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-variant: small-caps;
+}
+
+a:link {
+  color: #FF0000;
+}
+a:visited {
+  color: grey;
+}
+
+nav ul li a {
+  font-size: 14px;
+  text-decoration: none;
+  margin: 40px;
+}
+
+ul > li {
+  list-style-type: square;
+}
+
+li:only-child {
+  font-size: 20px;
+  color: pink;
+}
+
+#nav-list li:nth-last-child(2n) {
+  background: #e8e8e7;
+}
+
+@media screen and (max-width: 600px) {
+  a.logo {
+    display: none;
+  }
+}
+#ranking {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 15px;
+  background-color: aliceblue;
+  padding: 0 10px;
+}
+#ranking li:first-child {
+  background: yellow;
+}
+#ranking li:last-child {
+  background: red;
+}
+#ranking li:nth-child(3n) {
+  background: #4FFFB0;
+}
+
+.article_box {
+  margin: 20px;
+  padding: 20px;
+  border: 4px solid #ccc;
+  width: 80%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+  background-origin: padding-box;
+  margin-left: 60px;
+}
+
+@media (max-width: 600px) {
+  #info_o_wroc {
+    font-size: 14px;
+  }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  #info_o_wroc {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1025px) {
+  #info_o_wroc {
+    font-size: 18px;
+  }
+}
+#info_o_wroc {
+  position: relative;
+}
+#info_o_wroc h2 {
+  font-size: 18pt;
+  text-shadow: 4px 4px 10px rgb(0, 0, 0);
+}
+#info_o_wroc h3 {
+  font-size: 14pt;
+}
+#info_o_wroc p {
+  font-size: 110%;
+}
+
+#galeria {
+  clear: both;
+}
+
+.container {
+  display: grid;
+  gap: 10px;
+}
+
+/*# sourceMappingURL=main.css.map */

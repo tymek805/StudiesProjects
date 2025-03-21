@@ -1,0 +1,26 @@
+@use '../helpers/variables' as *;
+
+#ranking {
+ 
+    position: absolute; 
+    top: 20px; 
+    right: 40px; 
+    font-size: 15px;
+    background-color: $background-secondary;
+    padding: 0 10px;
+    li {
+        
+
+        &:first-child {
+          background: yellow;
+        }
+        
+        &:last-child {
+          background: red;
+        }
+        
+        &:nth-child(3n) {
+          background: #4FFFB0;
+        }
+      }
+  }  

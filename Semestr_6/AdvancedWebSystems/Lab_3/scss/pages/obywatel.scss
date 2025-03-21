@@ -1,0 +1,19 @@
+@use '../base/typography';
+
+@use '../components/forms';
+@use '../helpers/variables' as *;
+
+
+body {
+    background: url('../../images/herb.png');
+    background-size: 200px 270px;;
+    background-repeat: repeat;
+    background-position: center top;
+    padding: 50px;
+    margin-bottom: 20px;
+    font-family: $font-primary;
+}
+
+h1 {
+    background-color: aliceblue;
+}

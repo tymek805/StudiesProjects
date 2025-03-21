@@ -1,0 +1,146 @@
+body {
+    font-size: 18px;
+    line-height: 1.6;
+    background-color: #f0f8ff;
+}
+
+@media (max-width: 600px) {
+    #info_o_wroc {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    #info_o_wroc {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1025px) {
+    #info_o_wroc {
+        font-size: 18px;
+    }
+}
+
+header h1 {
+    font-size: 2em; 
+    margin: 0.5em 0;
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-variant: small-caps;
+}
+
+a:link {
+    color: #FF0000;
+}
+
+a:visited {
+    color: grey;
+}
+
+nav ul li a {
+    font-size: 14px;
+    text-decoration: none;
+    margin: 40px;
+}
+
+ul > li {
+    list-style-type: square;
+}
+
+.box {
+    margin: 20px; 
+    padding: 20px;
+    border: 1px solid #ccc; 
+    width: 80%; 
+    height: auto; 
+}
+
+@media screen and (max-width: 600px) {
+  a.logo {
+    display: none;
+  }
+}
+
+#info_o_wroc h2 {
+    font-size: 18pt;
+}
+
+#info_o_wroc h3 {
+    font-size: 14pt;
+}
+
+#info_o_wroc p {
+    font-size: 110%; 
+}
+
+#info_o_wroc {
+    position: relative; 
+}
+
+#ranking {
+    position: absolute; 
+    top: 20px; 
+    right: 40px; 
+    font-size: 15px;
+}
+
+.wroclaw-highlight {
+    font-weight: bold;
+    font-style: italic;
+}
+
+#galeria {
+    clear: both;
+}
+
+footer {
+    font-size: 12px; 
+    position: fixed; 
+    bottom: 0; 
+    left: 0;
+    padding: 10px;
+    background-color: aliceblue;
+}
+
+footer p:last-of-type {
+    opacity: 0.2;
+}
+
+.float-right {
+    float: right; 
+    width: 20%; 
+    margin-left: 80%;
+}
+
+#ranking li:first-child {
+  background: yellow;
+}
+
+#ranking li:last-child {
+    background: red;
+}
+
+#ranking li:nth-child(3n) {
+    background: #4FFFB0;
+}
+
+#nav-list li:nth-last-child(2n) {
+    background: #DADD98;
+}
+
+li:only-child {
+  font-size: 20px;
+  color: pink;
+}
+
+:target {
+  border: 2px solid darkorange;
+  background-color: beige;
+}
+
+meter:empty {
+    opacity: 0.1;
+}
