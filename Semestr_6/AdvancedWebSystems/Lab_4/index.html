@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>Material Design for Bootstrap</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"/>
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css"/>
+    <!--  Custom CSS styles  -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--  ChartJS  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<!-- Start your project here-->
+
+<!--Main Navigation-->
+<header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary fixed-top">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button
+                    data-mdb-collapse-init
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                    <img
+                            src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+                            height="15"
+                            alt="MDB Logo"
+                            loading="lazy"
+                    />
+                </a>
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Projects</a>
+                    </li>
+                </ul>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+
+            <!-- Right elements -->
+            <div class="d-flex align-items-center">
+                <!-- Icon -->
+                <a class="text-reset me-3" href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+
+                <!-- Notifications -->
+                <div class="dropdown">
+                    <a
+                            data-mdb-dropdown-init
+                            class="text-reset me-3 dropdown-toggle hidden-arrow"
+                            href="#"
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            aria-expanded="false"
+                    >
+                        <i class="fas fa-bell"></i>
+                        <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                    </a>
+                    <ul
+                            class="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="navbarDropdownMenuLink"
+                    >
+                        <li>
+                            <a class="dropdown-item" href="#">Some news</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Another news</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Avatar -->
+                <div class="dropdown">
+                    <a
+                            data-mdb-dropdown-init
+                            class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                            href="#"
+                            id="navbarDropdownMenuAvatar"
+                            role="button"
+                            aria-expanded="false"
+                    >
+                        <img
+                                src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                                class="rounded-circle"
+                                height="25"
+                                alt="Black and White Portrait of a Man"
+                                loading="lazy"
+                        />
+                    </a>
+                    <ul
+                            class="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="navbarDropdownMenuAvatar"
+                    >
+                        <li>
+                            <a class="dropdown-item" href="#">My profile</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Settings</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+    <!--Mask-->
+    <div id="intro" class="view">
+        <div class="mask bg-dark bg-opacity-50">
+            <div class="container-fluid d-flex align-items-center justify-content-center vh-100">
+                <div class="row d-flex justify-content-center text-center">
+                    <div class="col-md-10">
+                        <!-- Heading -->
+                        <h2 class="display-4 fw-bold text-white pt-5 mb-2">Podróżowanie</h2>
+                        <!-- Divider -->
+                        <hr class="border-light">
+                        <!-- Description -->
+                        <h4 class="text-white my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti consequuntu r.</h4>
+                        <button type="button" class="btn btn-outline-light" onclick="scrollToFAQ()">Dowiedz się więcej <i class="fas fa-book ms-2"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.Mask-->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main class="mt-5">
+    <div class="container">
+        <!-- Section: LastTravels -->
+        <section id="lastTravels" class="text-center">
+            <div class="row">
+                <!-- Grid column -->
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="bg-image hover-overlay shadow-3 rounded">
+                        <img src="img/gdansk.jpg" class="img-fluid" alt="Gdańsk">
+                        <a href="#map" onclick="openMap('Gdańsk')">
+                            <div class="mask" style="background-color: rgba(33, 150, 243, 0.4);"></div>
+                        </a>
+                    </div>
+                    <h4 class="my-4 fw-bold">Gdańsk</h4>
+                    <p class="text-muted">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores
+                        nam, aperiam minima assumenda deleniti hic.
+                    </p>
+                </div>
+                <!-- Grid column -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="bg-image hover-overlay shadow-3 rounded">
+                        <img src="img/krakow.jpg" class="img-fluid" alt="Gdańsk">
+                        <a href="#map" onclick="openMap('Kraków')">
+                            <div class="mask" style="background-color: rgba(33, 150, 243, 0.4);"></div>
+                        </a>
+                    </div>
+                    <h4 class="my-4 fw-bold">Kraków</h4>
+                    <p class="text-muted">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores
+                        nam, aperiam minima assumenda deleniti hic.
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="bg-image hover-overlay shadow-3 rounded">
+                        <img src="img/poznan.jpg" class="img-fluid" alt="Gdańsk">
+                        <a href="#map" onclick="openMap('Poznań')">
+                            <div class="mask" style="background-color: rgba(33, 150, 243, 0.4);"></div>
+                        </a>
+                    </div>
+                    <h4 class="my-4 fw-bold">Poznań</h4>
+                    <p class="text-muted">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores
+                        nam, aperiam minima assumenda deleniti hic.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Grid column -->
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="bg-image hover-overlay shadow-3 rounded">
+                        <img src="img/szczecin.jpg" class="img-fluid" alt="Gdańsk">
+                        <a href="#map" onclick="openMap('Szczecin')">
+                            <div class="mask" style="background-color: rgba(33, 150, 243, 0.4);"></div>
+                        </a>
+                    </div>
+                    <h4 class="my-4 fw-bold">Szczecin</h4>
+                    <p class="text-muted">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores
+                        nam, aperiam minima assumenda deleniti hic.
+                    </p>
+                </div>
+                <!-- Grid column -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="bg-image hover-overlay shadow-3 rounded">
+                        <img src="img/torun.jpg" class="img-fluid" alt="Gdańsk">
+                        <a href="#map" onclick="openMap('Toruń')">
+                            <div class="mask" style="background-color: rgba(33, 150, 243, 0.4);"></div>
+                        </a>
+                    </div>
+                    <h4 class="my-4 fw-bold">Toruń</h4>
+                    <p class="text-muted">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores
+                        nam, aperiam minima assumenda deleniti hic.
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="bg-image hover-overlay shadow-3 rounded">
+                        <img src="img/wroclaw.jpg" class="img-fluid" alt="Gdańsk">
+                        <a href="#map" onclick="openMap('Wrocław')">
+                            <div class="mask" style="background-color: rgba(33, 150, 243, 0.4);"></div>
+                        </a>
+                    </div>
+                    <h4 class="my-4 fw-bold">Wrocław</h4>
+                    <p class="text-muted">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores
+                        nam, aperiam minima assumenda deleniti hic.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Section: LastTravels -->
+
+        <hr class="my-5">
+
+        <section id="chart" class="my-5">
+            <div id="chartContainer" class="container mt-5">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3>Popularność miejsc</h3>
+                        <canvas id="cityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <hr class="my-5">
+        <!-- Google Maps -->
+        <section id="map" class="my-5">
+            <h2 class="text-center mb-4">Lokalizacja</h2>
+            <div class="ratio ratio-16x9">
+                <iframe id="googleMap" src="https://www.google.com/maps?output=embed" allowfullscreen></iframe>
+            </div>
+        </section>
+
+<!--        &lt;!&ndash; Tekst i zdjęcie 1:3 &ndash;&gt;-->
+<!--        <section class="d-flex align-items-center my-5">-->
+<!--            <div class="col-md-3">-->
+<!--                <img src="img/travel.jpg" class="img-fluid rounded" alt="Podróż">-->
+<!--            </div>-->
+<!--            <div class="col-md-9 ps-4">-->
+<!--                <h3>Odkryj świat</h3>-->
+<!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>-->
+<!--            </div>-->
+<!--        </section>-->
+
+        <hr class="my-5">
+        <!-- Cytat -->
+        <section class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-lg-9 col-xl-7">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+
+                            <div class="text-center mb-4 pb-2">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-quotes/bulb.webp"
+                                     alt="Bulb" width="100">
+                            </div>
+
+                            <figure class="text-center mb-0">
+                                <blockquote class="blockquote">
+                                    <p class="pb-3">
+                                        <i class="fas fa-quote-left fa-xs text-primary"></i>
+                                        <span class="lead font-italic">Zwiedzaj świat. To lepsze niż najpiękniejszy sen...</span>
+                                        <i class="fas fa-quote-right fa-xs text-primary"></i>
+                                    </p>
+                                </blockquote>
+                                <figcaption class="blockquote-footer mb-0">
+                                    Ray Bradbury
+                                </figcaption>
+                            </figure>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+        <!-- FAQ Accordion -->
+        <section id="faq" class="my-5">
+            <h2 class="text-center mb-4">FAQ - Najczęściej zadawane pytania</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Jakie dokumenty są potrzebne do podróży?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            W zależności od kraju docelowego może być wymagany paszport, wiza lub inne dokumenty. Upewnij się, że przed podróżą masz aktualne dokumenty.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            W jakich godzinach rozpoczyna się doba hotelowa i do kiedy muszę opuścić pokój w dniu wyjazdu?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Doba hotelowa zazwyczaj rozpoczyna się między 14:00 a 15:00, ale dokładne godziny są podane w umowie lub opisie oferty hotelowej. Wszelkie świadczenia, w tym wyżywienie, zaczynają obowiązywać po zameldowaniu w recepcji hotelowej. W dniu wyjazdu pokój należy opuścić do godziny 10:00–12:00. Jeśli chcesz przedłużyć dobę hotelową, powinieneś zgłosić to w recepcji. Przedłużenie jest możliwe w zależności od dostępności pokoi i zazwyczaj wiąże się z dodatkową opłatą.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Jaki adapter kupić?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Zawsze dowiedz się, jakiego typu gniazdka są używane w miejscu docelowym, zwłaszcza jeśli podróżujesz do egzotycznego kraju. Zalecamy zaopatrzenie się w uniwersalny adapter podróżny (dostępny również na lotnisku).
+                            <ul>
+                                <li>
+                                    Typ europejski: Czechy, Bułgaria, Egipt, Chorwacja, Włochy, Maroko, Portugalia, Austria, Grecja, Hiszpania, Tunezja, Turcja
+                                </li>
+                                <li>
+                                    Typ angielski: Indonezja, Kenia, Cypr, Malediwy, Malta, Mauritius, Seszele, ZEA, Sri Lanka                                </li>
+                                <li>
+                                    Typ amerykański: Dominikana, Kuba, Jamajka, Meksyk, Tajlandia, USA, Wenezuela
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Czy oferujecie ubezpieczenie podróżne?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Tak, oferujemy ubezpieczenie podróżne. Można je dodać do rezerwacji podczas zakupu biletów lub skontaktować się z naszym biurem obsługi klienta w celu uzyskania szczegółów.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formularz kontaktowy -->
+        <section id="contact" class="my-5">
+            <h2 class="text-center mb-4">Kontakt</h2>
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Imię i nazwisko</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Wiadomość</label>
+                    <textarea class="form-control" rows="4" required></textarea>
+                </div>
+                <div id="confirmationMessage" class="alert alert-success text-center d-none fade fade-in fade-out" role="alert">
+                    Formularz został wysłany! Dziękujemy za kontakt.
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Wyślij</button>
+                </div>
+            </form>
+        </section>
+
+        <hr class="my-5">
+        <!-- Karuzela z pracownikami -->
+        <section id="team" class="my-5">
+            <h2 class="text-center mb-4">Nasz zespół</h2>
+
+            <!-- Carousel wrapper -->
+            <div id="carouselExampleControls" data-mdb-carousel-init class="carousel slide text-center carousel-dark" data-mdb-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card text-center shadow-1-strong mb-4">
+                            <img class="card-img-top rounded-circle" src="img/team-member-1.jpg" alt="avatar" style="width: 150px; margin: 0 auto;"/>
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Mateusz Dejewski</h5>
+                                <p class="card-text">Członek zespołu</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card text-center shadow-1-strong mb-4">
+                            <img class="card-img-top rounded-circle" src="img/team-member-2.jpg" alt="avatar" style="width: 150px; margin: 0 auto;"/>
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Tymoteusz Lango</h5>
+                                <p class="card-text">Członek zespołu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button data-mdb-button-init class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls"
+                        data-mdb-slide="prev">
+                    <span class="carousel-control-prev-icon text-body" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button data-mdb-button-init class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls"
+                        data-mdb-slide="next">
+                    <span class="carousel-control-next-icon text-body" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+    </div>
+
+</main>
+
+<!--Main layout-->
+
+<!--Footer-->
+<footer>
+
+</footer>
+<!--Footer-->
+
+<!-- End your project here-->
+
+<!-- Own script -->
+<script src="js/script.js"></script>
+
+<!-- MDB -->
+<script type="text/javascript" src="js/mdb.umd.min.js"></script>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<!-- Custom scripts -->
+<script type="text/javascript"></script>
+</body>
+</html>
