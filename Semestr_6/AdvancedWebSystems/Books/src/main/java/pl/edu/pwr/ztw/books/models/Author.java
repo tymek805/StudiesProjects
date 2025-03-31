@@ -1,5 +1,6 @@
 package pl.edu.pwr.ztw.books.models;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,6 +12,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @RequiredArgsConstructor
+@Schema(hidden = true)
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

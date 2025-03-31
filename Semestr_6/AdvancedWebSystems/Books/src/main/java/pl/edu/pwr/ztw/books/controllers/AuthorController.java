@@ -2,8 +2,8 @@ package pl.edu.pwr.ztw.books.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.edu.pwr.ztw.books.dto.AuthorDTO;
 import pl.edu.pwr.ztw.books.models.Author;
-import pl.edu.pwr.ztw.books.models.Book;
 import pl.edu.pwr.ztw.books.repositories.IAuthorRepository;
 
 @RestController
@@ -26,16 +26,21 @@ public class AuthorController {
     }
 
     @PostMapping("/author")
-    public ResponseEntity<Object> addAuthor(@RequestBody Author author) {
+    public ResponseEntity<Object> addAuthor(@RequestBody AuthorDTO authorDTO) {
+        Author author = new Author(authorDTO.getName(), authorDTO.getSurname());
         return ResponseEntity.ok(authorRepository.save(author));
     }
 
     @PutMapping("/author/{id}")
-    public ResponseEntity<Object> updateBook(@PathVariable Long id, @RequestBody Author author) {
+    public ResponseEntity<Object> updateAuthor(@PathVariable Long id, @RequestBody AuthorDTO authorDTO) {
         if (authorRepository.existsById(id)) {
             Author oldAuthor = authorRepository.findById(id).orElseThrow();
-            oldAuthor.setName(author.getName());
-            oldAuthor.setSurname(author.getSurname());
+
+            if (authorDTO.getName() != null)
+                oldAuthor.setName(authorDTO.getName());
+            if (authorDTO.getSurname() != null)
+                oldAuthor.setSurname(authorDTO.getSurname());
+
             return ResponseEntity.ok(authorRepository.save(oldAuthor));
         }
 
