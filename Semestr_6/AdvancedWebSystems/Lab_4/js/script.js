@@ -1,4 +1,4 @@
-document.querySelector('form').addEventListener('submit', function(event) {
+document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
     const confirmationMessage = document.getElementById('confirmationMessage');
 
@@ -10,7 +10,7 @@ document.querySelector('form').addEventListener('submit', function(event) {
             confirmationMessage.classList.add('show');
         }, 500);
 
-        form.submit();
+        // form.submit();
         form.reset();
 
         setTimeout(() => {
