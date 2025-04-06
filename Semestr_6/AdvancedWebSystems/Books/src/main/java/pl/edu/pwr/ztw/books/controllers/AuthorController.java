@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.*;
 import pl.edu.pwr.ztw.books.dto.AuthorDTO;
 import pl.edu.pwr.ztw.books.models.Author;
 import pl.edu.pwr.ztw.books.repositories.IAuthorRepository;
+import pl.edu.pwr.ztw.books.ApiResponse;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -16,23 +19,27 @@ public class AuthorController {
     }
 
     @GetMapping(value = "/authors")
-    public ResponseEntity<Object> getAuthors() {
-        return ResponseEntity.ok(authorRepository.findAll());
+    public ResponseEntity<ApiResponse<?>> getAuthors() {
+        return ResponseEntity.ok(new ApiResponse<>(authorRepository.findAll(), "success", "Authors retrieved successfully"));
     }
 
     @GetMapping(value = "/author/{id}")
-    public ResponseEntity<Object> getAuthor(@PathVariable Long id) {
-        return ResponseEntity.ok(authorRepository.findById(id));
+    public ResponseEntity<ApiResponse<?>> getAuthor(@PathVariable Long id) {
+        if (authorRepository.existsById(id)){
+            return ResponseEntity.ok(new ApiResponse<>(authorRepository.findById(id), "success", "Author retrieved successfully"));
+        }
+        return ResponseEntity.status(404).body(new ApiResponse<>(null, "error", "Author not found"));
     }
 
     @PostMapping("/author")
-    public ResponseEntity<Object> addAuthor(@RequestBody AuthorDTO authorDTO) {
+    public ResponseEntity<ApiResponse<?>> addAuthor(@RequestBody AuthorDTO authorDTO) {
         Author author = new Author(authorDTO.getName(), authorDTO.getSurname());
-        return ResponseEntity.ok(authorRepository.save(author));
+        Author savedAuthor = authorRepository.save(author);
+        return ResponseEntity.ok(new ApiResponse<>(savedAuthor, "success", "Author added successfully"));
     }
 
     @PutMapping("/author/{id}")
-    public ResponseEntity<Object> updateAuthor(@PathVariable Long id, @RequestBody AuthorDTO authorDTO) {
+    public ResponseEntity<ApiResponse<?>> updateAuthor(@PathVariable Long id, @RequestBody AuthorDTO authorDTO) {
         if (authorRepository.existsById(id)) {
             Author oldAuthor = authorRepository.findById(id).orElseThrow();
 
@@ -41,19 +48,20 @@ public class AuthorController {
             if (authorDTO.getSurname() != null)
                 oldAuthor.setSurname(authorDTO.getSurname());
 
-            return ResponseEntity.ok(authorRepository.save(oldAuthor));
+            Author updatedAuthor = authorRepository.save(oldAuthor);
+            return ResponseEntity.ok(new ApiResponse<>(updatedAuthor, "success", "Author updated successfully"));
         }
 
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.status(404).body(new ApiResponse<>(null, "error", "Author not found"));
     }
 
     @DeleteMapping("/author/{id}")
-    public ResponseEntity<Object> deleteAuthor(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse<?>> deleteAuthor(@PathVariable Long id) {
         if (!authorRepository.existsById(id)) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(404).body(new ApiResponse<>(null, "error", "Author not found"));
         }
 
         authorRepository.deleteById(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(new ApiResponse<>(null, "success", "Author deleted successfully"));
     }
 }

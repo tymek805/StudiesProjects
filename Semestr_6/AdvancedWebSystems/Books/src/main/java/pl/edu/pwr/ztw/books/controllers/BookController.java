@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.edu.pwr.ztw.books.dto.BookDTO;
 import pl.edu.pwr.ztw.books.models.Book;
 import pl.edu.pwr.ztw.books.services.IBookService;
+import pl.edu.pwr.ztw.books.ApiResponse;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -16,36 +17,42 @@ public class BookController {
     }
 
     @GetMapping(value = "/books")
-    public ResponseEntity<Object> getBooks() {
-        return ResponseEntity.ok(bookService.getBooks());
+    public ResponseEntity<ApiResponse<?>> getBooks() {
+        return ResponseEntity.ok(new ApiResponse<>(bookService.getBooks(), "success", "Books retrieved successfully"));
     }
 
     @GetMapping(value = "/book/{id}")
-    public ResponseEntity<Object> getBook(@PathVariable Long id) {
-        return ResponseEntity.ok(bookService.getBook(id));
+    public ResponseEntity<ApiResponse<?>> getBook(@PathVariable Long id) {
+        Book book = bookService.getBook(id);
+        if (book != null) {
+            return ResponseEntity.ok(new ApiResponse<>(book, "success", "Book retrieved successfully"));
+        }
+        return ResponseEntity.status(404).body(new ApiResponse<>(null, "error", "Book not found"));
     }
 
     @PostMapping("/book")
-    public ResponseEntity<Object> addBook(@RequestBody BookDTO bookDTO) {
-        return ResponseEntity.ok(bookService.addBook(bookDTO));
+    public ResponseEntity<ApiResponse<?>> addBook(@RequestBody BookDTO bookDTO) {
+        Book book = bookService.addBook(bookDTO);
+        return ResponseEntity.ok(new ApiResponse<>(book, "success", "Book added successfully"));
     }
 
     @PutMapping("/book/{id}")
-    public ResponseEntity<Object> updateBook(@PathVariable Long id, @RequestBody BookDTO bookDTO) {
+    public ResponseEntity<ApiResponse<?>> updateBook(@PathVariable Long id, @RequestBody BookDTO bookDTO) {
         Book result = bookService.updateBook(id, bookDTO);
 
-        if (result == null)
-            return ResponseEntity.badRequest().build();
+        if (result == null) {
+            return ResponseEntity.status(400).body(new ApiResponse<>(null, "error", "Invalid data or book not found"));
+        }
 
-        return ResponseEntity.ok(result);
+        return ResponseEntity.ok(new ApiResponse<>(result, "success", "Book updated successfully"));
     }
 
     @DeleteMapping("/book/{id}")
-    public ResponseEntity<Object> deleteBook(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse<?>> deleteBook(@PathVariable Long id) {
         boolean result = bookService.deleteBook(id);
-        if (!result)
-            return ResponseEntity.notFound().build();
-
-        return ResponseEntity.noContent().build();
+        if (!result) {
+            return ResponseEntity.status(404).body(new ApiResponse<>(null, "error", "Book not found"));
+        }
+        return ResponseEntity.ok(new ApiResponse<>(null, "success", "Book deleted successfully"));
     }
 }
