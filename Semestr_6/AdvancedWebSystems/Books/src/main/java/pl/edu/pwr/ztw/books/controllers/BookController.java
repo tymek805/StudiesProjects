@@ -9,6 +9,7 @@ import pl.edu.pwr.ztw.books.ApiResponse;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin("http://localhost:8080")
 public class BookController {
     private final IBookService bookService;
 

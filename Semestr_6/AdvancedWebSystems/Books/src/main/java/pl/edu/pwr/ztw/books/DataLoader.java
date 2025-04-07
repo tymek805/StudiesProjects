@@ -49,18 +49,18 @@ public class DataLoader implements CommandLineRunner {
                 book1, book2, book3
         ));
 
-        User user1 = new User("272691", "Jan", "Kowalski", "jan.kowalski@example.com");
-        User user2 = new User("327384", "Anna", "Nowak", "anna.nowak@example.com");
-        User user3 = new User("836296", "Piotr", "Zieliński", "piotr.zielinski@example.com");
-
-        userRepository.saveAll(List.of(
-                user1, user2, user3
-        ));
-
-        Loan loan1 = new Loan(user1, book1, LocalDate.now(), LocalDate.now().plusDays(30));
-        Loan loan2 = new Loan(user2, book2, LocalDate.now(), LocalDate.now().plusDays(30));
-        Loan loan3 = new Loan(user3, book3, LocalDate.of(2025,2,14), LocalDate.of(2025,3,14));
-
-        loanRepository.saveAll(List.of(loan1, loan2, loan3));
+//        User user1 = new User("272691", "Jan", "Kowalski", "jan.kowalski@example.com");
+//        User user2 = new User("327384", "Anna", "Nowak", "anna.nowak@example.com");
+//        User user3 = new User("836296", "Piotr", "Zieliński", "piotr.zielinski@example.com");
+//
+//        userRepository.saveAll(List.of(
+//                user1, user2, user3
+//        ));
+//
+//        Loan loan1 = new Loan(user1, book1, LocalDate.now(), LocalDate.now().plusDays(30));
+//        Loan loan2 = new Loan(user2, book2, LocalDate.now(), LocalDate.now().plusDays(30));
+//        Loan loan3 = new Loan(user3, book3, LocalDate.of(2025,2,14), LocalDate.of(2025,3,14));
+//
+//        loanRepository.saveAll(List.of(loan1, loan2, loan3));
     }
 }
