@@ -1,12 +1,12 @@
 package pl.edu.pwr.ztw.books.services;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import pl.edu.pwr.ztw.books.dto.BookDTO;
 import pl.edu.pwr.ztw.books.models.Book;
 
-import java.util.Collection;
-
 public interface IBookService {
-    Collection<Book> getBooks();
+    Page<Book> getBooks(Pageable pageable);
     Book getBook(Long id);
     Book addBook(BookDTO bookDTO);
     Book updateBook(Long id, BookDTO bookDTO);

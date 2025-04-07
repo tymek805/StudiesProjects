@@ -1,5 +1,7 @@
 package pl.edu.pwr.ztw.books.controllers;
 
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.pwr.ztw.books.dto.BookDTO;
@@ -18,8 +20,10 @@ public class BookController {
     }
 
     @GetMapping(value = "/books")
-    public ResponseEntity<ApiResponse<?>> getBooks() {
-        return ResponseEntity.ok(new ApiResponse<>(bookService.getBooks(), "success", "Books retrieved successfully"));
+    public ResponseEntity<ApiResponse<?>> getBooks(@RequestParam(name = "page", defaultValue = "0") int page,
+                                                   @RequestParam(name = "size", defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return ResponseEntity.ok(new ApiResponse<>(bookService.getBooks(pageable), "success", "Books retrieved successfully"));
     }
 
     @GetMapping(value = "/book/{id}")

@@ -1,13 +1,13 @@
 package pl.edu.pwr.ztw.books.services;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pl.edu.pwr.ztw.books.dto.BookDTO;
 import pl.edu.pwr.ztw.books.models.Author;
 import pl.edu.pwr.ztw.books.models.Book;
 import pl.edu.pwr.ztw.books.repositories.IAuthorRepository;
 import pl.edu.pwr.ztw.books.repositories.IBookRepository;
-
-import java.util.Collection;
 
 @Service
 public class BookService implements IBookService {
@@ -20,8 +20,8 @@ public class BookService implements IBookService {
     }
 
     @Override
-    public Collection<Book> getBooks(){
-        return bookRepository.findAll();
+    public Page<Book> getBooks(Pageable pageable){
+        return bookRepository.findAll(pageable);
     }
 
     @Override
