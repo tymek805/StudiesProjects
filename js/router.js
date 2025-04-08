@@ -72,15 +72,9 @@ function RenderContactPage() {
 
   if (window.grecaptcha) {
     grecaptcha.render("recaptcha-container", {
-      sitekey: "6LcXbw4rAAAAAPcel-EzBLZSXCfJhRSFUZLbOzzv"
+      sitekey: "6LegjA4rAAAAAI6oiFk8DY_phMQefmEv8V92gq-0"
     });
   }
-  
-  // window.onRecaptchaLoadCallback = function () {
-  //   grecaptcha.render("recaptcha-container", {
-  //     sitekey: "6LcXbw4rAAAAAPcel-EzBLZSXCfJhRSFUZLbOzzv"
-  //   });
-  // };  
 
   document.getElementById("contact-form").addEventListener("submit", function (e) {
     e.preventDefault();
