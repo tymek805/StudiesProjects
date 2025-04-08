@@ -63,12 +63,30 @@ function RenderContactPage() {
         Wiadomość:
         <textarea name="message" id="message" rows="5" required></textarea>
       </label>
-      <div class="g-recaptcha" data-sitekey="6LcXbw4rAAAAAPcel-EzBLZSXCfJhRSFUZLbOzzv"></div>
+      <div id="recaptcha-container"></div>
       <button type="submit">Wyślij</button>
     </form>
     <div id="form-message"></div>
   `;
-    
+
+  if (window.grecaptcha) {
+    grecaptcha.render("recaptcha-container", {
+      sitekey: "6LcXbw4rAAAAAPcel-EzBLZSXCfJhRSFUZLbOzzv"
+    });
+  } else {
+    const script = document.createElement("script");
+    script.src = "https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoadCallback&render=explicit";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+  
+  window.onRecaptchaLoadCallback = function () {
+    grecaptcha.render("recaptcha-container", {
+      sitekey: "6LcXbw4rAAAAAPcel-EzBLZSXCfJhRSFUZLbOzzv"
+    });
+  };  
+
   document.getElementById("contact-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
