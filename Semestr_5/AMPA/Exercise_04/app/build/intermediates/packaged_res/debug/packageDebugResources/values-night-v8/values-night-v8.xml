@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_close">Close</string>
+    <string name="nav_open">Open</string>
+    <style name="Base.Theme.Exercise_04" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+</resources>

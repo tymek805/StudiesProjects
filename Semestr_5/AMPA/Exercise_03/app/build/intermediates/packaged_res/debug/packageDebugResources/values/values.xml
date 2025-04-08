@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Exercise_03</string>
+    <string name="author">Tymoteusz Lango</string>
+    <string name="author_plain_text">Author</string>
+    <string name="change">Change</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="invitation">Invitation</string>
+    <string name="invitation_plain_text">Invitation</string>
+    <string name="left_fragment">Left Fragment</string>
+    <string name="message_from_center">Message from center</string>
+    <string name="nav_close">Close</string>
+    <string name="nav_open">Open</string>
+    <string name="right_fragment">Right Fragment</string>
+    <string name="star_rating_star">Star rating star</string>
+    <style name="Base.Theme.Exercise_03" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.Exercise_03" parent="Base.Theme.Exercise_03"/>
+</resources>

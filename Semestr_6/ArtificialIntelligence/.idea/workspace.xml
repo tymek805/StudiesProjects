@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c80ed87e-1efb-47d1-8296-ff748ea58029" name="Changes" comment="Add A* algorithm and improve code structure">
+      <change beforePath="$PROJECT_DIR$/../AdvancedWebSystems/Lab_4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvancedWebSystems/Lab_4/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvancedWebSystems/Lab_4/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvancedWebSystems/Lab_4/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/272742_Lango_lab_1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/272742_Lango_lab_1.ipynb" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jupyter Notebook" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2urhiRoWYLZ7JAjy9EZRJRtcuIn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/tymoteusz/Projects/StudiesProjects/Semestr_6/ArtificialIntelligence&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.26053.29" />
+        <option value="bundled-python-sdk-b1dbf8ef85a6-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.26053.29" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c80ed87e-1efb-47d1-8296-ff748ea58029" name="Changes" comment="" />
+      <created>1743012726781</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743012726781</updated>
+      <workItem from="1743012727824" duration="21000" />
+      <workItem from="1743012753045" duration="16000" />
+      <workItem from="1743012773557" duration="4028000" />
+      <workItem from="1743016815329" duration="9379000" />
+      <workItem from="1743073212869" duration="94000" />
+      <workItem from="1743073316434" duration="14921000" />
+      <workItem from="1743093393395" duration="25000" />
+      <workItem from="1743093427427" duration="1642000" />
+      <workItem from="1743167257831" duration="9248000" />
+      <workItem from="1743186741943" duration="12530000" />
+      <workItem from="1743244537287" duration="1803000" />
+      <workItem from="1743246354942" duration="284000" />
+      <workItem from="1743246701144" duration="2979000" />
+      <workItem from="1743436245226" duration="3454000" />
+      <workItem from="1743493779099" duration="3770000" />
+      <workItem from="1743498692702" duration="3319000" />
+      <workItem from="1743512317255" duration="4916000" />
+      <workItem from="1743524954046" duration="3591000" />
+      <workItem from="1743528568584" duration="1192000" />
+      <workItem from="1743529768694" duration="13038000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add Dijkstra's algorithm">
+      <option name="closed" value="true" />
+      <created>1743093508219</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743093508219</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add A* algorithm and improve code structure">
+      <option name="closed" value="true" />
+      <created>1743194776633</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743194776633</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add Dijkstra's algorithm" />
+    <MESSAGE value="Add A* algorithm and improve code structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add A* algorithm and improve code structure" />
+  </component>
+</project>

@@ -1,0 +1,16 @@
+#Wed Nov 20 10:11:39 CET 2024
+base.0=/home/tymoteusz/Projects/AndroidStudioProjects/StudiesAndroidProjects/Exercise_03/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/home/tymoteusz/Projects/AndroidStudioProjects/StudiesAndroidProjects/Exercise_03/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.2=/home/tymoteusz/Projects/AndroidStudioProjects/StudiesAndroidProjects/Exercise_03/app/build/intermediates/dex/debug/mergeProjectDexDebug/13/classes.dex
+base.3=/home/tymoteusz/Projects/AndroidStudioProjects/StudiesAndroidProjects/Exercise_03/app/build/intermediates/dex/debug/mergeProjectDexDebug/14/classes.dex
+base.4=/home/tymoteusz/Projects/AndroidStudioProjects/StudiesAndroidProjects/Exercise_03/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+path.0=classes.dex
+path.1=0/classes.dex
+path.2=13/classes.dex
+path.3=14/classes.dex
+path.4=classes2.dex
+renamed.0=classes.dex
+renamed.1=classes2.dex
+renamed.2=classes3.dex
+renamed.3=classes4.dex
+renamed.4=classes5.dex

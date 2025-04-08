@@ -1,0 +1,122 @@
+[
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/xml_data_extraction_rules.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/layout_nav_header.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/layout/nav_header.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/drawable_pwr.png.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/drawable/pwr.png"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/menu_nav_bottom_menu.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/menu/nav_bottom_menu.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/layout_activity_main.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/xml_backup_rules.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.tymek805.exercise_03.app-debug-50:/layout_fragment_right.xml.flat",
+        "source": "com.tymek805.exercise_03.app-main-52:/layout/fragment_right.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/drawable_baseline_star_24.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/drawable/baseline_star_24.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/navigation_nav_graph.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/navigation/nav_graph.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/layout_fragment_blank.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/layout/fragment_blank.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/drawable_baseline_arrow_back_24.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/drawable/baseline_arrow_back_24.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/layout_fragment_left.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/layout/fragment_left.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/mipmap-anydpi/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/drawable_baseline_arrow_circle_down_24.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/drawable/baseline_arrow_circle_down_24.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/drawable_baseline_arrow_forward_24.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/drawable/baseline_arrow_forward_24.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/layout_fragment_center.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/layout/fragment_center.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/mipmap-anydpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-debug-50:/layout_fragment_right.xml.flat",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_03.app-main-52:/layout/fragment_right.xml"
+    }
+]

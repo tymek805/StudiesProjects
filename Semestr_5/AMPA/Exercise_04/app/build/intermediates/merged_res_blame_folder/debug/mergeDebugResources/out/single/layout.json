@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-mergeDebugResources-50:/layout/list_row.xml",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-main-53:/layout/list_row.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-mergeDebugResources-50:/layout/fragment_swipe.xml",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-main-53:/layout/fragment_swipe.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-mergeDebugResources-50:/layout/nav_header.xml",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-main-53:/layout/nav_header.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-mergeDebugResources-50:/layout/fragment_main.xml",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-main-53:/layout/fragment_main.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-mergeDebugResources-50:/layout/activity_main.xml",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-main-53:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.tymek805.exercise_04.app-mergeDebugResources-50:/layout/fragment_list.xml",
+        "source": "com.tymek805.exercise_04.app-main-53:/layout/fragment_list.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-mergeDebugResources-50:/layout/fragment_details.xml",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-main-53:/layout/fragment_details.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-mergeDebugResources-50:/layout/fragment_edit.xml",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-main-53:/layout/fragment_edit.xml"
+    },
+    {
+        "merged": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-mergeDebugResources-50:/layout/fragment_list.xml",
+        "source": "/home/tymoteusz/.gradle/daemon/8.7/com.tymek805.exercise_04.app-main-53:/layout/fragment_list.xml"
+    }
+]

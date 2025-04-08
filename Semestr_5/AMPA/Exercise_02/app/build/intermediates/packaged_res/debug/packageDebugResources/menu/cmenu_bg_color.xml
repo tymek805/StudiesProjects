@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bg_color_1"
+        android:title="Set color red"
+        android:icon="@drawable/baseline_format_color_red_fill_24" />
+    <item
+        android:id="@+id/bg_color_2"
+        android:title="Set color purple"
+        android:icon="@drawable/baseline_format_color_purple_fill_24"/>
+    <item
+        android:id="@+id/bg_color_3"
+        android:title="Set color light green"
+        android:icon="@drawable/baseline_format_color_lightgreen_fill_24"/>
+</menu>
