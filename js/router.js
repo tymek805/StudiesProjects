@@ -63,7 +63,7 @@ function RenderContactPage() {
         Wiadomość:
         <textarea name="message" id="message" rows="5" required></textarea>
       </label>
-      <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+      <div class="g-recaptcha" data-sitekey="6LcXbw4rAAAAAPcel-EzBLZSXCfJhRSFUZLbOzzv"></div>
       <button type="submit">Wyślij</button>
     </form>
     <div id="form-message"></div>
