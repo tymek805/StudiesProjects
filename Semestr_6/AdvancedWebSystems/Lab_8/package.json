@@ -1,0 +1,19 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "livetime chat with websocket",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dejewski, Lango",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "install": "^0.13.0",
+    "mpm": "^0.0.1",
+    "socket.io": "^4.8.1",
+    "ws": "^8.18.1"
+  }
+}

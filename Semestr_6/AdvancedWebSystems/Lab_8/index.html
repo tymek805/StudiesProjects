@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Socket.IO chat</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id="room-control">
+    <label for="room-select">Wybierz pokój:</label>
+    <select id="room-select">
+        <option value="general">Ogólny</option>
+    </select>
+    <button type="button" id="create-room-btn">Nowy pokój</button>
+</div>
+
+<ul id="messages"></ul>
+<div id="typing-indicator"></div>
+<form id="form" action="">
+    <input id="input" autocomplete="off" placeholder="Type your message…"/>
+    <input type="file" id="imageInput" accept="image/*" style="display:none;">
+    <label for="imageInput" id="attach-button" title="Wyślij zdjęcie 📎">📎</label>
+    <button>Send</button>
+</form>
+<script src="/socket.io/socket.io.js"></script>
+<script src="client.js"></script>
+</body>
+</html>
