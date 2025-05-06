@@ -1,6 +1,0 @@
-@use '../helpers/mixins' as *;
-
-.article_box {
-    @include shadow_box(80%, auto);
-    margin-left: 60px;
-}
