@@ -1,11 +1,11 @@
 {
-  "name": "PIAC TEST",
-  "short_name": "PIAC",
+  "name": "OnlyCatsPWA",
+  "short_name": "OnlyCats",
   "lang": "en-US",
   "start_url": "https://tymek805.github.io/StudiesProjects/index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#db4938",
+  "background_color": "#023047",
+  "theme_color": "#ffb703",
   "icons": [
     {
       "src": "images/favicon/web-app-manifest-192x192.png",
