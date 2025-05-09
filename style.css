@@ -3,8 +3,8 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #fefefe;
-    color: #333;
+    background-color: #023047;
+    color: #8ecae6;
 }
 
 .container {
@@ -22,7 +22,7 @@ main {
     font-size: 3rem;
     margin-bottom: 1rem;
     animation: fadeIn 1.5s ease-in-out;
-    color: #db4938;
+    color: #ffb703;
 }
 
 .intro-text {
@@ -69,4 +69,19 @@ main {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.cat-image {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Ensures square images */
+    object-fit: cover;   /* Crops image to fill container without distortion */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
