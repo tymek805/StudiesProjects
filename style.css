@@ -34,32 +34,6 @@ main {
     color: #555;
 }
 
-.meme-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    padding: 0;
-}
-
-.meme-item {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.meme-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-.meme-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -80,8 +54,8 @@ main {
 
 .cat-image {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Ensures square images */
-    object-fit: cover;   /* Crops image to fill container without distortion */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
