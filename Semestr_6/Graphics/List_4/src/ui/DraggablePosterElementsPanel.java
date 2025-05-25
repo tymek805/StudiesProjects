@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public abstract class DraggablePosterElementsPanel<T extends PosterElement> extends JScrollPane {
     protected Controller controller;
     protected JPanel contentPanel;
-    protected ArrayList<T> elements = new ArrayList<T>();
+    protected ArrayList<T> elements = new ArrayList<>();
 
     public DraggablePosterElementsPanel(Controller controller) {
         this.controller = controller;

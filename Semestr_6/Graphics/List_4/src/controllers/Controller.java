@@ -40,7 +40,7 @@ public class Controller {
         element.setPosition(lastMousePosition.x - element.getBounds().width / 2, lastMousePosition.y - element.getBounds().height / 2);
 
 
-        draggablePanel.setSelectedElement(selectedElement, lastMousePosition);
+        draggablePanel.setSelectedElement(selectedElement);
         draggablePanel.setVisible(true);
         draggablePanel.setEnabled(true);
     }

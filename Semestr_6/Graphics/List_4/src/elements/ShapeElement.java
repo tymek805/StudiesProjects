@@ -8,7 +8,6 @@ import java.awt.geom.Point2D;
 public class ShapeElement extends PosterElement {
     private final Shape shape;
     private Color color;
-    private Shape transformedShape;
 
     public ShapeElement(Shape shape, Color color) {
         super();

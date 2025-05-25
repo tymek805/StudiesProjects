@@ -30,7 +30,7 @@ public class DraggablePanel extends JPanel {
             @Override
             public void mouseReleased(MouseEvent e) {
             if (selectedElement != null && controller != null) {
-                controller.onMouseReleased(e);;
+                controller.onMouseReleased(e);
             }
             }
         });
@@ -45,7 +45,7 @@ public class DraggablePanel extends JPanel {
         }
     }
 
-    public void setSelectedElement(PosterElement element, Point posPoint) {
+    public void setSelectedElement(PosterElement element) {
         this.selectedElement = element;
         repaint();
     }
@@ -57,9 +57,5 @@ public class DraggablePanel extends JPanel {
 
     public void setController(Controller controller) {
         this.controller = controller;
-    }
-
-    public Controller getController() {
-        return controller;
     }
 }
