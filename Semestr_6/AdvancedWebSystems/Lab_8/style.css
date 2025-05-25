@@ -1,0 +1,142 @@
+body {
+    margin: 0;
+    padding-bottom: 3rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+#form {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 0.25rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    height: 3rem;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+}
+
+#input {
+    border: none;
+    padding: 0 1rem;
+    flex-grow: 1;
+    border-radius: 2rem;
+    margin: 0.25rem;
+}
+
+#input:focus {
+    outline: none;
+}
+
+#form > button {
+    background: #333;
+    border: none;
+    padding: 0 1rem;
+    margin: 0.25rem;
+    border-radius: 3px;
+    outline: none;
+    color: #fff;
+}
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 1rem;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+}
+
+#messages > li {
+    margin: 0.5rem 0;
+    clear: both;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    position: relative;
+}
+
+#messages .nickname {
+    display: block;
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+    opacity: 0.7;
+}
+
+.othermessage {
+    background: #fff;
+    float: left;
+    border-top-left-radius: 0;
+}
+
+.othermessage::before {
+    content: "";
+    position: absolute;
+    top: 0.5rem;
+    left: -0.5rem;
+    width: 0;
+    height: 0;
+    border: 0.5rem solid transparent;
+    border-right-color: #fff;
+}
+
+.ownmessage {
+    background: #dcf8c6;
+    float: right;
+    border-top-right-radius: 0;
+}
+
+.ownmessage::before {
+    content: "";
+    position: absolute;
+    top: 0.5rem;
+    right: -0.5rem;
+    width: 0;
+    height: 0;
+    border: 0.5rem solid transparent;
+    border-left-color: #dcf8c6;
+}
+
+#typing-indicator {
+    position: fixed;
+    bottom: 3.2rem;
+    left: 1rem;
+    font-size: 1rem;
+    opacity: 0.7;
+    height: 1.4em;
+    color: #333;
+}
+
+.system {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    margin: 0.5rem 0;
+    clear: both;
+}
+
+img {
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+}
+
+#attach-button {
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#attach-button:hover {
+    color: #007BFF;
+}
+
+#room-select {
+    margin: 10px 0;
+    padding: 6px;
+}
+
