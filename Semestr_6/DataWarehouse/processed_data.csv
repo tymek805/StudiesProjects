@@ -1,0 +1,11 @@
+eventid,iyear,imonth,iday,country_txt,region_txt,city,attacktype1_txt,targtype1_txt,gname,weaptype1_txt,nkill,nwound,success,suicide
+199701020001.0,1997,1,2,Tajikistan,Central Asia,Dushanbe,Armed Assault,Military,Unknown,Firearms,1,0,1,0
+199701020002.0,1997,1,2,Tajikistan,Central Asia,Dushanbe,Armed Assault,Military,Unknown,Firearms,2,0,1,0
+199701020003.0,1997,1,2,United States,North America,Philadelphia,Bombing/Explosion,Government (General),Unknown,Explosives,0,0,0,0
+199701020004.0,1997,1,2,United States,North America,Leavenworth,Bombing/Explosion,Police,Unknown,Explosives,0,0,0,0
+199701020005.0,1997,1,2,United States,North America,Washington,Bombing/Explosion,Journalists and Media,Unknown,Explosives,0,0,0,0
+201805120001.0,2018,5,12,CountryA,RegionX,CityAlpha,Bombing,Military,GroupA,Explosives,3,5,1,0
+201907040002.0,2019,7,4,CountryB,RegionY,CityBeta,Assassination,Politician,GroupB,Firearms,1,0,1,0
+202011220003.0,2020,11,22,CountryC,RegionZ,CityGamma,Hostage,Private Citizen,GroupC,Firearms,0,2,1,0
+202103090004.0,2021,3,9,CountryD,RegionX,CityDelta,Armed Assault,Government,GroupD,Explosives,5,10,1,1
+201712310005.0,2017,12,31,CountryE,RegionY,CityEpsilon,Bombing,Police,GroupE,Incendiary,2,0,1,0

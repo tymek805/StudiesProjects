@@ -1,0 +1,16 @@
+eventid,iyear,imonth,iday,country_txt,region_txt,city,attacktype1_txt,targtype1_txt,gname,weaptype1_txt,nkill,nwound,success,suicide
+199701020001,1997,1,2,Tajikistan,Central Asia,Dushanbe,Armed Assault,Military,Unknown,Firearms,1,0,1,0
+199701020002,1997,1,2,Tajikistan,Central Asia,Dushanbe,Armed Assault,Military,Unknown,Firearms,2,0,1,0
+199701020003,1997,1,2,United States,North America,Philadelphia,Bombing/Explosion,Government (General),Unknown,Explosives,0,0,0,0
+199701020004,1997,1,2,United States,North America,Leavenworth,Bombing/Explosion,Police,Unknown,Explosives,0,0,0,0
+199701020005,1997,1,2,United States,North America,Washington,Bombing/Explosion,Journalists and Media,Unknown,Explosives,0,0,0,0
+201805120001,2018,5,12,CountryA,RegionX,CityAlpha,Bombing,Military,GroupA,Explosives,3,5,1,0
+201907040002,2019,7,4,CountryB,RegionY,CityBeta,Assassination,Politician,GroupB,Firearms,1,0,1,0
+202011220003,2020,11,22,CountryC,RegionZ,CityGamma,Hostage,Private Citizen,GroupC,Firearms,0,2,1,0
+202103090004,2021,3,9,CountryD,RegionX,CityDelta,Armed Assault,Government,GroupD,Explosives,5,10,1,1
+201712310005,2017,12,31,CountryE,RegionY,CityEpsilon,Bombing,Police,GroupE,Incendiary,2,0,1,0
+,2020,6,15,CountryF,RegionZ,CityZeta,Bombing,Military,GroupF,Firearms,NaN,3,1,0
+202213320007,2022,13,32,CountryH,RegionY,CityEta,Armed Assault,Government,GroupH,Unknown,2,5,1,1
+202105200008,,5,20,,RegionZ,CityTheta,Bombing,Police,GroupI,Firearms,0,0,1,
+201908100009,2019,8,10,CountryJ,RegionY,CityIota,Hostage,Private Citizen,GroupJ,Explosives,-5,2,1,0
+201908100009,2019,8,10,,,CityIota,Hostage,Private Citizen,GroupJ,Explosives,-5,2,1,0
