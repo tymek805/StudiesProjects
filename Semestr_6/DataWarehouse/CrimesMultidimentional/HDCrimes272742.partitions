@@ -1,0 +1,145 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c6063977-152a-4184-825e-847086e3d044" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>HDCrimes272742</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Dim Attack Type</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="2f2ede19-abfb-4aaa-b59f-6d0a97130342">
+          <ID>Dim Attack Type</ID>
+          <Name>Dim Attack Type</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="cf2ee663-999f-4b25-a1ba-78e42b7a141b">
+            <DataSourceViewID>HDCrimes272742</DataSourceViewID>
+            <TableID>dbo_DimAttackType</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Date</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="2a9b3f1b-ce17-4c42-9e53-cdf955406df5">
+          <ID>Dim Date</ID>
+          <Name>Dim Date</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="dad2bb8a-2b15-4571-aa01-ac1867e014e0">
+            <DataSourceViewID>HDCrimes272742</DataSourceViewID>
+            <TableID>dbo_DimDate</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Location</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="1f70be44-83c5-4b85-869c-5acaa3aecdd5">
+          <ID>Dim Location</ID>
+          <Name>Dim Location</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="37d0aeb8-d6be-4ba5-b452-93c494497638">
+            <DataSourceViewID>HDCrimes272742</DataSourceViewID>
+            <TableID>dbo_DimLocation</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Result</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="c3033a7d-1dd1-4e10-add9-3f570b26050c">
+          <ID>Dim Result</ID>
+          <Name>Dim Result</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="8b44dade-1f63-48cf-b92b-fc4c6d6b66ba">
+            <DataSourceViewID>HDCrimes272742</DataSourceViewID>
+            <TableID>dbo_DimResult</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Terrorist Group</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="f5130d91-b2fb-40a6-8209-380c70a4a94a">
+          <ID>Dim Terrorist Group</ID>
+          <Name>Dim Terrorist Group</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="8783b359-78b7-4b44-971f-f3834e9b51b6">
+            <DataSourceViewID>HDCrimes272742</DataSourceViewID>
+            <TableID>dbo_DimTerroristGroup</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Attack</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="1f9105d7-9b22-42e8-952e-e984f92a6c48">
+          <ID>Fact Attack</ID>
+          <Name>Fact Attack</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="3e921cbc-3090-4fd7-890b-7378c97ed6f0">
+            <DataSourceViewID>HDCrimes272742</DataSourceViewID>
+            <TableID>dbo_FactAttack</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Weapon</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="311764da-777e-4bb7-a3fb-634f3549a619">
+          <ID>Dim Weapon</ID>
+          <Name>Dim Weapon</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="e20ff57c-e11c-4744-9cc1-943a71cff7ef">
+            <DataSourceViewID>HDCrimes272742</DataSourceViewID>
+            <TableID>dbo_DimWeapon</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

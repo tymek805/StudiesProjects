@@ -1,0 +1,622 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/16/2025 7:51:34 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-4PQONVP"
+  DTS:CreatorName="DESKTOP-4PQONVP\Tymoteusz"
+  DTS:DTSID="{5BA76461-73E1-4A98-8363-0B177B232525}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{E822C796-0284-45D5-8C12-CC985FB456F0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-4PQONVP.Poczekalnia]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F198FAB1-2797-40C5-955B-4A25B4830C52}"
+      DTS:ObjectName="DESKTOP-4PQONVP.Poczekalnia">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-4PQONVP;Initial Catalog=Poczekalnia;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{F198FAB1-2797-40C5-955B-4A25B4830C52}DESKTOP-4PQONVP.Poczekalnia;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[StudentsTxt]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Odczyt danych z plików"
+      DTS:DTSID="{F9B23DC2-D057-45C3-A4D4-6CFFDFE14AD3}"
+      DTS:ObjectName="StudentsTxt">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::DaneStudTxt]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1045"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1250"
+          DTS:ConnectionString="C:\Users\Tymoteusz\Downloads\Studenci\Stud01.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Lp "
+              DTS:DTSID="{A17F5054-B9E5-4E89-848F-31EDD61C7B62}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="6"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Nr albumu"
+              DTS:DTSID="{F9B51FE9-3A55-47B9-98CF-23C970E71084}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Nazwisko"
+              DTS:DTSID="{23545EBF-29C3-4BED-9B43-4F6C1050E4A3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Imiona"
+              DTS:DTSID="{D725C4BC-C392-4495-B25F-E14200715A12}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="16"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Rok"
+              DTS:DTSID="{386B4480-4010-47A2-BD70-C268A5B65E1B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5F7649A8-FC58-441E-AC7E-8DAB0EFAFF64}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DaneStudTxt">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Tymoteusz\Downloads\Studenci\Stud01.txt</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{D0327BD0-C772-41C0-AF17-C6233EABEC8E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F198FAB1-2797-40C5-955B-4A25B4830C52}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Students;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Wczytanie danych studentów"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{F84D5582-EAE9-4210-B005-8A2B2F40ABC2}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Wczytanie danych studentów">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{FF5CAFAD-C4D1-4533-BE33-809433B75AF5}"
+        DTS:ObjectName="{FF5CAFAD-C4D1-4533-BE33-809433B75AF5}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\Tymoteusz\Downloads\Studenci" />
+            <FEFEProperty
+              FileSpec="Stud*.txt" />
+            <FEFEProperty
+              FileNameRetrievalType="2" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{C59740A8-9A99-4AA2-BD62-04664A36F2C0}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Import &quot;Students&quot;"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Load Stud to DB"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Students]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-4PQONVP.Poczekalnia]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-4PQONVP.Poczekalnia]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Inputs[OLE DB Destination Input].Columns[Nazwisko]"
+                          cachedCodepage="1250"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Nazwisko"
+                          externalMetadataColumnId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Inputs[OLE DB Destination Input].ExternalColumns[nazwisko]"
+                          lineageId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].Columns[Nazwisko]" />
+                        <inputColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Inputs[OLE DB Destination Input].Columns[Imiona]"
+                          cachedCodepage="1250"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Imiona"
+                          externalMetadataColumnId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Inputs[OLE DB Destination Input].ExternalColumns[imiona]"
+                          lineageId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].Columns[Imiona]" />
+                        <inputColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Inputs[OLE DB Destination Input].Columns[Rok]"
+                          cachedDataType="i1"
+                          cachedName="Rok"
+                          externalMetadataColumnId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Inputs[OLE DB Destination Input].ExternalColumns[rok]"
+                          lineageId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].Columns[Rok]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Inputs[OLE DB Destination Input].ExternalColumns[nr_albumu]"
+                          codePage="1250"
+                          dataType="str"
+                          length="6"
+                          name="nr_albumu" />
+                        <externalMetadataColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Inputs[OLE DB Destination Input].ExternalColumns[nazwisko]"
+                          codePage="1250"
+                          dataType="str"
+                          length="50"
+                          name="nazwisko" />
+                        <externalMetadataColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Inputs[OLE DB Destination Input].ExternalColumns[imiona]"
+                          codePage="1250"
+                          dataType="str"
+                          length="50"
+                          name="imiona" />
+                        <externalMetadataColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Inputs[OLE DB Destination Input].ExternalColumns[rok]"
+                          dataType="i2"
+                          name="rok" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1045"
+                  name="Student_txt"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[StudentsTxt]"
+                      connectionManagerRefId="Package.ConnectionManagers[StudentsTxt]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].Columns[Lp ]"
+                          codePage="1250"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].ExternalColumns[Lp ]"
+                          length="50"
+                          lineageId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].Columns[Lp ]"
+                          name="Lp "
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].Columns[Nr albumu]"
+                          codePage="1250"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].ExternalColumns[Nr albumu]"
+                          length="6"
+                          lineageId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].Columns[Nr albumu]"
+                          name="Nr albumu"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].Columns[Nazwisko]"
+                          codePage="1250"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].ExternalColumns[Nazwisko]"
+                          length="50"
+                          lineageId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].Columns[Nazwisko]"
+                          name="Nazwisko"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].Columns[Imiona]"
+                          codePage="1250"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].ExternalColumns[Imiona]"
+                          length="50"
+                          lineageId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].Columns[Imiona]"
+                          name="Imiona"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].Columns[Rok]"
+                          dataType="i1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].ExternalColumns[Rok]"
+                          lineageId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].Columns[Rok]"
+                          name="Rok"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].ExternalColumns[Lp ]"
+                          codePage="1250"
+                          dataType="str"
+                          length="50"
+                          name="Lp " />
+                        <externalMetadataColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].ExternalColumns[Nr albumu]"
+                          codePage="1250"
+                          dataType="str"
+                          length="6"
+                          name="Nr albumu" />
+                        <externalMetadataColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].ExternalColumns[Nazwisko]"
+                          codePage="1250"
+                          dataType="str"
+                          length="50"
+                          name="Nazwisko" />
+                        <externalMetadataColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].ExternalColumns[Imiona]"
+                          codePage="1250"
+                          dataType="str"
+                          length="50"
+                          name="Imiona" />
+                        <externalMetadataColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output].ExternalColumns[Rok]"
+                          dataType="i1"
+                          name="Rok" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="65001"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Wczytanie danych studentów\Import &quot;Students&quot;.Paths[Flat File Source Output]"
+                  endId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{4AC2C4BF-48A7-4535-805B-EE7C8C9F236A}"
+          DTS:ObjectName="{4AC2C4BF-48A7-4535-805B-EE7C8C9F236A}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::DaneStudTxt" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Execute SQL Task"
+          TopLeft="11.2499994970858,144.949993088246" />
+        <NodeLayout
+          Size="165.333333333334,42.6666666666667"
+          Id="Package\Wczytanie danych studentów\Import &quot;Students&quot;"
+          TopLeft="15.5833213192724,12.533326576551" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="239.333333333334,110"
+          Size="239.333333333334,153.333333333334"
+          Id="Package\Wczytanie danych studentów"
+          TopLeft="258.749988432974,92.2999955987932" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Wczytanie danych studentów\Import &quot;Students&quot;">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="134,42.6666666666667"
+          Id="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Student_txt"
+          TopLeft="78.6249980721623,23.8000005578995" />
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB"
+          TopLeft="63.7499971501531,129.349993832112" />
+        <EdgeLayout
+          Id="Package\Wczytanie danych studentów\Import &quot;Students&quot;.Paths[Flat File Source Output]"
+          TopLeft="143.687497611158,66.4666672245661">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.8833266075454"
+              Start="0,0"
+              End="0,55.3833266075454">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.3833266075454" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Wczytanie danych studentów\Import &quot;Students&quot;\Load Stud to DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

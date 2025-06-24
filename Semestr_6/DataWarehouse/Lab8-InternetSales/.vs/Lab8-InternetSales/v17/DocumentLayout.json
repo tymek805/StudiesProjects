@@ -1,0 +1,66 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Tymoteusz\\source\\repos\\Lab8-InternetSales\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D43372FE-C8E9-E21F-1BE6-9E6AB0086E58}|Lab8-InternetSales.dwproj|C:\\Users\\Tymoteusz\\source\\repos\\Lab8-InternetSales\\InternetSales.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{D43372FE-C8E9-E21F-1BE6-9E6AB0086E58}|Lab8-InternetSales.dwproj|solutionrelative:InternetSales.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D43372FE-C8E9-E21F-1BE6-9E6AB0086E58}|Lab8-InternetSales.dwproj|C:\\Users\\Tymoteusz\\source\\repos\\Lab8-InternetSales\\Client.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{D43372FE-C8E9-E21F-1BE6-9E6AB0086E58}|Lab8-InternetSales.dwproj|solutionrelative:Client.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D43372FE-C8E9-E21F-1BE6-9E6AB0086E58}|Lab8-InternetSales.dwproj|C:\\Users\\Tymoteusz\\source\\repos\\Lab8-InternetSales\\InternetSales.dsv||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{D43372FE-C8E9-E21F-1BE6-9E6AB0086E58}|Lab8-InternetSales.dwproj|solutionrelative:InternetSales.dsv||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InternetSales.cube [Design]",
+              "DocumentMoniker": "C:\\Users\\Tymoteusz\\source\\repos\\Lab8-InternetSales\\InternetSales.cube",
+              "RelativeDocumentMoniker": "InternetSales.cube",
+              "ToolTip": "C:\\Users\\Tymoteusz\\source\\repos\\Lab8-InternetSales\\InternetSales.cube [Design]",
+              "RelativeToolTip": "InternetSales.cube [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-09T06:49:05.608Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Client.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\Tymoteusz\\source\\repos\\Lab8-InternetSales\\Client.dim",
+              "RelativeDocumentMoniker": "Client.dim",
+              "ToolTip": "C:\\Users\\Tymoteusz\\source\\repos\\Lab8-InternetSales\\Client.dim [Design]",
+              "RelativeToolTip": "Client.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-09T06:37:19.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InternetSales.dsv [Design]",
+              "DocumentMoniker": "C:\\Users\\Tymoteusz\\source\\repos\\Lab8-InternetSales\\InternetSales.dsv",
+              "RelativeDocumentMoniker": "InternetSales.dsv",
+              "ToolTip": "C:\\Users\\Tymoteusz\\source\\repos\\Lab8-InternetSales\\InternetSales.dsv [Design]",
+              "RelativeToolTip": "InternetSales.dsv [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-09T06:31:00.031Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

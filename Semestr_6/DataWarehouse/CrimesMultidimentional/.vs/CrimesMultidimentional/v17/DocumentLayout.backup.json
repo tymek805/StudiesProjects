@@ -1,0 +1,97 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D93CAA0F-4989-C3F6-EDB0-16467C3974E7}|CrimesMultidimentional.dwproj|C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\HDCrimes272742.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{D93CAA0F-4989-C3F6-EDB0-16467C3974E7}|CrimesMultidimentional.dwproj|solutionrelative:HDCrimes272742.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D93CAA0F-4989-C3F6-EDB0-16467C3974E7}|CrimesMultidimentional.dwproj|C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\Dim Weapon.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{D93CAA0F-4989-C3F6-EDB0-16467C3974E7}|CrimesMultidimentional.dwproj|solutionrelative:Dim Weapon.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D93CAA0F-4989-C3F6-EDB0-16467C3974E7}|CrimesMultidimentional.dwproj|C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\DimTerroristGroup.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{D93CAA0F-4989-C3F6-EDB0-16467C3974E7}|CrimesMultidimentional.dwproj|solutionrelative:DimTerroristGroup.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D93CAA0F-4989-C3F6-EDB0-16467C3974E7}|CrimesMultidimentional.dwproj|C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\DimLocation.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{D93CAA0F-4989-C3F6-EDB0-16467C3974E7}|CrimesMultidimentional.dwproj|solutionrelative:DimLocation.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D93CAA0F-4989-C3F6-EDB0-16467C3974E7}|CrimesMultidimentional.dwproj|C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\DimAttackType.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{D93CAA0F-4989-C3F6-EDB0-16467C3974E7}|CrimesMultidimentional.dwproj|solutionrelative:DimAttackType.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HDCrimes272742.cube [Design]",
+              "DocumentMoniker": "C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\HDCrimes272742.cube",
+              "RelativeDocumentMoniker": "HDCrimes272742.cube",
+              "ToolTip": "C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\HDCrimes272742.cube [Design]",
+              "RelativeToolTip": "HDCrimes272742.cube [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-06-18T18:41:27.731Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dim Weapon.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\Dim Weapon.dim",
+              "RelativeDocumentMoniker": "Dim Weapon.dim",
+              "ToolTip": "C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\Dim Weapon.dim [Design]",
+              "RelativeToolTip": "Dim Weapon.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-06-18T17:45:08.799Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DimTerroristGroup.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\DimTerroristGroup.dim",
+              "RelativeDocumentMoniker": "DimTerroristGroup.dim",
+              "ToolTip": "C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\DimTerroristGroup.dim [Design]*",
+              "RelativeToolTip": "DimTerroristGroup.dim [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-14T16:16:02.196Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DimLocation.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\DimLocation.dim",
+              "RelativeDocumentMoniker": "DimLocation.dim",
+              "ToolTip": "C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\DimLocation.dim [Design]*",
+              "RelativeToolTip": "DimLocation.dim [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-14T16:14:01.662Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DimAttackType.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\DimAttackType.dim",
+              "RelativeDocumentMoniker": "DimAttackType.dim",
+              "ToolTip": "C:\\Users\\Tymoteusz\\source\\repos\\CrimesMultidimentional\\DimAttackType.dim [Design]*",
+              "RelativeToolTip": "DimAttackType.dim [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-14T16:11:06.677Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "CrimesMultidimentional", "CrimesMultidimentional.dwproj", "{D93CAA0F-4989-C3F6-EDB0-16467C3974E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D93CAA0F-4989-C3F6-EDB0-16467C3974E7}.Development|Default.ActiveCfg = Development
+		{D93CAA0F-4989-C3F6-EDB0-16467C3974E7}.Development|Default.Build.0 = Development
+		{D93CAA0F-4989-C3F6-EDB0-16467C3974E7}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E3FCD9B-CB65-4FC9-BBE0-11E48F477D21}
+	EndGlobalSection
+EndGlobal

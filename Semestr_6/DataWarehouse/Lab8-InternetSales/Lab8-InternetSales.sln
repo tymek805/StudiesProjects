@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Lab8-InternetSales", "Lab8-InternetSales.dwproj", "{D43372FE-C8E9-E21F-1BE6-9E6AB0086E58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D43372FE-C8E9-E21F-1BE6-9E6AB0086E58}.Development|Default.ActiveCfg = Development
+		{D43372FE-C8E9-E21F-1BE6-9E6AB0086E58}.Development|Default.Build.0 = Development
+		{D43372FE-C8E9-E21F-1BE6-9E6AB0086E58}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85CC0A88-51FB-45C3-82F5-0F06F90D1E66}
+	EndGlobalSection
+EndGlobal

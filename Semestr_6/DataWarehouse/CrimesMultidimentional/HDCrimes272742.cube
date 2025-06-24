@@ -1,0 +1,832 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="33c34c3c-b965-4453-b07f-85f1959cd817" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>HDCrimes272742</ID>
+  <Name>HDCrimes272742</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="c8c8d9e3-fd8f-4097-91b8-b2b8fd8b4bde">
+      <ID>Dim Attack Type</ID>
+      <Name>Dim Attack Type</Name>
+      <DimensionID>Dim Attack Type</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="7ed8f5ef-c1f9-4993-a461-55e180603a6e">
+          <AttributeID>Attack Type Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="77a485ca-15a6-442e-9aef-089190d44048">
+          <AttributeID>Attack Type</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="67c0f8ea-9bf0-44d0-b646-7ff6b20e6be1">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="bcd33092-a470-4897-a408-0718059901bc">
+      <ID>Dim Attack Type 1</ID>
+      <Name>Dim Attack Type 1</Name>
+      <DimensionID>Dim Attack Type 1</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="b80cce52-e5aa-4c17-b2a1-15fff306df8f">
+          <AttributeID>Attack Type Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="15a0c40a-869a-42ca-86d9-a3b2267b4af1">
+      <ID>Dim Date</ID>
+      <Name>Dim Date</Name>
+      <DimensionID>Dim Date</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="b3ee472f-1380-468a-afa8-d400f3fc5b51">
+          <AttributeID>Date Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d69745d2-6d94-4924-8dc5-7d6227ab26ff">
+          <AttributeID>Day Number Of Month</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="85d31f2e-d74e-4db9-8c2a-5104e885c510">
+          <AttributeID>Month Number Of Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="92a61a22-9fe5-4880-a324-a13db965e02e">
+          <AttributeID>Calendar Year</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="90b84df1-3680-419e-8fef-fe57e6ef6060">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="94898e24-af87-41ca-855c-f2c989f2513d">
+      <ID>Dim Date 1</ID>
+      <Name>Dim Date 1</Name>
+      <DimensionID>Dim Date 1</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="2f69c020-f3da-4d78-90fe-43debf3c1c0b">
+          <AttributeID>Date Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="cc601d72-7369-4b94-8412-3ebee5faec52">
+      <ID>Dim Location</ID>
+      <Name>Dim Location</Name>
+      <DimensionID>Dim Location</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a042b583-d84b-496a-a091-b622f8160056">
+          <AttributeID>Location Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="84547aea-a7df-466a-915a-dbd14873a885">
+          <AttributeID>City</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="0c286a9a-d1e1-44b4-8656-6b8eca869226">
+          <AttributeID>Region</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="06bfa2fc-a195-47fd-aaf5-4a96e3c06a92">
+          <AttributeID>Country</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="edbcfc2b-8df0-4973-9850-3ea10c9422ef">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="fffa470e-7fa4-4edc-92d7-9147a157ad9e">
+      <ID>Dim Location 1</ID>
+      <Name>Dim Location 1</Name>
+      <DimensionID>Dim Location 1</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="46c2a6a4-1c48-4b07-960d-5e09c84ed57b">
+          <AttributeID>Location Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="fd1f06e5-3fc8-4947-9637-1b17c89366d6">
+      <ID>Dim Result</ID>
+      <Name>Dim Result</Name>
+      <DimensionID>Dim Result</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="00447a4c-9d8e-4742-9b55-39efa1a87adb">
+          <AttributeID>Result Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="da8d29aa-8bf1-49d2-807a-2020c331b8c5">
+          <AttributeID>Suicide</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="89422e73-8327-43e2-b38e-ba1ca191b67d">
+          <AttributeID>Successful</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="addc15c1-956d-48b3-8596-b66d564b6c95">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="8f03e0e5-e3f0-43a4-9204-ef919585ec21">
+          <HierarchyID>Hierarchy 1</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="cbd8925e-cf74-4a6a-b3c9-b14438c33435">
+      <ID>Dim Result 1</ID>
+      <Name>Dim Result 1</Name>
+      <DimensionID>Dim Result 1</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="c8b46a23-6f81-4f0b-bcd1-23797d5dc761">
+          <AttributeID>Result Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="aae30f1b-09d1-40a5-9108-b801ccc5d020">
+      <ID>Dim Terrorist Group</ID>
+      <Name>Dim Terrorist Group</Name>
+      <DimensionID>Dim Terrorist Group</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="f94aa958-f262-4515-8f5c-1bef90f3c0f4">
+          <AttributeID>Group Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6874e2ba-9cbe-4275-b378-0573fa8db1f5">
+          <AttributeID>Group Name</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="5d6e93ed-8638-410e-8074-7e7c1bb287c8">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="9a252401-5159-4887-a2f6-0aab89133d58">
+      <ID>Dim Terrorist Group 1</ID>
+      <Name>Dim Terrorist Group 1</Name>
+      <DimensionID>Dim Terrorist Group 1</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="2f089a17-924c-4782-b748-eba70f4bd553">
+          <AttributeID>Group Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="93fe5c88-7d5d-472b-89a1-9d837440e717">
+      <ID>Dim Weapon</ID>
+      <Name>Dim Weapon</Name>
+      <DimensionID>Dim Weapon</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a3af5869-bb7d-48de-954d-0dab6e64a4cb">
+          <AttributeID>Weapon Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="dbbd2212-3225-40b1-a1a3-2fcc0d3ddee9">
+          <AttributeID>Weapon Type</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="08958555-99ae-47ac-b3ba-147aeaa02b71">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="e2cf4a80-427d-4621-8a4d-89bd6dfa11eb">
+      <ID>Dim Weapon 1</ID>
+      <Name>Dim Weapon 1</Name>
+      <DimensionID>Dim Weapon 1</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="4fc75a19-e363-438e-b9db-f11d99580f7a">
+          <AttributeID>Weapon Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="84a82da4-2e20-473f-8ae3-14c3def25193">
+      <ID>Dim Attack Type</ID>
+      <Name>Dim Attack Type</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="2affb717-70d1-4ed2-bc1b-a21924a77aea">
+          <ID>Dim Attack Type Count</ID>
+          <Name>Dim Attack Type Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="9ab84510-b8ad-44f8-b464-e39338e64963">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="b4c723af-6179-4c2f-9465-0c960a308292">
+              <TableID>dbo_DimAttackType</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="fb23a1e7-f54b-403d-b72b-1f56e478e967">
+          <CubeDimensionID>Dim Attack Type</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="ed9150b6-2f20-493d-97f8-3cc52a05aadd">
+              <AttributeID>Attack Type Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f64a62f4-d040-45b1-a307-ac656298e79c">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f4c9a023-e761-4231-916e-3387472c821d">
+                    <TableID>dbo_DimAttackType</TableID>
+                    <ColumnID>AttackTypeId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="b4ddeadb-e1a5-41e4-b8a0-4db4ad3fb75c">
+          <CubeDimensionID>Dim Attack Type 1</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="dbe13f38-4f89-4c77-8031-742663be9858">
+              <AttributeID>Attack Type Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="9cf872b6-3491-4106-a651-46ad81c9b62a">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="cfd21ee7-f571-4277-a983-74e3b5b09bb9">
+                    <TableID>dbo_DimAttackType</TableID>
+                    <ColumnID>AttackTypeId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="5f53f70d-1efb-44c0-b5db-24b9e69b28e9">
+      <ID>Dim Date</ID>
+      <Name>Dim Date</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="eaca3568-e83d-4918-a16c-373dbc504589">
+          <ID>Day Number Of Month</ID>
+          <Name>Day Number Of Month</Name>
+          <Source dwd:design-time-name="21a1eb24-ee6d-43dd-a951-8ca80575bfb5">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="5dbbb4b8-8659-4726-bf64-b04fd6af265d">
+              <TableID>dbo_DimDate</TableID>
+              <ColumnID>DayNumberOfMonth</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="4729f6e1-66e1-4bff-bd45-a9f9450ee6ab">
+          <ID>Month Number Of Year</ID>
+          <Name>Month Number Of Year</Name>
+          <Source dwd:design-time-name="09941edd-82d1-4861-90fe-bea85503f2f6">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="1dbee639-1f89-409c-bdfb-77921ca2deaf">
+              <TableID>dbo_DimDate</TableID>
+              <ColumnID>MonthNumberOfYear</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="efe1af83-21f0-4462-8d83-6c0e6c60e161">
+          <ID>Calendar Year</ID>
+          <Name>Calendar Year</Name>
+          <Source dwd:design-time-name="eed1e960-2664-4483-a6ff-ebc7e6fb65c9">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="a757d062-3921-4c8d-9180-6b7e159394e3">
+              <TableID>dbo_DimDate</TableID>
+              <ColumnID>CalendarYear</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="a21e7676-b335-4b43-9032-4dfa62a36c47">
+          <ID>Dim Date Count</ID>
+          <Name>Dim Date Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="36626687-a007-4588-93f5-6c9b3989905b">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="db16b96b-d8ee-4a78-9d1f-effb57ee7dcf">
+              <TableID>dbo_DimDate</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="7ee0f31a-f0b3-4b67-80dd-a23ce231a8db">
+          <CubeDimensionID>Dim Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="ff41fa62-bbed-4cf7-9055-60f1887a119e">
+              <AttributeID>Date Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2a97e497-b7d2-4c8a-89a6-76f7469a9b22">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="71db650a-15f6-460b-9c93-93d82c420586">
+                    <TableID>dbo_DimDate</TableID>
+                    <ColumnID>DateId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="aaea8b24-dd1e-4f6e-83ae-2b857170dff9">
+          <CubeDimensionID>Dim Date 1</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="f0d0f580-5a13-4d14-86e2-38db337e159a">
+              <AttributeID>Date Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8f897ad4-4881-4c89-a775-4a4002ab1507">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="038fdad8-24d4-4295-b559-1c3a67e6cf35">
+                    <TableID>dbo_DimDate</TableID>
+                    <ColumnID>DateId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="c35f0871-bbd6-4147-9e02-35d8ab64e84f">
+      <ID>Dim Location</ID>
+      <Name>Dim Location</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="4b75fa0a-74b9-48ab-99ae-47020a1eae4e">
+          <ID>Dim Location Count</ID>
+          <Name>Dim Location Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="c6094547-2468-4504-a663-14dd902fa930">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="71afc669-bee7-4128-94de-b4f281a8f1ef">
+              <TableID>dbo_DimLocation</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="ef03404e-8e9e-4b1c-91ce-33c83c5a9c71">
+          <CubeDimensionID>Dim Location</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="330fa8a9-fbd6-4ce8-a7e7-28b58340be45">
+              <AttributeID>Location Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="1c89c960-6fae-48de-91cd-eb3d7de113d4">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ee017a3f-7f14-4a32-8c38-91ceabcc7468">
+                    <TableID>dbo_DimLocation</TableID>
+                    <ColumnID>LocationId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="e8bd687e-2fa9-48ed-8f04-92a061de729b">
+          <CubeDimensionID>Dim Location 1</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="baaaa915-a9db-4d97-9487-66a8b0011679">
+              <AttributeID>Location Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="645293f4-ea5c-41db-ab9a-a23ebcfc5d81">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="71ec30ec-2815-455e-bf26-f6f981d1261c">
+                    <TableID>dbo_DimLocation</TableID>
+                    <ColumnID>LocationId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="3b86843e-40c9-4a59-98c7-662bdedb3c27">
+      <ID>Dim Result</ID>
+      <Name>Dim Result</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="7d03a59a-12e4-4833-b4f1-b30224e7a503">
+          <ID>Dim Result Count</ID>
+          <Name>Dim Result Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="5331c9e7-08e8-43a5-a4f8-efa236a7bab0">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="ef31947a-681b-4a89-8b66-e0d98762ba87">
+              <TableID>dbo_DimResult</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="cac25c90-a064-46c9-b47d-acaa1e841c2f">
+          <CubeDimensionID>Dim Result</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="a0002217-8e82-4806-befc-a4969034f98b">
+              <AttributeID>Result Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ec81fc04-5f1c-46a3-a930-51e0038ce973">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d80a8eeb-d381-4112-a36b-02ef1a7ee8fd">
+                    <TableID>dbo_DimResult</TableID>
+                    <ColumnID>ResultId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="6ecc9177-92ac-4983-a280-57f8ff2855fe">
+          <CubeDimensionID>Dim Result 1</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="aebb5cf7-ca00-4130-a6e7-7a585adce21f">
+              <AttributeID>Result Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="72062a9b-2887-4a7e-a287-08565b8c5f37">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="dc978d30-cd4d-4dc4-bb4d-112347d1dc43">
+                    <TableID>dbo_DimResult</TableID>
+                    <ColumnID>ResultId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="4ed2eaf8-e890-4491-8305-1d2ccda27866">
+      <ID>Dim Terrorist Group</ID>
+      <Name>Dim Terrorist Group</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="ea75deec-5e7d-43ab-8a70-b00314ef8310">
+          <ID>Dim Terrorist Group Count</ID>
+          <Name>Dim Terrorist Group Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="47ddea11-0c1b-424f-b8a1-599222811d37">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="13cc85b4-d114-48ce-b8fe-2882c9f7eddb">
+              <TableID>dbo_DimTerroristGroup</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="cc07b672-e90b-4ed2-9cb9-ccea7588f9f2">
+          <CubeDimensionID>Dim Terrorist Group</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="c733d135-0cc0-450c-83db-b9dcfc07d329">
+              <AttributeID>Group Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b48a1daf-21ee-4581-9cdc-33ee5dadc20e">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="af853bc5-543c-4dff-acb4-a63ee28b73bb">
+                    <TableID>dbo_DimTerroristGroup</TableID>
+                    <ColumnID>GroupId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="eb5eb96a-84cd-41ac-8fe0-18a2be99d95d">
+          <CubeDimensionID>Dim Terrorist Group 1</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="87507cfe-1ed0-4b5d-a0c3-3be69db3d900">
+              <AttributeID>Group Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="130ce2b4-9281-42e8-893b-857ceffffd7c">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3932e1cf-3b1b-491f-a5c2-90b0a10fe6aa">
+                    <TableID>dbo_DimTerroristGroup</TableID>
+                    <ColumnID>GroupId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="7f9af85d-e764-4184-9bd5-edfd01e5cda0">
+      <ID>Fact Attack</ID>
+      <Name>Fact Attack</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="5c92cedb-77f8-4c11-90f5-d58e1fd2ca9c">
+          <ID>Victims Killed</ID>
+          <Name>Victims Killed</Name>
+          <Source dwd:design-time-name="25d08af1-987f-4248-bdd7-fcf91734db1a">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="35121875-cc98-4c2b-b2cf-6156fdb04768">
+              <TableID>dbo_FactAttack</TableID>
+              <ColumnID>VictimsKilled</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="e1037a41-6d7c-4d43-96a7-00bd8f898592">
+          <ID>Victims Wounded</ID>
+          <Name>Victims Wounded</Name>
+          <Source dwd:design-time-name="f4b42332-6dec-444f-a706-2b3ec6290a9d">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="2d2bf3e5-edf9-4711-8642-d84a346cf6cc">
+              <TableID>dbo_FactAttack</TableID>
+              <ColumnID>VictimsWounded</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="388edb7f-e07a-4f36-b7c5-58e1f653a350">
+          <ID>Fact Attack Count</ID>
+          <Name>Fact Attack Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="37d7d2e5-f41b-4acf-9ca8-5f2bcad1f8c3">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="4b070587-acbe-42af-add7-81c52288d58b">
+              <TableID>dbo_FactAttack</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="62b64c17-6319-4c79-9a7e-93d2142605f2">
+          <CubeDimensionID>Dim Result</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="93bca0e5-01e7-476b-ab87-96145118f858">
+              <AttributeID>Result Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="41239b49-af3e-40d9-81c6-2bd330bba83b">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d4cd973a-4e0e-47e0-86d4-f307795cd10c">
+                    <TableID>dbo_FactAttack</TableID>
+                    <ColumnID>ResultId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="faaba5c2-028e-4ba0-acbd-7c6a8011d407">
+          <CubeDimensionID>Dim Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="a96c68b0-0672-43c9-8c86-f4e7b065635f">
+              <AttributeID>Date Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="169dbc38-2e7c-4c5b-a666-2f39859ce443">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="18ac2569-7cfb-4cb7-be11-b69e222dba40">
+                    <TableID>dbo_FactAttack</TableID>
+                    <ColumnID>DateId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="5be71b07-57b8-4c05-9190-02b794418e95">
+          <CubeDimensionID>Dim Location</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="abde1a03-47cb-45db-9540-cf81949c29d1">
+              <AttributeID>Location Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="a059bc85-86ea-4cc8-aef2-1fa5e4801ae8">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="16b4c0d2-b754-47e5-a2ff-bce1e5b7e7d9">
+                    <TableID>dbo_FactAttack</TableID>
+                    <ColumnID>LocationId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="8a74a91b-afd0-4d94-a09a-e73be58c0cdb">
+          <CubeDimensionID>Dim Terrorist Group</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="edec92c3-03b8-4911-80a1-748c6c0992b4">
+              <AttributeID>Group Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="565eb239-681a-4cab-bd02-84be96378c4b">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f0c86618-91c3-47a3-ba40-54de8fb64154">
+                    <TableID>dbo_FactAttack</TableID>
+                    <ColumnID>GroupId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="bec495e6-7645-47ec-9427-765921574fb3">
+          <CubeDimensionID>Dim Attack Type</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="dc60f3de-956d-47d4-a801-374a3f69bb74">
+              <AttributeID>Attack Type Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f2b8627a-d762-497a-a4b5-6ece24ef243d">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ce821b14-b881-4c40-8a81-4eeb11be30ee">
+                    <TableID>dbo_FactAttack</TableID>
+                    <ColumnID>AttackTypeId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="cbb0d57e-47e8-4d5f-a27e-e8266a866668">
+          <CubeDimensionID>Dim Weapon</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="50ef446f-f5de-4ffd-9421-0504f3ab0b37">
+              <AttributeID>Weapon Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ae40f043-ef3b-413d-ad4a-7897c5eb0a26">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="94118cf2-9e99-45f6-9c35-5f2b618c66d5">
+                    <TableID>dbo_FactAttack</TableID>
+                    <ColumnID>WeaponId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="ManyToManyMeasureGroupDimension" dwd:design-time-name="435e6641-f80e-4883-ac10-7cac10eade6b">
+          <CubeDimensionID>Dim Attack Type 1</CubeDimensionID>
+          <MeasureGroupID>Dim Attack Type</MeasureGroupID>
+        </Dimension>
+        <Dimension xsi:type="ManyToManyMeasureGroupDimension" dwd:design-time-name="e9426ac6-9bd2-45f3-a2e1-fff7021cca15">
+          <CubeDimensionID>Dim Location 1</CubeDimensionID>
+          <MeasureGroupID>Dim Location</MeasureGroupID>
+        </Dimension>
+        <Dimension xsi:type="ManyToManyMeasureGroupDimension" dwd:design-time-name="c75092df-60ea-420d-b160-9017a39b2651">
+          <CubeDimensionID>Dim Result 1</CubeDimensionID>
+          <MeasureGroupID>Dim Result</MeasureGroupID>
+        </Dimension>
+        <Dimension xsi:type="ManyToManyMeasureGroupDimension" dwd:design-time-name="f46c84ea-e9de-4b61-923b-07ab128b9bca">
+          <CubeDimensionID>Dim Terrorist Group 1</CubeDimensionID>
+          <MeasureGroupID>Dim Terrorist Group</MeasureGroupID>
+        </Dimension>
+        <Dimension xsi:type="ManyToManyMeasureGroupDimension" dwd:design-time-name="9bfaecac-17f1-417c-a1b6-4b7f647139ff">
+          <CubeDimensionID>Dim Weapon 1</CubeDimensionID>
+          <MeasureGroupID>Dim Weapon</MeasureGroupID>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="95528e54-cf12-40fc-a05a-32fc68ce1dd7">
+      <ID>Dim Weapon</ID>
+      <Name>Dim Weapon</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="1a7c1b3e-e6dd-4a3f-8fa0-acdff27b3f2c">
+          <ID>Dim Weapon Count</ID>
+          <Name>Dim Weapon Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="04e4699f-fa36-4607-90a8-70106c94dd32">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="0c3cc962-58d1-41a9-8139-09d4bececa3a">
+              <TableID>dbo_DimWeapon</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="8f2f606b-aeef-43cf-b5c5-8c94c065e154">
+          <CubeDimensionID>Dim Weapon</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="dac64439-0935-42ae-b386-d527171e8e11">
+              <AttributeID>Weapon Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="cbc9ee48-df2c-48e4-9d75-41ad2501b217">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f194ab8a-3772-439e-b8ab-b9f45716ac5d">
+                    <TableID>dbo_DimWeapon</TableID>
+                    <ColumnID>WeaponId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="9edb2cbe-0f14-4b1e-a019-eea534cf47fd">
+          <CubeDimensionID>Dim Weapon 1</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="90d5a4f2-b214-466f-807d-70428593643a">
+              <AttributeID>Weapon Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c5c40518-24d7-446e-ae7a-cc1af8aaefc6">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5d4b8fc1-bce0-4711-b702-2a13f4553218">
+                    <TableID>dbo_DimWeapon</TableID>
+                    <ColumnID>WeaponId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="cc7bc1fd-5d26-4a2d-83b2-27cb7a969c9c">
+    <DataSourceViewID>HDCrimes272742</DataSourceViewID>
+  </Source>
+</Cube>

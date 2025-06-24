@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e3c0a8e-a8c8-4956-baf0-f88c2b3341d0" name="Changes" comment="Add List 11 for IoT">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3e3c0a8e-a8c8-4956-baf0-f88c2b3341d0" name="Changes" comment="Add data warehouse data preprocessing" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +17,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -47,7 +46,7 @@
     "git-widget-placeholder": "develop",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/tymoteusz/Projects/StudiesProjects",
+    "last_opened_file_path": "C:/Users/Tymoteusz/PycharmProjects/StudiesProjects/Semestr_6/DataWarehouse",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -57,6 +56,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Tymoteusz\PycharmProjects\StudiesProjects\Semestr_6\DataWarehouse" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -83,7 +87,7 @@
       <workItem from="1733820534109" duration="44000" />
       <workItem from="1737211992507" duration="650000" />
       <workItem from="1741941126153" duration="3000" />
-      <workItem from="1750755607053" duration="1553000" />
+      <workItem from="1750755607053" duration="2397000" />
     </task>
     <task id="LOCAL-00001" summary="Add List 7 for IoT">
       <option name="closed" value="true" />
@@ -101,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733820559650</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add data warehouse data preprocessing">
+      <option name="closed" value="true" />
+      <created>1750757399565</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1750757399565</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,6 +133,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add List 7 for IoT" />
     <MESSAGE value="Add List 11 for IoT" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add List 11 for IoT" />
+    <MESSAGE value="Add data warehouse data preprocessing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add data warehouse data preprocessing" />
   </component>
 </project>
